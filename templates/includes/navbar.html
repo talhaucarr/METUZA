@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body class="w3-light-grey">
+
+<!-- Top container -->
+
+<div class="w3-overlay" onclick="w3_close()" style="cursor:pointer"></div>
+
+<div class="w3-sidebar w3-bar-block   w3-animate-left"
+     style="display:none; background-color:rgb(44, 47, 51); color:rgb(211,211,211);" id="mySidebar">
+    <button class="w3-bar-item w3-button  w3-large"
+            onclick="w3_close()">Kapat &times;
+    </button>
+    <hr>
+
+    {% if request.user.is_authenticated %}
+    <div class="w3-container w3-row">
+        <div class="w3-col s4">
+            <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
+        </div>
+        <div class="w3-col s8 w3-bar">
+            <span>Hoşgeldin, <strong>{{request.user.first_name}}</strong></span><br>
+            <a href="/articles/profile" class="w3-bar-item w3-button"><i class="fa fa-user"> Profil</i></a>
+            <a href="/user/logout" class="w3-bar-item w3-button"><i class="fa fa-times"> Çıkış</i></a>
+        </div>
+    </div>
+    <hr>
+
+    <h4><a href="#" class="w3-bar-item w3-button">Ödevler</a></h4>
+    <h4><a href="/owncloud/fileList/" class="w3-bar-item w3-button">Sırt Çantası</a></h4>
+    {% else %}
+
+    {% endif %}
+    <h4><a href="/" class="w3-bar-item w3-button">Ana Sayfa</a></h4>
+
+
+
+    <div class="w3-dropdown-hover">
+        <h4>
+            <button class="w3-button">Keşfet <i class="fa fa-caret-down"></i></button>
+        </h4>
+        <div class="w3-dropdown-content w3-bar-block w3-light-grey">
+            <a href="/articles" class="w3-bar-item w3-button">Makaleler</a>
+            <a href="/bookshome" class="w3-bar-item w3-button">PDF</a>
+            <a href="/#" class="w3-bar-item w3-button">Kaynak Kodlar</a>
+            <a href="/#" class="w3-bar-item w3-button">Alıştırmalar</a>
+        </div>
+    </div>
+</div>
+
+
+<div style="background-color:rgb(44, 47, 51);">
+    <button class="w3-button w3-xlarge" onclick="w3_open()" style="background-color:rgb(44, 47, 51);">&#9776;</button>
+    {% if request.user.is_authenticated %}
+    <a href="/user/logout" class="w3-button w3-right w3-hover-red w3-xlarge"><i class="fa fa-times"></i></a>
+
+    {% else %}
+
+    <a href="/user/register" class="w3-button w3-right w3-hover-green w3-xlarge"><i class="fa fa-user-plus"></i></a>
+    <a href="/user/login" class="w3-button w3-right w3-hover-green w3-xlarge"><i class="fa fa-user"></i></a>
+    {% endif %}
+</div>
+
+<script>
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+function openRightMenu() {
+  document.getElementById("rightMenu").style.display = "block";
+}
+
+function closeRightMenu() {
+  document.getElementById("rightMenu").style.display = "none";
+}
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

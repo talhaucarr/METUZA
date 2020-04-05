@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<body >
+
+
+
+
+<div class="w3-sidebar w3-bar-block w3-blue-grey w3-animate-left" style="display:none" id="mySidebar">
+    <button class="w3-bar-item w3-button  w3-large"
+            onclick="w3_close()">Kapat &times;
+    </button>
+
+    {% if request.user.is_authenticated %}
+    <h4><a href="/articles/profile" class="w3-bar-item w3-button">Profil</a></h4>
+
+    <h4><a href="/user/logout" class="w3-bar-item w3-button">Çıkış Yap</a></h4>
+
+
+    {% else %}
+    <h4><a href="/user/login" class="w3-bar-item w3-button">Giriş Yap</a></h4>
+    <h4><a href="/user/register" class="w3-bar-item w3-button">Kayıt Ol</a></h4>
+    {% endif %}
+
+    <a href="/" class="w3-bar-item w3-button">Ana Sayfa</a>
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">Keşfet<i class="fa fa-caret-down"></i></button>
+        <div class="w3-dropdown-content w3-bar-block">
+            <a href="/articles" class="w3-bar-item w3-button">Makaleler</a>
+            <a href="#" class="w3-bar-item w3-button">PDF</a>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
+
+
+</div>
+
+<script>
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+function openRightMenu() {
+  document.getElementById("rightMenu").style.display = "block";
+}
+
+function closeRightMenu() {
+  document.getElementById("rightMenu").style.display = "none";
+}
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block body %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+{% block content_header %}
+<!--<h2>PDF Listesi</h2>
+<hr>-->
+{% if request.user.is_authenticated %}
+<p>
+    <a href="{% url 'upload_story' %}" class="btn btn-primary">PDF Yükle</a>
+</p>
+<hr>
+{% else %}
+
+{% endif %}
+
+{% endblock %}
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Ön İzleme</th>
+        <th>Ad</th>
+        <th>Yazar</th>
+        <th>Yükleme</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for book in books %}
+    <td>
+        {% if book.cover %}
+        <img src="{{ book.cover.url }}" alt="{{ book.title }}" style="width:100px;">
+        {% else %}
+        <span class="text-muted">No cover</span>
+        {% endif %}
+    </td>
+    <td> {{ book.title }}</td>
+    <td> {{ book.author }}</td>
+    <td>
+        <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sml" target="_blank">
+            PDF İndir
+        </a>
+    </td>
+    <td>
+        <form method="post" action="{% url 'delete_story' book.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Sil</button>
+        </form>
+
+    </td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
+<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+
+{% endblock body %}
