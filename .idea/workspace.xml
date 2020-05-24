@@ -1,7 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d68dc86-1577-45dd-9100-13f021e7df6b" name="Default Changelist" comment="" />
+    <list default="true" id="5d68dc86-1577-45dd-9100-13f021e7df6b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0002_auto_20200427_0743.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0003_auto_20200429_1822.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0004_auto_20200429_1825.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0005_auto_20200429_1827.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0006_auto_20200429_1831.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0007_auto_20200429_1837.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0009_auto_20200506_2138.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0010_auto_20200513_0224.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0011_classhomework_homework_code.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0012_auto_20200514_1408.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0013_auto_20200515_1349.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0014_auto_20200515_2223.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0015_auto_20200516_1408.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0016_auto_20200522_1848.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0017_classcontent_student_naame.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classRoom/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/DenemeKlasor/Dosyalar/ist3045.3_muhendisler_icin_istatistik_-_7._hafta_1.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/HomeWorks/BTree_171418008.rar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/HomeWorks/C_ve_C_Programlama_-_Deitel2.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/HomeWorks/TalhaUçar-MuzafferAkdoğan.rar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/HomeWorks/btree1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/HomeWorks/btree1_3Q3XowC.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metuza.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/addclasses.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/addhomework.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/classDetail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/classes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/homeworkDetail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/joinClass.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/showHomeworks.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/submitHomework.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/met/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/met/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/met/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/met/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/addarticle.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/addarticle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/forms.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,20 +63,27 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1YNXcILUJL7m9fnYTJ7ZCK37qc7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -32,17 +92,33 @@
       <recent name="C:\Users\xKral_Tr\Desktop\met\templates\article" />
     </key>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
+  <component name="RunManager">
+    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="met" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
       <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
+        <item itemvalue="Python.manage" />
       </list>
-    </option>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -60,6 +136,9 @@
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="716" y="329" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584641306167">
       <screen x="0" y="0" width="1920" height="1050" />
@@ -69,19 +148,35 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="267" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1582784131071" />
-    <state x="461" y="168" key="SettingsEditor" timestamp="1582784157258">
+    <state width="1899" height="285" key="GridCell.Tab.0.bottom" timestamp="1590268689955">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
+    <state width="1899" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590268689955" />
+    <state width="1899" height="285" key="GridCell.Tab.0.center" timestamp="1590268689955">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="285" key="GridCell.Tab.0.center/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590268689955" />
+    <state width="1899" height="285" key="GridCell.Tab.0.left" timestamp="1590268689955">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="285" key="GridCell.Tab.0.left/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590268689955" />
+    <state width="1899" height="285" key="GridCell.Tab.0.right" timestamp="1590268689955">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="285" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590268689955" />
+    <state x="461" y="168" key="SettingsEditor" timestamp="1589748763373">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="461" y="168" key="SettingsEditor/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1589748763373" />
     <state x="461" y="168" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1582784157258" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/article/views.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="769" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588884238756">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="769" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1588884238756" />
+    <state x="769" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050@0.0.1920.1050" timestamp="1588173879000" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1590055856923">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590055856923" />
   </component>
 </project>

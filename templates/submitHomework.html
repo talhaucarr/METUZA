@@ -1,0 +1,225 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+label[for="files"]{
+
+cursor:pointer;
+}
+input[type="file"]{
+display:none;
+}
+
+
+
+
+
+</style>
+<body class="w3-light-grey">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+    <!-- The Grid -->
+    <div class="w3-row-padding">
+
+        <!-- Left Column -->
+        <div class="w3-third">
+
+            <div class="w3-white w3-text-grey w3-card-4">
+                <div class="w3-display-container">
+
+                    <div class="w3-display-bottomleft w3-container w3-text-black">
+
+                    </div>
+                </div>
+
+
+                <div class="w3-container">
+                    <br>
+                    <h2><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-black"></i> Ödevlerim
+                    </h2>
+
+                    <hr>
+
+                    {% if allHomework %}
+                        {% for deneme in allHomework %}
+
+                    <a href="/classes/homeworks/{{deneme.id}}/submit"><span class="w3-large">{{deneme.title}}</span><br></a>
+
+                    <hr>
+
+                    {% endfor %}
+
+                    {% else %}
+
+                    <h6><i class="fa fa-briefcase fa-university w3-margin-right w3-large w3-text-black"></i>Sınıfınız
+                        bulunmamaktadır.</h6>
+
+                    <br>
+
+                    {% endif %}
+                </div>
+
+
+            </div>
+            <br>
+            <div class="w3-white w3-text-grey w3-card-4">
+                <div class="w3-display-container">
+
+                    <div class="w3-display-bottomleft w3-container w3-text-black">
+
+                    </div>
+                </div>
+
+            </div>
+            <br>
+
+
+            <!-- End Left Column -->
+        </div>
+
+
+        <!-- Right Column -->
+
+        <div class="w3-twothird">
+
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+                <h2 class="w3-text-grey w3-padding-16"><i
+                        class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{homework.title}}
+                </h2>
+
+                <div class="w3-container">
+                    <!-- <h5 class="w3-opacity"><b>Bitiş Tarihi : {{ homeworks.end_date }} , {{homeworks.end_clock}}</b></h5> -->
+                    <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Bitiş Tarihi : {{ homework.end_date }} , {{homework.end_clock}} <span></span>
+                    </h6>
+                    <hr>
+                    <!--class="w3-tag w3-round">{{classroom.id}}</span></h6>-->
+                    <p>{{homework.content}}</p>
+                    <hr>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="w3-row">
+                            <div class="w3-col m8 s12">
+                                <label class="w3-btn w3-black w3-hover-blue" for="files" style="cursor:pointer;">Dosya Aç</label>
+
+                                <input type="file" name="files" id="files" style="">
+                                <br>
+                            </div>
+
+                            <div class="w3-col s4 w3-center ">
+                                <p>
+                                    <button class="w3-btn w3-black w3-hover-teal" type="submit"><b>Teslim Et</b>
+                                    </button>
+
+
+
+                                </p>
+
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+
+
+                    </form>
+                </div>
+                <br>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- End Grid -->
+    </div>
+
+    <!-- End Page Container -->
+</div>
+
+<footer class="w3-container  w3-center w3-margin-top" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
+
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p>Powered by <a href="https://github.com/talhaucarr" target="_blank">xKral_Tr</a></p>
+</footer>
+
+</body>
+</html>
+<script>
+    $(function() {
+
+  // We can attach the `fileselect` event to all file inputs on the page
+  $(document).on('change', ':file', function() {
+    var input = $(this),
+        numFiles = input.get(0).files ? input.get(0).files.length : 1,
+        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+  });
+
+  // We can watch for our custom `fileselect` event like this
+  $(document).ready( function() {
+      $(':file').on('fileselect', function(event, numFiles, label) {
+
+          var input = $(this).parents('.input-group').find(':text'),
+              log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+          if( input.length ) {
+              input.val(log);
+          } else {
+              if( log ) alert(log);
+          }
+
+      });
+  });
+
+});
+</script>
+
+
+{% endblock body %}

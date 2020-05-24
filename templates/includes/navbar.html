@@ -19,7 +19,8 @@
             onclick="w3_close()">Kapat &times;
     </button>
     <hr>
-
+    <h4><a href="/" class="w3-bar-item w3-button">Ana Sayfa</a></h4>
+    <hr>
     {% if request.user.is_authenticated %}
     <div class="w3-container w3-row">
         <div class="w3-col s4">
@@ -33,12 +34,13 @@
     </div>
     <hr>
 
-    <h4><a href="#" class="w3-bar-item w3-button">Ödevler</a></h4>
+    <h4><a href="/classes/homeworks" class="w3-bar-item w3-button">Ödevler</a></h4>
+    <h4><a href="/classes" class="w3-bar-item w3-button">Sınıflar</a></h4>
     <h4><a href="/owncloud/fileList/" class="w3-bar-item w3-button">Sırt Çantası</a></h4>
     {% else %}
 
     {% endif %}
-    <h4><a href="/" class="w3-bar-item w3-button">Ana Sayfa</a></h4>
+
 
 
 

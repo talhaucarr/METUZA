@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 from article import views
 import folder.views
 import ownCloud2.views
+import classRoom.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +29,9 @@ urlpatterns = [
     path('about/', views.about, name="about"),
     path('articles/', include("article.urls")),
     path('user/', include("user.urls")),
+    path('classes/',include("classRoom.urls")),
+
+
 
     path('owncloud/fileUpload/', ownCloud2.views.upload_file, name="upload_file"),
     path('owncloud/fileList/', ownCloud2.views.file_list, name="file_list"),
@@ -54,6 +58,9 @@ urlpatterns = [
 
     path('class/books/', folder.views.BookListView.as_view(), name="class_book_list"),
     path('class/books/upload/', folder.views.UploadBookView.as_view(), name="class_upload_book"),
+
+    path('classes/homeworks/<int:id>/submit', classRoom.views.submitHomework, name="submitHomework"),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

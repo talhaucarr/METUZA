@@ -1,0 +1,230 @@
+{% extends "layout.html" %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+
+
+
+</style>
+<body class="w3-light-grey">
+
+<!-- Page Container -->
+
+<div class="w3-content w3-margin-top" style="max-width:1500px;">
+
+    <!-- The Grid -->
+    <div class="w3-row-padding">
+
+        <!-- Left Column -->
+        <div class="w3-third">
+            <div class="w3-white w3-text-grey w3-card-4">
+                <div class="w3-display-container">
+
+                    <div class="w3-display-bottomleft w3-container w3-text-black">
+
+                    </div>
+                </div>
+
+                <br>
+                <div class="w3-container">
+
+
+                    <h2><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-black"></i> Ödevler
+                    </h2>
+
+                    <hr>
+
+                    <table class="w3-table-all w3-centered w3-card-4 w3-hoverable">
+                        <tr>
+                            <th>Ödev Adı</th>
+                            <th>Son Tarih</th>
+                            <th>Teslim Eden Sayısı</th>
+                            <th>Detaylar</th>
+                        </tr>
+
+
+                        {% for homeworks in homework %}
+                        {% if homeworks.classroom_id == id %}
+                        <tr>
+                            <td><a href="/classes/{{homeworks.homework_code}}/homeworkDetail">{{homeworks.title}}</a></td>
+                            <td>{{homeworks.end_date}},{{homeworks.end_clock}}</td>
+                            <td>{{homeworks.submit_count}}</td>
+                            <td><a href="/classes/{{homeworks.homework_code}}/homeworkDetail"><button type="button" class="w3-btn w3-white w3-border w3-round-large ">Detay</button></a></td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+
+
+                    </table>
+                </div>
+                <br>
+
+
+            </div>
+            <br>
+
+            <div class="w3-white w3-text-grey w3-card-4">
+                <div class="w3-display-container">
+
+                    <div class="w3-display-bottomleft w3-container w3-text-black">
+
+                    </div>
+                </div>
+                <div class="w3-container">
+
+                    <br>
+                    <button class="w3-button w3-block w3-text-black w3-left-align">
+                        <i class="fa fa-plus fa-fw w3-margin-right"></i>
+                        <a class="btn" href="/classes/{{classroom.id}}/addhomework">
+                            Ödev Ekle
+                        </a>
+                    </button>
+
+                    <br>
+
+                </div>
+            </div>
+
+            <br>
+
+            <div class="w3-white w3-text-grey w3-card-4">
+                <div class="w3-display-container">
+
+                    <div class="w3-display-bottomleft w3-container w3-text-black">
+
+                    </div>
+                </div>
+                <div class="w3-container">
+
+                    <br>
+
+
+                    <br>
+                           <p class="w3-block w3-text-black w3-left-align">Sınıf Kodu: {{classroom.class_code}}</p>
+
+
+
+
+                    <br>
+
+                </div>
+            </div>
+
+            <br>
+
+
+            <div class="w3-white w3-text-grey w3-card-4">
+                <div class="w3-display-container">
+
+                    <div class="w3-display-bottomleft w3-container w3-text-black">
+
+                    </div>
+                </div>
+                <div class="w3-container">
+
+                    <br>
+                    <button class="w3-button w3-block w3-text-black w3-left-align">
+                        <i class="fa fa-plus fa-fw w3-margin-right"></i>
+                        <a class="btn" href="/classes/{{classroom.id}}/addhomework">
+                            Kontrol Paneli
+                        </a>
+                    </button>
+
+                    <br>
+
+                </div>
+            </div>
+
+
+
+            <!-- End Left Column -->
+        </div>
+
+
+        <!-- Right Column -->
+        <div class="w3-twothird">
+         <div class="w3-container w3-card w3-white w3-margin-bottom">
+            <div class="w3-container">
+                <form method="post">
+                <br>
+                {% csrf_token %}
+                {{form.media}}
+                {{form|crispy}}
+                <br>
+                <button type="submit" class="w3-btn w3-black w3-hover-green"><i class="fa fa-pencil"></i>  Gönder</button>
+                </form>
+            </div>
+                <br>
+         </div>
+
+
+            {% for posts in post %}
+
+
+            {% if posts.classroom_id == id %}
+
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+
+                    <a href="/classes/{{homeworks.homework_code}}/homeworkDetail"><h2 class="w3-text-grey w3-padding-16"><i
+                        class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{ posts.title }} </h2></a>
+
+
+
+                <div class="w3-container">
+                    <!-- <h5 class="w3-opacity"><b>Bitiş Tarihi : {{ homeworks.end_date }} , {{homeworks.end_clock}}</b></h5> -->
+                    <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i> Oluşturulma Tarihi : {{ posts.created_date }} <span></span>
+                    </h6>
+                        <hr>
+                        <!--class="w3-tag w3-round">{{classroom.id}}</span></h6>
+                        -->
+                        <p>{{posts.content}}</p>
+                        <hr>
+                </div>
+
+            </div>
+            {% else %}
+
+            {% endif %}
+            {% endfor %}
+
+
+            <!-- End Right Column -->
+        </div>
+        
+        <!-- End Grid -->
+    </div>
+
+    <!-- End Page Container -->
+    <footer class="w3-container  w3-center w3-margin-top" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
+
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p>Powered by <a href="https://github.com/talhaucarr" target="_blank">xKral_Tr</a></p>
+</footer>
+</div>
+
+
+
+</body>
+</html>
+
+
+{% endblock body %}

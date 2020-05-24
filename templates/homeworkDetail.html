@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block body %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<header class="w3-container w3-center w3-padding-16">
+  <h1><b>{{sa.title}}</b></h1>
+
+  <!--<p>Sınıfa hoşgeldin <span class="w3-tag">{{request.user}}</span> hoca</p>-->
+    <p>{{sa.content}}</p>
+    <br><br>
+
+</header>
+
+<div class="w3-content w3-margin-top" style="max-width:1500px;">
+
+
+
+<table class="w3-table-all w3-card-4">
+    <thead>
+
+    <tr>
+        <th>Ad</th>
+        <th>Ödev Adı</th>
+        <th>Yükleme</th>
+        <th>Mesaj Gönder</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for homeworks in homeworkss %}
+
+    <td>
+        {{ homeworks.student_name}}
+    </td>
+
+    <td> {{ homeworks.title }}</td>
+
+    <td>
+        {% if homeworks.files %}
+
+        <a href="{{ homeworks.files.url }}" class="w3-btn w3-black w3-hover-green" target="_blank">
+            İndir
+        </a>
+        {% else %}
+        <p>Yüklenmemis</p>
+        {% endif %}
+    </td>
+
+    <td>
+        <button class="w3-btn w3-black w3-hover-blue" type="submit"><b>Mesaj Gönder</b></button>
+    </td>
+
+
+    </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+<br>
+<br>
+<footer class="w3-container  w3-center w3-margin-top" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
+
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p>Powered by <a href="https://github.com/talhaucarr" target="_blank">xKral_Tr</a></p>
+</footer>
+</div>
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
+<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+
+
+{% endblock body %}

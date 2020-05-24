@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block body %}
+
+{% load crispy_forms_tags %}
+<div class="w3-margin w3-margin-top">
+
+    <div class="w3-container  w3-white">
+        <form>
+            {% csrf_token %}
+            <input type="text" name="deneme" class="input-sm" maxlength="64" placeholder="Ara...">
+            <button type="submit" class="btn btn-danger">Ara</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock body %}
