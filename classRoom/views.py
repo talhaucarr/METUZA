@@ -131,8 +131,6 @@ def classDetail(request, id):
                   {"classroom": classroom, "homework": homework, "id": id, "form": form, "post": post})
 
 
-
-
 def joinClass(request, keyword):
     student = NewContentForm(request.POST or None)
 
@@ -224,6 +222,22 @@ def homeworkDetail(request, slug):
     return render(request, 'homeworkDetail.html', {'homeworkss': homeworkss, 'sa': sa})
 
 
+def dashboard(request, id):
+    classroom = get_object_or_404(NewClass, id=id)
+
+    code = classroom.class_code
+
+    class_content = ClassContent.objects.filter(classroom_id=id)
+
+    homeworks = Homework.objects.filter(classroom_id=id)
+
+    posts = ClassPost.objects.filter(classroom_id=id)
+
+    return render(request, "classDashboard.html",
+                  {"classroom": classroom, "class_content": class_content, "posts": posts, "code": code,
+                   "homeworks": homeworks})
+
+
 def addPost(request):
     form = ClassPostForm(request.POST or None, request.FILES or None)
 
@@ -235,8 +249,37 @@ def addPost(request):
 
         return redirect("index")
 
-def deletePost(request,id):
+
+def updatePost(request, id):
+    post = get_object_or_404(ClassPost, id=id)
+    form = ClassPostForm(request.POST or None, request.FILES or None, instance=post)
+
+    if form.is_valid():
+        article = form.save(commit=False)
+
+        article.author = request.user
+        article.save()
+
+        messages.success(request, "Makale Başarıyla Güncellendi.")
+        return redirect("/classes/{}/dashboard".format(post.classroom_id))
+
+    return render(request, "update_post.html", {"form": form})
+
+
+def updateHomework(request, slug):
+    pass
+
+
+def deletePost(request, id):
     post = get_object_or_404(ClassPost, id=id)
     post.delete()
-    messages.success(request, "Makale Başarıyla Silindi.")
-    return redirect("article:dashboard")
+    messages.success(request, "Gönderi Başarıyla Silindi.")
+    return redirect("/classes/{}/dashboard".format(post.classroom_id))
+
+
+def deleteHomework(request, slug):
+    classroom = get_object_or_404(Homework, homework_code=slug)
+    ClassHomework.objects.filter(homework_code=slug).delete()
+    Homework.objects.filter(homework_code=slug).delete()
+    messages.success(request, "ödev Başarıyla Silindi.")
+    return redirect("/classes/{}/dashboard".format(classroom.classroom_id))

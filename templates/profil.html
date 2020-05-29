@@ -3,190 +3,181 @@
 {% block body %}
 
 {% load crispy_forms_tags %}
+
+
 <!DOCTYPE html>
 <html>
-<title>W3.CSS</title>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
-<body bgcolor="white">
 <style>
-html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+
 
 </style>
+<body class="w3-light-grey">
 
-<div class="w3-container w3-content" style="max-width:1400px;margin-bottom:100px">
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
     <!-- The Grid -->
-    <div class="w3-row">
+    <div class="w3-row-padding">
+
         <!-- Left Column -->
-        <div class="w3-col m3">
-            <!-- Profile -->
-            <div class="w3-card w3-round w3-white">
-                <div class="w3-container">
-                    <h4 class="w3-center">Profilim</h4>
-                    <p class="w3-center"><img src="/w3images/avatar3.png" class="w3-circle"
-                                              style="height:106px;width:106px" alt="Avatar"></p>
-                    <hr>
-                    <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> {{request.user.first_name}}</p>
-                    <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> London, UK</p>
-                    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-text-theme"></i> {{request.user.email}}</p>
+        <div class="w3-third">
+
+            <div class="w3-display-container">
+                {% if profile.photo %}
+                <img src="{{ profile.photo.url }}" alt="{{ profile.name }}" style="width:100%">
+                {% endif %}
+
+                <div class="w3-display-bottomleft w3-container w3-text-white">
+                    <h2>{{user.username}} </h2>
+
                 </div>
+
             </div>
-            <br>
 
-            <!-- Accordion -->
-            <div class="w3-card w3-round">
-                <div class="w3-white">
-                    <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i
-                            class="fa fa-reply fa-fw w3-margin-right"></i><a class="btn"
-                                                                             href="#">Profili
-                        Düzenle</a>
-                    </button>
-                    <div id="Demo1" class="w3-hide w3-container">
-                        <p>Some text..</p>
-                    </div>
-                    <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i
-                            class="fa fa-calendar-check-o fa-fw w3-margin-right"></i><a class="btn"
-                                                                                        href="/articles/dashboard">Kontrol
-                        Paneli
-                    </a>
-                    </button>
-                    <div id="Demo2" class="w3-hide w3-container">
-                        <p>Some other text..</p>
-                    </div>
+            <div class="w3-white w3-text-grey w3-card-4">
 
-                    <div id="Demo3" class="w3-hide w3-container">
-                        <div class="w3-row-padding">
-                            <br>
-                            <div class="w3-half">
-                                <img src="/w3images/lights.jpg" style="width:100%" class="w3-margin-bottom">
-                            </div>
-                            <div class="w3-half">
-                                <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
-                            </div>
-                            <div class="w3-half">
-                                <img src="/w3images/mountains.jpg" style="width:100%" class="w3-margin-bottom">
-                            </div>
-                            <div class="w3-half">
-                                <img src="/w3images/forest.jpg" style="width:100%" class="w3-margin-bottom">
-                            </div>
-                            <div class="w3-half">
-                                <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
-                            </div>
-                            <div class="w3-half">
-                                <img src="/w3images/snow.jpg" style="width:100%" class="w3-margin-bottom">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br>
+                <br>
 
-            <!-- Interests -->
-            <!--<div class="w3-card w3-round w3-white w3-hide-small">
                 <div class="w3-container">
-                    <p>Interests</p>
-                    <p>
-                        <span class="w3-tag w3-small w3-theme-d5">News</span>
-                        <span class="w3-tag w3-small w3-theme-d4">W3Schools</span>
-                        <span class="w3-tag w3-small w3-theme-d3">Labels</span>
-                        <span class="w3-tag w3-small w3-theme-d2">Games</span>
-                        <span class="w3-tag w3-small w3-theme-d1">Friends</span>
-                        <span class="w3-tag w3-small w3-theme">Games</span>
-                        <span class="w3-tag w3-small w3-theme-l1">Friends</span>
-                        <span class="w3-tag w3-small w3-theme-l2">Food</span>
-                        <span class="w3-tag w3-small w3-theme-l3">Design</span>
-                        <span class="w3-tag w3-small w3-theme-l4">Art</span>
-                        <span class="w3-tag w3-small w3-theme-l5">Photos</span>
+
+                    <p><i class="fa fa-user fa-fw w3-margin-right w3-large w3-text-black"></i>{{profile.name}}
+                        {{profile.surname}}</p>
+
+                    <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-black"></i>Çalıştığı yer yazıcak
                     </p>
+                    {% if profile.about %}
+                    <p><i class="fa fa-bicycle fa-fw w3-margin-right w3-large w3-text-black"></i>{{profile.about}}</p>
+                    {% else %}
+                    <p><i class="fa fa-bicycle fa-fw w3-margin-right w3-large w3-text-black"></i>Belirtilmemiş</p>
+                    {% endif %}
+
+                    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-black"></i>{{profile.email}}
+                    </p>
+
+                    <hr>
+
+                    <p class="w3-large"><b><i class="fa fa-suitcase fa-fw  w3-margin-right w3-text-black"></i>İş
+                        Tecrübesi</b>
+                    </p>
+
+                    <!-- İŞ TECRÜBESİ KISMI BURAYA -->
+                    <div class=" w3-small">
+                        <h5 class="w3-opacity"><b>Front End Developer / w3schools.com</b></h5>
+                        <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span
+                                class="w3-tag w3-black w3-round">Current</span></h6>
+                        <hr>
+                    </div>
+
+
+                    <p class="w3-large w3-text-theme"><b><i
+                            class="fa fa-certificate fa-fw w3-margin-right w3-text-black"></i>Eğitim</b>
+                    </p>
+                    {% if profile.phd %}
+                    <div class="w3-small">
+                        <h5 class="w3-opacity"><b>Doktora: {{profile.phd}}</b></h5>
+                        <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{profile.started_date_phd}}
+                            - {{profile.end_date_phd}}</h6>
+                        <hr>
+                    </div>
+                    {% endif %}
+                    {% if profile.master_degree %}
+                    <div class="w3-small">
+                        <h5 class="w3-opacity"><b>Yüksek Lisans: {{profile.master_degree}}</b></h5>
+                        <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{profile.started_date_master_degree}}
+                            - {{profile.end_date_master_degree}}</h6>
+                        <hr>
+                    </div>
+                    {% endif %}
+                    {% if profile.university %}
+                    <div class="w3-small">
+                        <h5 class="w3-opacity"><b>Üniversite: {{profile.university}}</b></h5>
+                        <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{profile.started_date_university}}
+                            - {{profile.end_date_university}}</h6>
+                        <hr>
+                    </div>
+                    {% endif %}
+                    {% if profile.high_school %}
+                    <div class="w3-small">
+                        <h5 class="w3-opacity"><b>Lise: {{profile.high_school}}</b></h5>
+                        <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{profile.started_date_high_school}}
+                            - {{profile.end_date_high_school}}</h6>
+                        <hr>
+                    </div>
+
+                    {% endif %}
+
+                    <div class="w3-button w3-block w3-text-black w3-left-align">
+                        <i class="fa fa-plus fa-fw w3-margin-right"></i>
+                        <a class="btn" href="/user/profile/{{profile.user_id}}/dashboard">
+                            Profili Düzenle
+                        </a>
+                    </div>
+                    <br>
                 </div>
             </div>
-            <br>-->
-
-            <!-- Alert Box -->
-            <!--<div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
-        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
-          <i class="fa fa-remove"></i>
-        </span>
-                <p><strong>Hey!</strong></p>
-                <p>People are looking at your profile. Find out who.</p>
-            </div>-->
+            <br>
 
             <!-- End Left Column -->
         </div>
 
-        <!-- Middle Column -->
-        <div class="w3-col m7">
-
-            <div class="w3-row-padding">
-                <div class="w3-col m12">
-
-                    <div class="w3-card w3-round w3-white">
-                        <div class="w3-container w3-padding w3-theme-l1">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <!-- Right Column -->
+        <div class="w3-twothird">
 
             {% if articles %}
 
             {% for article in articles %}
-            <div class="w3-col m12">
-                <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-                    <img src="/w3images/avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right"
-                         style="width:60px">
-                    <span class="w3-right w3-opacity">{{article.created_date}}</span>
-                    <h4>{{request.user.username}}</h4><br>
-                    <h5>{{article.title}}</h5><br>
-                    <hr class="w3-clear">
-                    <p class="lead">{{article.content|safe|truncatewords:150}}</p>
 
-                    <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>
-                        &nbsp;Like
-                    </button>
-                    <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>
-                        &nbsp;Comment
-                    </button>
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+                <div class="w3-container">
+                    <form method="post">
+                        <br>
+                        {% csrf_token %}
+                        {{form.media}}
+                        {{form|crispy}}
+                        <br>
+                        <button type="submit" class="w3-btn w3-black w3-hover-green"><i class="fa fa-pencil"></i>
+                             Paylaş
+                        </button>
+                    </form>
                 </div>
+                <br>
             </div>
+
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+                <h2 class="w3-text-grey w3-padding-16"><i
+                        class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{article.title}}</h2>
+                <div class="w3-container">
+                    <h5 class="w3-opacity"><b>{{request.user.username}}</b></h5>
+                    <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{article.created_date}}
+                        <span
+                                class="w3-tag w3-black w3-round">Current</span></h6>
+                    <p>{{article.content|safe|truncatewords:10}}</p>
+                    <br>
+                </div>
+
+            </div>
+
             {% endfor %}
 
             {% else %}
 
-            <div class="alert alert-danger">
-                Makaleniz bulunmuyor.
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+                <h3 class="w3-text-grey w3-padding-16"><i
+                        class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>Gönderiniz Bulunmuyor.
+                </h3>
+
+
             </div>
 
             {% endif %}
 
-
-            <!-- End Middle Column -->
-        </div>
-
-        <!-- Right Column -->
-        <div class="w3-col m2">
-            <div class="w3-card w3-round w3-white w3-center">
-                <div class="w3-container">
-                    <p>Hava Durumu</p>
-                    <img src="/w3images/forest.jpg" alt="Forest" style="width:100%;">
-                    <p><strong>Holiday</strong></p>
-                    <p>Friday 15:00</p>
-                    <p>
-                        <a href="/articles/dashboard" class="w3-button w3-block w3-theme-l4">Info</a>
-                    </p>
-                </div>
-            </div>
-            <br>
-
-
-            <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
-                <p><i class="fa fa-bug w3-xxlarge"></i></p>
-            </div>
 
             <!-- End Right Column -->
         </div>
@@ -195,56 +186,21 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
     </div>
 
     <!-- End Page Container -->
+    <footer class="w3-container  w3-center w3-margin-top"
+            style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
+
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+        <p>Powered by <a href="https://github.com/talhaucarr" target="_blank">xKral_Tr</a></p>
+    </footer>
 </div>
-<br>
 
-<!-- Footer -->
-<footer class="w3-container w3-theme-d3 w3-padding-16">
-    <h5>METUZA</h5>
-</footer>
-
-<footer class="w3-container w3-theme-d5">
-    <p>Powered by xKral_TR</p>
-</footer>
-
-<script>
-// Accordion
-function myFunction(id) {
-  var x = document.getElementById(id);
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-    x.previousElementSibling.className += " w3-theme-d1";
-  } else {
-    x.className = x.className.replace("w3-show", "");
-    x.previousElementSibling.className =
-    x.previousElementSibling.className.replace(" w3-theme-d1", "");
-  }
-}
-
-// Used to toggle the menu on smaller screens when clicking on the menu button
-function openNav() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else {
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-</script>
 
 </body>
-</html>
 </html>
 
 

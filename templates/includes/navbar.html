@@ -28,7 +28,7 @@
         </div>
         <div class="w3-col s8 w3-bar">
             <span>Hoşgeldin, <strong>{{request.user.first_name}}</strong></span><br>
-            <a href="/articles/profile" class="w3-bar-item w3-button"><i class="fa fa-user"> Profil</i></a>
+            <a href="/user/profile/{{request.user.id}}" class="w3-bar-item w3-button"><i class="fa fa-user"> Profil</i></a>
             <a href="/user/logout" class="w3-bar-item w3-button"><i class="fa fa-times"> Çıkış</i></a>
         </div>
     </div>

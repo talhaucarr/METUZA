@@ -3,12 +3,16 @@
 {% load crispy_forms_tags %}
 
 {% block body %}
-<h2>Upload Book</h2>
-<p>{{request.user.first_name}}</p>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <br>
-    <button type="submit" class="btn btn-primary">Upload Book</button>
-</form>
+<div class="w3-content w3-margin-top" style="max-width:1500px;">
+    <h2>Dosya Yükle</h2>
+    <p>{{request.user.first_name}}</p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <br>
+        <button type="submit" class="w3-btn w3-black w3-hover-green">
+             Yükle
+        </button>
+    </form>
+</div>
 {% endblock body %}

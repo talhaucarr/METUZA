@@ -2,58 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d68dc86-1577-45dd-9100-13f021e7df6b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0002_auto_20200427_0743.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0003_auto_20200429_1822.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0004_auto_20200429_1825.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0005_auto_20200429_1827.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0006_auto_20200429_1831.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0007_auto_20200429_1837.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0009_auto_20200506_2138.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0010_auto_20200513_0224.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0011_classhomework_homework_code.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0012_auto_20200514_1408.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0013_auto_20200515_1349.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0014_auto_20200515_2223.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0015_auto_20200516_1408.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0016_auto_20200522_1848.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/migrations/0017_classcontent_student_naame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classRoom/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/DenemeKlasor/Dosyalar/ist3045.3_muhendisler_icin_istatistik_-_7._hafta_1.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/HomeWorks/BTree_171418008.rar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/HomeWorks/C_ve_C_Programlama_-_Deitel2.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/HomeWorks/TalhaUçar-MuzafferAkdoğan.rar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/HomeWorks/btree1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/HomeWorks/btree1_3Q3XowC.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/metuza.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/addclasses.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/addhomework.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/classDetail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/classes.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/homeworkDetail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/joinClass.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/showHomeworks.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/submitHomework.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/Photo/EO9CzOMXsAA_CFI.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/books/pdfs/cScience/DersİzlemeProgramıMAT2086.503-02-2020-01-44.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/classDashboard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/updateProfile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/update_post.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/migrations/0002_auto_20200526_2319.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/migrations/0003_auto_20200527_1716.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/migrations/0004_auto_20200527_1722.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/article/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classRoom/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/classRoom/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classRoom/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/classRoom/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/met/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/met/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/met/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/met/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/addarticle.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/addarticle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/book_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/classDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/classDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/file_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/file_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/includes/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/math_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/math_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/personal_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personal_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profil.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/stroy_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stroy_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/upload_file.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/upload_file.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,5 +154,16 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590055856923" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/user/forms.py</url>
+          <line>14</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

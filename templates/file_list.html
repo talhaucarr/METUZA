@@ -6,60 +6,74 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-{% block content_header %}
+
 <!--<h2>PDF Listesi</h2>
 <hr>-->
-{% if request.user.is_authenticated %}
-<p>
-    <a href="{% url 'upload_file' %}" class="btn btn-primary">Dosya Yükle</a>
-</p>
-<hr>
-{% else %}
 
-{% endif %}
 
-{% endblock %}
-<table class="table table-striped">
-    <thead>
+<div class="w3-content w3-margin-top" style="max-width:1500px;">
+    <div class="w3-row-padding">
 
-    <tr>
-        <th>Ad</th>
-        <th>İçerik</th>
-        <th>Yükleme</th>
-        <th>Delete</th>
-    </tr>
-    </thead>
-    <tbody>
 
-    {% for book in cloud %}
+        <div >
 
-    <td>
-        {{ book.authorr }}
-    </td>
+            {% if request.user.is_authenticated %}
 
-    <td> {{ book.title }}</td>
+            <p>
+                <a href="{% url 'upload_file' %}" class="w3-btn w3-black w3-hover-green">Dosya Yükle</a>
+            </p>
+            <hr>
 
-    <td>
-        <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sml" target="_blank">
-            PDF İndir
-        </a>
-    </td>
+            {% else %}
 
-    <td>
-        <form method="post" action="{% url 'delete_book' book.pk %}">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-danger">Sil</button>
-        </form>
+            {% endif %}
 
-    </td>
+            <table class="w3-table-all w3-centered w3-card-4 w3-hoverable">
+                <thead>
 
-    </tr>
+                <tr>
+                    <th>Ad</th>
+                    <th>İçerik</th>
+                    <th>Yükleme</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
 
-    {% endfor %}
+                {% for book in cloud %}
 
-    </tbody>
+                <td>
+                    {{ book.authorr }}
+                </td>
 
-</table>
+                <td> {{ book.title }}</td>
+
+                <td>
+                    <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sml" target="_blank">
+                        PDF İndir
+                    </a>
+                </td>
+
+                <td>
+                    <form method="post" action="{% url 'delete_book' book.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Sil</button>
+                    </form>
+
+                </td>
+
+                </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+</div>
 
 <script src="{% static 'js/bootstrap.min.js'%}"></script>
 <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>

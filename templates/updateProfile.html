@@ -1,0 +1,132 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% load crispy_forms_tags %}
+<style>
+    label[for="files"]{
+
+cursor:pointer;
+}
+input[type="file"]{
+display:none;
+}
+</style>
+<header class="w3-container w3-center w3-padding-16">
+    <h1><b>Kontrol Paneli</b></h1>
+    <br><br>
+</header>
+
+<div class="w3-content w3-margin-top" style="max-width:1500px;">
+    <div class="w3-row-padding">
+        <div class="w3-third">
+            <div class="w3-card-4">
+                <div class="w3-container w3-dark-gray">
+                    <h2>Profil Güncelle</h2>
+                </div>
+                    <br>
+                <form method="post" enctype="multipart/form-data" class="w3-container">
+                {% csrf_token %}
+                    <div class="w3-display-container">
+                        <h2>{{form.photo.url}}</h2>
+                    {% if form.photo %}
+                    <img src="{{ form.photo.value.url }}" alt="{{ form.name.value }}" style="width:100%">
+                    {% else %}
+                    <h2>asda</h2>
+                    {% endif %}
+                    </div>
+                    <br>
+                    <label class="w3-btn w3-black w3-hover-blue" for="photo" style="cursor:pointer;">Dosya Aç</label>
+                    <input type="file" name="photo" id="photo" style="">
+                <p>
+
+                    <label>Ad</label>
+                    <input class="w3-input" type="text" name="name" id="name" {% if form.name.value != None %} value="{{form.name.value}}" {% endif %}></p>
+                <label>Soyad</label>
+                <input class="w3-input" type="text" name="surname" id="surname" {% if form.surname.value != None %} value="{{form.surname.value}}" {% endif %}></p>
+                <label>Hakkında</label>
+                <input class="w3-input" type="text" name="about" id="about" {% if form.about.value != None %} value="{{form.about.value}}" {% endif %}></p>
+                <label>Lise</label>
+                <input class="w3-input" type="text" name="high_school" id="high_school"
+                       {% if form.high_school.value != None %} value="{{form.high_school.value}}" {% endif %}></p>
+                <div class="w3-row-padding">
+                    <div class="w3-half">
+                        <label>Başlangıç Yılı</label>
+                        <input class="w3-input" type="date" name="started_date_high_school"
+                               id="started_date_high_school"
+                               {% if form.started_date_high_school.value != None %} value="{{form.started_date_high_school.value}}" {% endif %}></p>
+
+                    </div>
+                    <div class="w3-half">
+                        <label>Bitiş Yılı</label>
+                        <input class="w3-input" type="date" name="end_date_high_school" id="end_date_high_school"
+                              {% if form.end_date_high_school.value != None %} value="{{form.end_date_high_school.value}}" {% endif %}></p>
+                    </div>
+                </div>
+                <label>Üniversite</label>
+                <input class="w3-input" type="text" name="university" id="university"
+                       {% if form.university.value != None %} value="{{form.university.value}}" {% endif %}></p>
+
+                <div class="w3-row-padding">
+                    <div class="w3-half">
+                        <label>Başlangıç Yılı</label>
+                        <input class="w3-input" type="date" name="started_date_university" id="started_date_university"
+                               {% if form.started_date_university.value != None %} value="{{form.started_date_university.value}}" {% endif %}></p>
+
+                    </div>
+                    <div class="w3-half">
+                        <label>Bitiş Yılı</label>
+                        <input class="w3-input" type="date" name="end_date_university" id="end_date_university"
+                               {% if form.end_date_university.value != None %} value="{{form.end_date_university.value}}" {% endif %}></p>
+                    </div>
+                </div>
+                <label>Yüksek Lisans</label>
+                <input class="w3-input" type="text" name="master_degree" id="master_degree"
+                       {% if form.master_degree.value != None %} value="{{form.master_degree.value}}" {% endif %}></p>
+
+                <div class="w3-row-padding">
+                    <div class="w3-half">
+                        <label>Başlangıç Yılı</label>
+                        <input class="w3-input" type="date" name="started_date_master_degree"
+                               id="started_date_master_degree" {% if form.started_date_master_degree.value != None %} value="{{form.started_date_master_degree.value}}" {% endif %}></p>
+
+                    </div>
+                    <div class="w3-half">
+                        <label>Bitiş Yılı</label>
+                        <input class="w3-input" type="date" name="end_date_master_degree" id="end_date_master_degree"
+                               {% if form.end_date_master_degree.value != None %} value="{{form.end_date_master_degree.value}}" {% endif %}></p>
+                    </div>
+                </div>
+
+                <label>Doktora</label>
+                <input class="w3-input" type="text" name="phd" id="phd"
+                       {% if form.phd.value != None %} value="{{form.phd.value}}" {% endif %}></p>
+
+                <div class="w3-row-padding">
+                    <div class="w3-half">
+                        <label>Başlangıç Yılı</label>
+                        <input class="w3-input" type="date" name="started_date_phd" id="started_date_phd"
+                               {% if form.started_date_phd.value != None %} value="{{form.started_date_phd.value}}" {% endif %}></p>
+
+                    </div>
+                    <div class="w3-half">
+                        <label>Bitiş Yılı</label>
+                        <input class="w3-input" type="date" name="end_date_phd" id="end_date_phd"
+                               {% if form.end_date_phd.value != None %} value="{{form.end_date_phd.value}}" {% endif %}></p>
+                    </div>
+                </div>
+
+
+                <br>
+                <button type="submit" class="w3-btn w3-black w3-hover-teal">Güncelle</button>
+
+            </form>
+<br>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock body %}

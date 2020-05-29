@@ -23,7 +23,7 @@ def index(request):
     return render(request, "index.html")
 
 
-def about(request):
+def about(request,id):
     return render(request, "about.html")
 
 
