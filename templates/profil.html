@@ -63,25 +63,32 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
                     <hr>
 
+
+
+                    {% if workExperience %}
                     <p class="w3-large"><b><i class="fa fa-suitcase fa-fw  w3-margin-right w3-text-black"></i>İş
                         Tecrübesi</b>
                     </p>
-
-                    <!-- İŞ TECRÜBESİ KISMI BURAYA -->
+                    {% for workExperiences in workExperience %}
                     <div class=" w3-small">
-                        <h5 class="w3-opacity"><b>Front End Developer / w3schools.com</b></h5>
-                        <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span
-                                class="w3-tag w3-black w3-round">Current</span></h6>
-                        <hr>
+                        <h4 class="">{{ workExperiences.company }}</b></h4>
+                        <h5 class="w3-opacity">{{ workExperiences.position }}</b></h5>
+                        <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{workExperiences.started_date}} - {{workExperiences.end_date}}</h6>
+                        <br>
                     </div>
+                    {% endfor %}
+                    <hr>
+                    {% endif %}
 
 
-                    <p class="w3-large w3-text-theme"><b><i
-                            class="fa fa-certificate fa-fw w3-margin-right w3-text-black"></i>Eğitim</b>
+
+                    <p class="w3-large"><b><i class="fa fa-certificate fa-fw  w3-margin-right w3-text-black"></i>Eğitim</b>
                     </p>
+
                     {% if profile.phd %}
+
                     <div class="w3-small">
-                        <h5 class="w3-opacity"><b>Doktora: {{profile.phd}}</b></h5>
+                        <h5 class="w3-opacity">Doktora: {{profile.phd}}</h5>
                         <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{profile.started_date_phd}}
                             - {{profile.end_date_phd}}</h6>
                         <hr>
@@ -89,7 +96,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                     {% endif %}
                     {% if profile.master_degree %}
                     <div class="w3-small">
-                        <h5 class="w3-opacity"><b>Yüksek Lisans: {{profile.master_degree}}</b></h5>
+                        <h5 class="">Yüksek Lisans: {{profile.master_degree}}</h5>
                         <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{profile.started_date_master_degree}}
                             - {{profile.end_date_master_degree}}</h6>
                         <hr>
@@ -97,7 +104,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                     {% endif %}
                     {% if profile.university %}
                     <div class="w3-small">
-                        <h5 class="w3-opacity"><b>Üniversite: {{profile.university}}</b></h5>
+                        <h5 class="w3-opacity">Üniversite: {{profile.university}}</h5>
                         <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{profile.started_date_university}}
                             - {{profile.end_date_university}}</h6>
                         <hr>
@@ -105,7 +112,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                     {% endif %}
                     {% if profile.high_school %}
                     <div class="w3-small">
-                        <h5 class="w3-opacity"><b>Lise: {{profile.high_school}}</b></h5>
+                        <h5 class="">Lise: {{profile.high_school}}</h5>
                         <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{profile.started_date_high_school}}
                             - {{profile.end_date_high_school}}</h6>
                         <hr>
@@ -129,11 +136,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
         <!-- Right Column -->
         <div class="w3-twothird">
-
-            {% if articles %}
-
-            {% for article in articles %}
-
             <div class="w3-container w3-card w3-white w3-margin-bottom">
                 <div class="w3-container">
                     <form method="post">
@@ -150,14 +152,34 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                 <br>
             </div>
 
+            {% if articles %}
+
+            {% for article in articles %}
+
+
+
             <div class="w3-container w3-card w3-white w3-margin-bottom">
-                <h2 class="w3-text-grey w3-padding-16"><i
-                        class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{article.title}}</h2>
                 <div class="w3-container">
-                    <h5 class="w3-opacity"><b>{{request.user.username}}</b></h5>
-                    <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{article.created_date}}
-                        <span
-                                class="w3-tag w3-black w3-round">Current</span></h6>
+                    <div class="w3-row">
+                        <div class="w3-col m8 s12">
+                            <h2 class="w3-text-grey w3-padding-16"><i
+                        class="fa fa-th-large fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{article.title}}</h2>
+                        </div>
+                        <div class="w3-col m4 w3-hide-small">
+                            <br>
+                            <p><a href="/user/dashboard/update/{{article.id}}"><button class="w3-btn w3-black w3-hover-teal" type="submit"><i class="fa fa-pencil"></i>
+                                    </button></a>
+                            <a href="/user/dashboard/delete/{{article.id}}"><button class="w3-btn w3-black w3-hover-red" type="submit"><i class="fa fa-times"></i>
+                                    </button></a></p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="w3-container">
+                    <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{article.created_date}}</h6>
+                    <hr>
                     <p>{{article.content|safe|truncatewords:10}}</p>
                     <br>
                 </div>

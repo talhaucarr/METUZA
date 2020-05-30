@@ -3,6 +3,7 @@
 {% block body %}
 
 {% load crispy_forms_tags %}
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <style>
     label[for="files"]{
 
@@ -21,7 +22,7 @@ display:none;
     <div class="w3-row-padding">
         <div class="w3-third">
             <div class="w3-card-4">
-                <div class="w3-container w3-dark-gray">
+                <div class="w3-container w3-theme-l1">
                     <h2>Profil Güncelle</h2>
                 </div>
                     <br>
@@ -54,13 +55,13 @@ display:none;
                         <label>Başlangıç Yılı</label>
                         <input class="w3-input" type="date" name="started_date_high_school"
                                id="started_date_high_school"
-                               {% if form.started_date_high_school.value != None %} value="{{form.started_date_high_school.value}}" {% endif %}></p>
+                               {% if form.started_date_high_school.value != None %} value="{{form.started_date_high_school.value|date:'Y-m-d'}}" {% endif %}>
 
                     </div>
                     <div class="w3-half">
                         <label>Bitiş Yılı</label>
                         <input class="w3-input" type="date" name="end_date_high_school" id="end_date_high_school"
-                              {% if form.end_date_high_school.value != None %} value="{{form.end_date_high_school.value}}" {% endif %}></p>
+                              {% if form.end_date_high_school.value != None %} value="{{form.end_date_high_school.value|date:'Y-m-d'}}" {% endif %}></p>
                     </div>
                 </div>
                 <label>Üniversite</label>
@@ -71,13 +72,13 @@ display:none;
                     <div class="w3-half">
                         <label>Başlangıç Yılı</label>
                         <input class="w3-input" type="date" name="started_date_university" id="started_date_university"
-                               {% if form.started_date_university.value != None %} value="{{form.started_date_university.value}}" {% endif %}></p>
+                               {% if form.started_date_university.value != None %} value="{{form.started_date_university.value|date:'Y-m-d'}}" {% endif %}></p>
 
                     </div>
                     <div class="w3-half">
                         <label>Bitiş Yılı</label>
                         <input class="w3-input" type="date" name="end_date_university" id="end_date_university"
-                               {% if form.end_date_university.value != None %} value="{{form.end_date_university.value}}" {% endif %}></p>
+                               {% if form.end_date_university.value != None %} value="{{form.end_date_university.value|date:'Y-m-d'}}" {% endif %}></p>
                     </div>
                 </div>
                 <label>Yüksek Lisans</label>
@@ -88,13 +89,13 @@ display:none;
                     <div class="w3-half">
                         <label>Başlangıç Yılı</label>
                         <input class="w3-input" type="date" name="started_date_master_degree"
-                               id="started_date_master_degree" {% if form.started_date_master_degree.value != None %} value="{{form.started_date_master_degree.value}}" {% endif %}></p>
+                               id="started_date_master_degree" {% if form.started_date_master_degree.value != None %} value="{{form.started_date_master_degree.value|date:'Y-m-d'}}" {% endif %}></p>
 
                     </div>
                     <div class="w3-half">
                         <label>Bitiş Yılı</label>
                         <input class="w3-input" type="date" name="end_date_master_degree" id="end_date_master_degree"
-                               {% if form.end_date_master_degree.value != None %} value="{{form.end_date_master_degree.value}}" {% endif %}></p>
+                               {% if form.end_date_master_degree.value != None %} value="{{form.end_date_master_degree.value|date:'Y-m-d'}}" {% endif %}></p>
                     </div>
                 </div>
 
@@ -106,22 +107,73 @@ display:none;
                     <div class="w3-half">
                         <label>Başlangıç Yılı</label>
                         <input class="w3-input" type="date" name="started_date_phd" id="started_date_phd"
-                               {% if form.started_date_phd.value != None %} value="{{form.started_date_phd.value}}" {% endif %}></p>
+                               {% if form.started_date_phd.value != None %} value="{{form.started_date_phd.value|date:'Y-m-d'}}" {% endif %}></p>
 
                     </div>
                     <div class="w3-half">
                         <label>Bitiş Yılı</label>
                         <input class="w3-input" type="date" name="end_date_phd" id="end_date_phd"
-                               {% if form.end_date_phd.value != None %} value="{{form.end_date_phd.value}}" {% endif %}></p>
+                               {% if form.end_date_phd.value != None %} value="{{form.end_date_phd.|date:'Y-m-d'}}" {% endif %}></p>
                     </div>
                 </div>
 
 
                 <br>
-                <button type="submit" class="w3-btn w3-black w3-hover-teal">Güncelle</button>
+                <button type="submit" name="btn1" class="w3-btn w3-black w3-hover-teal">Güncelle</button>
 
             </form>
-<br>
+            <br>
+            </div>
+
+        </div>
+        <div class="w3-twothird">
+            <div class="w3-card-4">
+
+
+
+                <div class="w3-container w3-theme-l1">
+                    <h2>İş Tecrübesi</h2>
+                </div>
+                <br>
+                <div class="w3-container">
+                {% if workExperience %}
+
+
+                {% for workExperiences in workExperience %}
+                    <div class="w3-small">
+                        <h4 class="w3-opacity"><b>{{ workExperiences.company }} </b></h4>
+                        <h5 class="w3-opacity"><b>{{ workExperiences.position }} </b></h5>
+                        <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{workExperiences.started_date}}
+                            - {{workExperiences.end_date}}</h6>
+                        <br>
+                    </div>
+                {% endfor %}
+                {% endif %}
+                    </div>
+                <form method="post" class="w3-container">
+            {% csrf_token %}
+
+                <label>Şirket Adı</label>
+                <input class="w3-input" type="text" name="company" id="company"></p>
+                <label>Pozisyon</label>
+                <input class="w3-input" type="text" name="position" id="position">
+                       </p>
+                <div class="w3-row-padding">
+                    <div class="w3-half">
+                        <label>Başlangıç Yılı</label>
+                        <input class="w3-input" type="date" name="started_date" id="started_date">
+
+                    </div>
+                    <div class="w3-half">
+                        <label>Bitiş Yılı</label>
+                        <input class="w3-input" type="date" name="end_date" id="end_date"></p>
+                    </div>
+                </div>
+            <br>
+            <button type="submit" name="btn2" class="w3-btn w3-black w3-hover-teal">Ekle</button>
+
+                </form>
+                <br>
             </div>
 
         </div>

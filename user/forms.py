@@ -20,7 +20,7 @@ class ProfileForm(forms.ModelForm):
 class WorkExperienceForm(forms.ModelForm):
     class Meta:
         model = WorkExperience
-        fields = []
+        fields = ["company", "position", "started_date", "end_date"]
 
 
 class LoginForm(forms.Form):

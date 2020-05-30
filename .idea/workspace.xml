@@ -2,32 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d68dc86-1577-45dd-9100-13f021e7df6b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/Photo/EO9CzOMXsAA_CFI.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/books/pdfs/cScience/DersİzlemeProgramıMAT2086.503-02-2020-01-44.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/classDashboard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/updateProfile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/update_post.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0002_auto_20200526_2319.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0003_auto_20200527_1716.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/0004_auto_20200527_1722.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/article/migrations/0004_auto_20200529_2250.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/article/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classRoom/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/classRoom/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classRoom/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/classRoom/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/book_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/classDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/classDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/file_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/file_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/math_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/math_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personal_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personal_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/articles.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profil.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/stroy_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stroy_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/upload_file.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/upload_file.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/updateProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/updateProfile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
@@ -145,6 +131,10 @@
     </state>
     <state x="461" y="168" key="SettingsEditor/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1589748763373" />
     <state x="461" y="168" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1582784157258" />
+    <state x="566" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1590782635093">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="566" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590782635093" />
     <state x="769" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588884238756">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

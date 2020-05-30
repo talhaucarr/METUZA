@@ -8,29 +8,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </style>
-<body class="w3-white">
+<body class="w3-light-grey">
 
 <!-- w3-content defines a container for fixed size centered content,
 and is wrapped around the whole page content, except for the footer in this example -->
@@ -47,15 +29,16 @@ and is wrapped around the whole page content, except for the footer in this exam
 
         <!-- Blog entries -->
         <div class="w3-col l8 s12">
-            {% if articles %}
-
-            {% for article in articles %}
             <!-- Blog entry -->
+            {% if articles %}
+            {% for article in articles %}
             <div class="w3-card-4 w3-margin w3-white">
-
+                {% if article.article_image %}
+                <img src="/w3images/woods.jpg" alt="Nature" style="width:100%">
+                {% endif %}
                 <div class="w3-container">
-                    <h2><b>{{article.title}}</b></h2>
-                    <h5>{{article.author.username}}, <span class="w3-opacity">{{article.created_date}}</span></h5>
+                    <a href="{{article.id}}"><h3><b>{{article.title}}</b></h3></a>
+                    <h5>{{article.author}}, <span class="w3-opacity">{{article.created_date}}</span></h5>
                 </div>
 
                 <div class="w3-container">
@@ -63,77 +46,64 @@ and is wrapped around the whole page content, except for the footer in this exam
                     <div class="w3-row">
                         <div class="w3-col m8 s12">
                             <p>
-                                <a href="/articles/article/{{article.id}}">
-                                    <button class="w3-button w3-padding-large w3-white w3-hover-blue-grey w3-border"><b>Devamını
-                                        Oku »</b>
-                                    </button>
-                                </a>
+                                <a href="/articles/article/{{article.id}}"><button class="w3-button w3-padding-large w3-white w3-border"><b>Devamını Oku</b>
+                                </button></a>
                             </p>
                         </div>
                         <div class="w3-col m4 w3-hide-small">
-                            <p><span class="w3-padding-large  w3-right"><b>Comments  </b> <span
-                                    class="w3-tag w3-blue-grey">0</span></span></p>
+                            <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span
+                                    class="w3-tag">0</span></span></p>
                         </div>
                     </div>
                 </div>
             </div>
-            <hr>
             {% endfor %}
             {% else %}
-            <div class="alert alert-danger">
-                Makale Bulunamadı.
+            <div class="w3-card-4 w3-margin w3-white">
+                <div class="w3-container">
+                    <h3><b>Makale Bulunmuyor.</b></h3>
+                </div>
             </div>
             {% endif %}
+            <hr>
 
-            <!-- END BLOG ENTRIES -->
         </div>
 
         <!-- Introduction menu -->
         <div class="w3-col l4">
             <!-- About Card -->
-            <div class="w3-margin w3-margin-top">
-
-                <div class="w3-container  w3-white">
+            <div class="w3-card w3-margin w3-margin-top">
+                <div class="w3-container w3-white">
+                    <h4><b>Arama</b></h4>
                     <form>
+
                         {% csrf_token %}
-                        <input type="text" name="keyword" class="input-sm" maxlength="64" placeholder="Ara...">
-                        <button type="submit" class="btn btn-danger">Ara</button>
+                        <input type="text" name="keyword" class="w3-input" maxlength="64" placeholder="Bir şeyler yaz">
+                        <br>
+                        <button type="submit" class="w3-button w3-padding w3-white w3-border">Ara</button>
                     </form>
+                    <br>
                 </div>
             </div>
             <hr>
 
             <!-- Posts -->
             <div class="w3-card w3-margin">
-                <div class="w3-container w3-blue-grey w3-padding">
-                    <h4>Son Paylışılanlar</h4>
+                <div class="w3-container w3-padding">
+                    <h4>Son Paylaşılanlar</h4>
                 </div>
+                {% for temp in last_articles %}
                 <ul class="w3-ul w3-hoverable w3-white">
                     <li class="w3-padding-16">
-
-                        {% if articles %}
-
-                            {% for article in articles %}
-
-                                {% for i in "1" %}
-
-                                <a href="/articles/article/{{article.id}}"><span class="w3-large">{{article.title}}</span><br></a>
-
-                                {% endfor %}
-
-                            {% endfor %}
-
-                        {% else %}
-
-                        <div class="alert alert-danger">
-                            Makale Bulunamadı.
-                        </div>
-
+                        {% if temp.article_image %}
+                        <img src="/w3images/workshop.jpg" alt="Image" class="w3-left w3-margin-right"
+                             style="width:50px">
                         {% endif %}
-
-
+                        <a href="#"><span class="w3-large">{{temp.title}}</span><br></a>
+                        <a><span>{{temp.author}}</span></a>
                     </li>
                 </ul>
+                {% endfor %}
             </div>
             <hr>
 
@@ -169,14 +139,19 @@ and is wrapped around the whole page content, except for the footer in this exam
     <br>
 
     <!-- END w3-content -->
+    <footer class="w3-container  w3-center w3-margin-top"
+            style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
+
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+        <p>Powered by <a href="https://github.com/talhaucarr" target="_blank">xKral_Tr</a></p>
+    </footer>
 </div>
 
-<!-- Footer -->
-<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
-    <button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
-    <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">xKral_Tr</a></p>
-</footer>
 
 </body>
 </html>
