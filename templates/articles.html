@@ -37,7 +37,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                 <img src="/w3images/woods.jpg" alt="Nature" style="width:100%">
                 {% endif %}
                 <div class="w3-container">
-                    <a href="{{article.id}}"><h3><b>{{article.title}}</b></h3></a>
+                    <a href="/articles/article/{{article.id}}"><h3><b>{{article.title}}</b></h3></a>
                     <h5>{{article.author}}, <span class="w3-opacity">{{article.created_date}}</span></h5>
                 </div>
 
@@ -78,7 +78,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                     <form>
 
                         {% csrf_token %}
-                        <input type="text" name="keyword" class="w3-input" maxlength="64" placeholder="Bir şeyler yaz">
+                        <input type="text" name="keyword" class="w3-input" maxlength="64" placeholder="Ara...">
                         <br>
                         <button type="submit" class="w3-button w3-padding w3-white w3-border">Ara</button>
                     </form>
@@ -99,7 +99,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                         <img src="/w3images/workshop.jpg" alt="Image" class="w3-left w3-margin-right"
                              style="width:50px">
                         {% endif %}
-                        <a href="#"><span class="w3-large">{{temp.title}}</span><br></a>
+                        <a href="/articles/article/{{temp.id}}"><span class="w3-large">{{temp.title}}</span><br></a>
                         <a><span>{{temp.author}}</span></a>
                     </li>
                 </ul>

@@ -29,9 +29,9 @@ urlpatterns = [
     path('about/', views.about, name="about"),
     path('articles/', include("article.urls")),
     path('user/', include("user.urls")),
-    path('classes/',include("classRoom.urls")),
-
-
+    path('classes/', include("classRoom.urls")),
+    path('messages/', include("Mesaj.urls")),
+    path('forum/', include("forum.urls")),
 
     path('owncloud/fileUpload/', ownCloud2.views.upload_file, name="upload_file"),
     path('owncloud/fileList/', ownCloud2.views.file_list, name="file_list"),

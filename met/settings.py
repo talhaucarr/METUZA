@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "ownCloud2",
     "user",
     "classRoom",
+    "Mesaj",
+    "forum",
     "crispy_forms",
     "ckeditor",
     'django_cleanup.apps.CleanupConfig',

@@ -1,7 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 
-
 # Create your models here.
 
 class Post(models.Model):
@@ -19,7 +18,19 @@ class Profile(models.Model):
     email = models.EmailField(max_length=50, verbose_name="E-mail", blank=True, null=True)
     about = models.CharField(max_length=150, verbose_name="Hakkında", blank=True, null=True)
     photo = models.FileField(upload_to='Photo/', blank=True, null=True)
-    high_school = models.CharField(max_length=50, verbose_name="Lise", blank=True, null=True)
+    instagram = models.CharField(max_length=30, verbose_name="İnstagram", blank=True, null=True)
+    github = models.CharField(max_length=30, verbose_name="Github", blank=True, null=True,
+                              help_text="Profil linkinizi koyunuz.")
+    twitter = models.CharField(max_length=30, verbose_name="Twitter", blank=True, null=True,
+                               help_text="Profil linkinizi koyunuz.")
+    facebook = models.CharField(max_length=30, verbose_name="Facebook", blank=True, null=True,
+                                help_text="Profil linkinizi koyunuz.")
+    linkedin = models.CharField(max_length=30, verbose_name="Linkedin", blank=True, null=True,
+                                help_text="Profil linkinizi koyunuz.")
+    pinterest = models.CharField(max_length=30, verbose_name="Pinterest", blank=True, null=True,
+                                 help_text="Profil linkinizi koyunuz.")
+    high_school = models.CharField(max_length=50, verbose_name="Lise", blank=True, null=True,
+                                   help_text="Profil linkinizi koyunuz.")
     started_date_high_school = models.DateField("Başlangıç Tarihi(mm/dd/yyyy)",
                                                 help_text="Lütfen formata uygun giriniz.",
                                                 auto_now_add=False, auto_now=False, null=True, blank=True)

@@ -11,7 +11,8 @@ class PostForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ["photo", "name", "surname", "about", "high_school", "started_date_high_school",
+        fields = ["photo", "name", "surname", "about", "instagram", "twitter", "facebook", "github", "linkedin",
+                  "pinterest", "high_school", "started_date_high_school",
                   "end_date_high_school", "university", "started_date_university", "end_date_university",
                   "master_degree", "started_date_master_degree", "end_date_master_degree", "phd", "started_date_phd",
                   "end_date_phd"]
