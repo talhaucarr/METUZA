@@ -14,7 +14,9 @@
                 <div class="w3-container w3-row">
                     <br>
                     <div class="w3-col s4">
+                        {% if profile.photo %}
                         <img src="{{ profile.photo.url }}" class="w3-circle w3-margin-right" style="width:80px">
+                        {% endif %}
                     </div>
                     <div class="w3-col s8 w3-bar">
                         <span>Hoşgeldin, <strong>{{request.user}}</strong></span><br>
@@ -58,20 +60,22 @@
             </div>
 
         </div>
-        <div class="w3-threequarter">
-            {% if messages %}
 
-            {% for message in messsages %}
+        <div class="w3-threequarter">
+
+            {% if messagess %}
+
+            {% for message in messagess %}
 
             <div class="w3-white w3-text-grey w3-card-4 w3-container">
 
 
                 <br>
 
-                <span class="w3-right w3-opacity">{{messages.created_date}}</span>
-                <h4 style="color:black">{{messages.username}}</h4>
+                <span class="w3-right w3-opacity">{{message.created_at}}</span>
+                <h4 style="color:black">{{message.username}}</h4>
 
-                <p>{{article.content|safe|truncatewords:10}}</p>
+                <p>{{message.msg_content|safe|truncatewords:10}}</p>
 
                 <br>
 

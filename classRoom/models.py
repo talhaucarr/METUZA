@@ -18,16 +18,16 @@ class NewClass(models.Model):
 
 class ClassContent(models.Model):
     classroom = models.ForeignKey(NewClass, null=True, blank=True, on_delete=models.CASCADE)
-    class_name = models.CharField(max_length=20, verbose_name="Sınıf Adı:",null=True)
-    student_naame = models.CharField(max_length=20, verbose_name="Sınıf Adı:",null=True)
+    class_name = models.CharField(max_length=20, verbose_name="Sınıf Adı:", null=True)
+    student_naame = models.CharField(max_length=20, verbose_name="Sınıf Adı:", null=True)
     student_name = models.ForeignKey("auth.User", on_delete=models.CASCADE, verbose_name="Öğrenci Adı")
 
 
 class ClassHomework(models.Model):
     title = models.CharField(max_length=50, verbose_name="Başlık", null=True)
     content = RichTextField(null=True, blank=True, verbose_name="Ödev İçeriği")
-    class_name = models.CharField(max_length=20, verbose_name="Sınıf Adı:",null=True)
-    student_name = models.CharField(max_length=20, verbose_name="Öğrenci Adı:",null=True)
+    class_name = models.CharField(max_length=20, verbose_name="Sınıf Adı:", null=True)
+    student_name = models.CharField(max_length=20, verbose_name="Öğrenci Adı:", null=True)
     classroom = models.ForeignKey(NewClass, null=True, blank=True, on_delete=models.CASCADE)
     student = models.ForeignKey("auth.User", null=True, blank=True, on_delete=models.CASCADE)
     created_date = models.DateField(auto_now_add=True, null=True)
@@ -38,6 +38,7 @@ class ClassHomework(models.Model):
     files = models.FileField(upload_to='HomeWorks/', null=True, blank=True)
     is_deliver = models.BooleanField(null=True)
     is_end = models.BooleanField(null=True, default=0)
+    note = models.IntegerField(blank=True, null=True)
     homework_code = models.CharField(max_length=6, null=True, blank=True)
 
 
@@ -51,7 +52,8 @@ class Homework(models.Model):
                                  auto_now=False, null=True)
     is_end = models.BooleanField(null=True, default=0)
     homework_code = models.CharField(max_length=6, null=True, blank=True)
-    submit_count = models.IntegerField(null=True,blank=True,verbose_name="Teslim Eden Sayısı")
+    submit_count = models.IntegerField(null=True, blank=True, verbose_name="Teslim Eden Sayısı")
+
 
 class ClassPost(models.Model):
     title = models.CharField(max_length=50, verbose_name="Başlık", null=True)

@@ -32,7 +32,6 @@ def sendMessage(request):
 
         for i in user:
             if i.username == msg.username:
-                print(i.pk)
                 msg.reciever_id = i.id
 
                 msg.save()
@@ -46,14 +45,12 @@ def sendMessage(request):
 
 def inBox(request):
     messages = Msg.objects.filter(reciever=request.user)
-    print("in")
     profile = get_object_or_404(Profile, user_id=request.user)
-    return render(request, "inbox.html", {"messages": messages, "profile": profile})
+    return render(request, "inbox.html", {"messagess": messages, "profile": profile})
 
 
 def sentBox(request):
     messagess = Msg.objects.filter(sender=request.user).order_by("-created_at")
-    print("sent")
     profile = get_object_or_404(Profile, user_id=request.user)
     profiles = Profile.objects.all()
     return render(request, "sentbox.html", {"messagess": messagess, "profile": profile, "profiles": profiles})

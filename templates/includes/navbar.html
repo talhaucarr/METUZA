@@ -27,7 +27,7 @@
             <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
         </div>
         <div class="w3-col s8 w3-bar">
-            <span>Hoşgeldin, <strong>{{request.user.first_name}}</strong></span><br>
+            <span>Hoşgeldin, <strong>{{request.user}}</strong></span><br>
             <a href="/user/profile/{{request.user.id}}" class="w3-bar-item w3-button"><i class="fa fa-user"> Profil</i></a>
             <a href="/user/logout" class="w3-bar-item w3-button"><i class="fa fa-times"> Çıkış</i></a>
         </div>
@@ -52,8 +52,6 @@
         <div class="w3-dropdown-content w3-bar-block w3-light-grey">
             <a href="/articles" class="w3-bar-item w3-button">Makaleler</a>
             <a href="/bookshome" class="w3-bar-item w3-button">PDF</a>
-            <a href="/forum" class="w3-bar-item w3-button">Forum</a>
-            <a href="/#" class="w3-bar-item w3-button">Alıştırmalar</a>
         </div>
     </div>
 </div>

@@ -37,3 +37,9 @@ class ClassPostForm(forms.ModelForm):
     class Meta:
         model = ClassPost
         fields = ["title", "content", "files"]
+
+
+class NoteForm(forms.ModelForm):
+    class Meta:
+        model = ClassHomework
+        fields = ["note",]

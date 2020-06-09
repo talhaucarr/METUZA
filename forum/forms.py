@@ -1,5 +1,2 @@
-from django.contrib import admin
-from django.urls import path
-from classRoom import views
+from django import forms
 
-app_name = "forum"

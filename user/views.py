@@ -43,7 +43,7 @@ def deleteArticle(request, id):
 def showProfile(request, id):
     profile = get_object_or_404(Profile, user_id=id)
     user = get_object_or_404(User, id=id)
-    workExperience = WorkExperience.objects.filter(user_id=id)
+    workExperience = WorkExperience.objects.filter(user_id=id).order_by('-end_date')
     articles = Article.objects.filter(author_id=id).order_by('-created_date')
     form = ArticleForm(request.POST or None, request.FILES or None)
 
