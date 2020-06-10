@@ -7,9 +7,11 @@
     <title>MET</title>
 </head>
 <body>
+
+
 {% include "includes/navbar.html" %}
 
-<div style='margin-top : 100px; margin-bottom : 100px;' class="w3-container">
+<div style='margin-top:50px; margin-bottom : 100px;' class="w3-container">
 
     {% if messages %}
 
@@ -28,6 +30,7 @@
 
     {% endblock body %}
 </div>
+
 
 <script src="{% static 'js/bootstrap.min.js'%}"></script>
 <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>

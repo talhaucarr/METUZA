@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import NewClassForm, NewContentForm, NewHomeworkForm, _NewHomeworkDeliveryForm, SecondHomework, \
-    ClassPostForm
+    ClassPostForm, NoteForm
 from django.core.files.storage import FileSystemStorage
 from .models import NewClass, ClassContent, ClassHomework, Homework, ClassPost
 from django.http import HttpResponseRedirect
@@ -215,9 +215,15 @@ def submitHomework(request, id):
 
 def homeworkDetail(request, slug):
     sa = get_object_or_404(Homework, homework_code=slug)
-    print(id)
-    print(sa.title)
     homeworkss = ClassHomework.objects.filter(homework_code=sa.homework_code)
+    """form2 = NoteForm(request.POST or None, instance=sa)
+    print("asdsad", form2)
+    form = NoteForm(request.POST or None)
+    if form.is_valid():
+        print("burda")
+        print(form)
+        username = form.cleaned_data.get("note")
+        print(username)"""
 
     return render(request, 'homeworkDetail.html', {'homeworkss': homeworkss, 'sa': sa})
 
