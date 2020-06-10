@@ -17,175 +17,174 @@
 </header>
 
 
-<div class="w3-main" style="margin-left:300px;">
-    <div class="w3-row-padding">
-        <div class="w3-third">
+<div class="w3-row-padding">
+    <div class="w3-third">
 
-            <h3><b>Öğrenciler</b></h3>
-            <br>
-            <table class="w3-table-all w3-card-4 w3-centered">
-                <thead>
+        <h3><b>Öğrenciler</b></h3>
+        <br>
+        <table class="w3-table-all w3-card-4 w3-centered">
 
-                <tr>
-                    <th>Ad</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
+            <thead>
+            <tr>
+                <th>Ad</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
 
-                {% for student in class_content %}
+            {% for student in class_content %}
 
-                <td>
-                    {{ student.student_naame}}
-                </td>
-
-
-                <td>
-                    <button class="w3-btn w3-black w3-hover-cyan" type="submit"><b>Mesaj Gönder</b></button>
-                </td>
-                <td>
-                    <button class="w3-btn w3-black w3-hover-lime" type="submit"><b>Yetkilendir</b></button>
-                </td>
-
-                </tr>
-
-                {% endfor %}
-
-                </tbody>
-
-            </table>
-
-        </div>
-
-        <div class="w3-twothird">
+            <td>
+                {{ student.student_naame}}
+            </td>
 
 
-            <h3><b>Ödevler</b></h3>
-            <br>
-            <table class="w3-table-all w3-card-4 w3-centered">
-                <thead>
+            <td>
+                <button class="w3-btn w3-black w3-hover-cyan" type="submit"><b>Mesaj Gönder</b></button>
+            </td>
+            <td>
+                <button class="w3-btn w3-black w3-hover-lime" type="submit"><b>Yetkilendir</b></button>
+            </td>
 
-                <tr>
-                    <th>İçerik</th>
-                    <th>Bitiş Tarihi</th>
-                    <th>Ödev Kodu</th>
-                    <th>Teslim Sayısı</th>
-                    <th>Düzenle</th>
-                    <th>Sil</th>
-                </tr>
-                </thead>
-                <tbody>
+            </tr>
 
-                {% for homework in homeworks %}
+            {% endfor %}
 
-                <td>
-                    {{ homework.content}}
-                </td>
-                <td>
-                    {{ homework.end_date}} {{homework.end_clock}}
-                </td>
-                <td>
-                    {{ homework.homework_code}}
-                </td>
-                <td>
-                    {{ homework.submit_count}}
-                </td>
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="w3-twothird">
 
 
-                <td>
-                    <a href="/classes/dashboard/{{homework.homework_code}}/update">
-                        <button class="w3-btn w3-black w3-hover-light-green">
-                            Düzenle
-                        </button>
-                    </a>
-                </td>
-                <td>
-                    <a href="/classes/dashboard/{{homework.homework_code}}/delete">
-                        <button class="w3-btn w3-black w3-hover-red">
-                            Sil
-                        </button>
-                    </a>
-                </td>
+        <h3><b>Ödevler</b></h3>
+        <br>
+        <table class="w3-table-all w3-card-4 w3-centered">
+            <thead>
 
-                </tr>
+            <tr>
+                <th>İçerik</th>
+                <th>Bitiş Tarihi</th>
+                <th>Ödev Kodu</th>
+                <th>Teslim Sayısı</th>
+                <th>Düzenle</th>
+                <th>Sil</th>
+            </tr>
+            </thead>
+            <tbody>
 
-                {% endfor %}
+            {% for homework in homeworks %}
 
-                </tbody>
+            <td>
+                {{ homework.content}}
+            </td>
+            <td>
+                {{ homework.end_date}} {{homework.end_clock}}
+            </td>
+            <td>
+                {{ homework.homework_code}}
+            </td>
+            <td>
+                {{ homework.submit_count}}
+            </td>
 
-            </table>
 
-        </div>
+            <td>
+                <a href="/classes/dashboard/{{homework.homework_code}}/update">
+                    <button class="w3-btn w3-black w3-hover-light-green">
+                        Düzenle
+                    </button>
+                </a>
+            </td>
+            <td>
+                <a href="/classes/dashboard/{{homework.homework_code}}/delete">
+                    <button class="w3-btn w3-black w3-hover-red">
+                        Sil
+                    </button>
+                </a>
+            </td>
 
+            </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
 
     </div>
 
 
-    <br><br><br><br>
-    <h3><b>Gönderiler</b></h3>
-    <br>
-    <table class="w3-table-all w3-card-4">
-        <thead>
-
-        <tr>
-            <th>Başlık</th>
-            <th>İçerik</th>
-            <th>Oluşturulma Tarihi</th>
-            <th>DÜzenle</th>
-            <th>Sil</th>
-        </tr>
-        </thead>
-        <tbody>
-
-        {% for post in posts %}
-
-        <td>
-            {{ post.title}}
-        </td>
-
-        <td> {{ post.content|safe }}</td>
-
-        <td>
-            {{ post.created_date }}
-        </td>
-
-        <td>
-            <a href="/classes/dashboard/{{post.id}}/update">
-                <button class="w3-btn w3-black w3-hover-light-green">
-                    Düzenle
-                </button>
-            </a>
-        </td>
-        <td>
-            <a href="/classes/dashboard/{{post.id}}/delete">
-                <button class="w3-btn w3-black w3-hover-red">
-                    Sil
-                </button>
-            </a>
-        </td>
-
-        </tr>
-
-        {% endfor %}
-
-        </tbody>
-
-    </table>
-    <br>
-    <br>
-    <footer class="w3-container  w3-center w3-margin-top"
-            style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
-
-        <i class="fa fa-facebook-official w3-hover-opacity"></i>
-        <i class="fa fa-instagram w3-hover-opacity"></i>
-        <i class="fa fa-snapchat w3-hover-opacity"></i>
-        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-        <i class="fa fa-twitter w3-hover-opacity"></i>
-        <i class="fa fa-linkedin w3-hover-opacity"></i>
-        <p>Powered by <a href="https://github.com/talhaucarr" target="_blank">xKral_Tr</a></p>
-    </footer>
 </div>
+
+
+<br><br><br><br>
+<h3><b>Gönderiler</b></h3>
+<br>
+<table class="w3-table-all w3-card-4">
+    <thead>
+
+    <tr>
+        <th>Başlık</th>
+        <th>İçerik</th>
+        <th>Oluşturulma Tarihi</th>
+        <th>DÜzenle</th>
+        <th>Sil</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for post in posts %}
+
+    <td>
+        {{ post.title}}
+    </td>
+
+    <td> {{ post.content|safe }}</td>
+
+    <td>
+        {{ post.created_date }}
+    </td>
+
+    <td>
+        <a href="/classes/dashboard/{{post.id}}/update">
+            <button class="w3-btn w3-black w3-hover-light-green">
+                Düzenle
+            </button>
+        </a>
+    </td>
+    <td>
+        <a href="/classes/dashboard/{{post.id}}/delete">
+            <button class="w3-btn w3-black w3-hover-red">
+                Sil
+            </button>
+        </a>
+    </td>
+
+    </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+<br>
+<br>
+<footer class="w3-container  w3-center w3-margin-top"
+        style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
+
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p>Powered by <a href="https://github.com/talhaucarr" target="_blank">xKral_Tr</a></p>
+</footer>
+
 <script src="{% static 'js/bootstrap.min.js'%}"></script>
 <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
 

@@ -21,115 +21,111 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 <body class="w3-light-grey">
 
 <!-- Page Container -->
-<div class="w3-main" style="margin-left:300px;">
 
-    <!-- The Grid -->
-    <div class="w3-row-padding">
+<!-- The Grid -->
+<div class="w3-row-padding">
 
-        <!-- Left Column -->
-        <div class="w3-third">
+    <!-- Left Column -->
+    <div class="w3-third">
 
-            <div class="w3-white w3-text-grey w3-card-4">
-                <div class="w3-display-container">
+        <div class="w3-white w3-text-grey w3-card-4">
+            <div class="w3-display-container">
 
-                    <div class="w3-display-bottomleft w3-container w3-text-black">
-
-                    </div>
-                </div>
-
-                <div class="w3-container">
-                    <br>
-                    <h2><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-black"></i> Sınıflarım
-                    </h2>
-
-                    <hr>
-                    {% if classes %}
-                    {% for deneme in classes %}
-
-
-                     <a href="{{deneme.id}}/"><span class="w3-large">{{deneme.class_name}}</span>  <br></a>
-
-                    <hr>
-                    {% endfor %}
-
-                    {% else %}
-                    <h6><i class="fa fa-briefcase fa-university w3-margin-right w3-large w3-text-black"></i>Sınıfınız
-                        bulunmamaktadır.</h6>
-                    {% endif %}
-                    <br>
-
-                </div>
-
-
-
-            </div>
-            <br>
-            <div class="w3-white w3-text-grey w3-card-4">
-                <div class="w3-display-container">
-
-                    <div class="w3-display-bottomleft w3-container w3-text-black">
-
-                    </div>
-                </div>
-                <div class="w3-container">
-
-                    <br>
-                    <button class="w3-button w3-block w3-text-black w3-left-align">
-                        <i class="fa fa-plus fa-fw w3-margin-right"></i>
-                        <a class="btn" href="/classes/addclasses">
-                            Sınıf Oluştur
-                        </a>
-                    </button>
-
-                    <br>
+                <div class="w3-display-bottomleft w3-container w3-text-black">
 
                 </div>
             </div>
-            <br>
+
+            <div class="w3-container">
+                <br>
+                <h2><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-black"></i> Sınıflarım
+                </h2>
+
+                <hr>
+                {% if classes %}
+                {% for deneme in classes %}
 
 
-            <!-- End Left Column -->
-        </div>
+                    <a href="{{deneme.id}}/"><span class="w3-large">{{deneme.class_name}}</span>  <br></a>
 
+                <hr>
+                {% endfor %}
 
-        <!-- Right Column -->
-        <div class="w3-twothird">
-
-            <div class="w3-container w3-card w3-white w3-margin-bottom">
-                <h2 class="w3-text-grey w3-padding-16"><i
-                        class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>Zamanı Dolmamış
-                    Ödevler</h2>
-                <div class="w3-container">
-                    <h5 class="w3-opacity"><b>Front End Developer / w3schools.com</b></h5>
-                    <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span
-                            class="w3-tag w3-round">Current</span></h6>
-                    <p>Verilen ödevler gözükecek</p>
-                    <hr>
-                </div>
+                {% else %}
+                <h6><i class="fa fa-briefcase fa-university w3-margin-right w3-large w3-text-black"></i>Sınıfınız
+                    bulunmamaktadır.</h6>
+                {% endif %}
+                <br>
 
             </div>
 
 
 
         </div>
+        <br>
+        <div class="w3-white w3-text-grey w3-card-4">
+            <div class="w3-display-container">
 
-        <!-- End Grid -->
+                <div class="w3-display-bottomleft w3-container w3-text-black">
+
+                </div>
+            </div>
+            <div class="w3-container">
+
+                <br>
+                <button class="w3-button w3-block w3-text-black w3-left-align">
+                    <i class="fa fa-plus fa-fw w3-margin-right"></i>
+                    <a class="btn" href="/classes/addclasses">
+                        Sınıf Oluştur
+                    </a>
+                </button>
+
+                <br>
+
+            </div>
+        </div>
+        <br>
+
+
+        <!-- End Left Column -->
     </div>
 
-    <!-- End Page Container -->
-    <footer class="w3-container  w3-center w3-margin-top" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
 
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-    <p>Powered by <a href="https://github.com/talhaucarr" target="_blank">xKral_Tr</a></p>
-</footer>
+    <!-- Right Column -->
+    <div class="w3-twothird">
+
+        <div class="w3-container w3-card w3-white w3-margin-bottom">
+            <h2 class="w3-text-grey w3-padding-16"><i
+                    class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>Zamanı Dolmamış
+                Ödevler</h2>
+            <div class="w3-container">
+                <h5 class="w3-opacity"><b>Front End Developer / w3schools.com</b></h5>
+                <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span
+                        class="w3-tag w3-round">Current</span></h6>
+                <p>Verilen ödevler gözükecek</p>
+                <hr>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <!-- End Grid -->
 </div>
 
+<!-- End Page Container -->
+<footer class="w3-container  w3-center w3-margin-top" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
 
+<i class="fa fa-facebook-official w3-hover-opacity"></i>
+<i class="fa fa-instagram w3-hover-opacity"></i>
+<i class="fa fa-snapchat w3-hover-opacity"></i>
+<i class="fa fa-pinterest-p w3-hover-opacity"></i>
+<i class="fa fa-twitter w3-hover-opacity"></i>
+<i class="fa fa-linkedin w3-hover-opacity"></i>
+<p>Powered by <a href="https://github.com/talhaucarr" target="_blank">xKral_Tr</a></p>
+</footer>
 
 </body>
 </html>

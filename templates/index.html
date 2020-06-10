@@ -2,7 +2,101 @@
 
 {% block body %}
 
+<div class="w3-row">
 
+    <!-- Header -->
+    <header class="w3-container" style="padding-top:22px">
+        <h5><b><i class="fa fa-dashboard"></i> E-Books</b></h5>
+    </header>
+
+    <div class="w3-row-padding w3-margin-bottom">
+
+        <div class="w3-quarter">
+            <a href="{% url 'book_list' %}">
+                <div class="w3-container w3-red w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-code w3-xxxlarge"></i></div>
+
+                    <div class="w3-clear"></div>
+                    <h4>Bilgisayar Bilimi</h4>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="w3-quarter">
+            <a href="{% url 'stroy_list' %}">
+                <div class="w3-container w3-blue w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-book w3-xxxlarge"></i></div>
+                    <div class="w3-right">
+
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Hikaye/Roman</h4>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="w3-quarter">
+            <a href="{% url 'personal_list' %}">
+                <div class="w3-container w3-teal w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+                    <div class="w3-right">
+
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Kişisel Gelişim</h4>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="w3-quarter">
+            <a href="{% url 'math_list' %}">
+                <div class="w3-container w3-orange w3-text-white w3-padding-16">
+                    <div class="w3-left"><i class="fa fa-calculator w3-xxxlarge"></i></div>
+                    <div class="w3-right">
+
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Fen/Matematik</h4>
+                </div>
+            </a>
+        </div>
+
+
+    </div>
+
+
+    <hr>
+
+    <div class="w3-container">
+        <h5>Son Paylaşılanlar</h5>
+
+        <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+            <tr>
+
+                <tbody>
+
+                {% for articles in last_articles %}
+                <td><a href="/articles/article/{{articles.id}}">{{articles.title}}</a></td>
+                <td>{{articles.author}}</td>
+                </tr>
+                {% endfor %}
+
+                </tbody>
+
+            </tr>
+
+        </table>
+        <br>
+        <a href="articles">
+            <button class="w3-button w3-dark-grey">Daha Fazla Gönderi  <i class="fa fa-arrow-right"></i></button>
+        </a>
+
+    </div>
+
+</div>
 
 
 {% endblock body %}

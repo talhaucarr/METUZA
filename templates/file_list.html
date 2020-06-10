@@ -9,68 +9,63 @@
 
 <!--<h2>PDF Listesi</h2>
 <hr>-->
+<div class="w3-row-padding">
 
 
-<div class="w3-main" style="margin-left:300px;">
-    <div class="w3-row-padding">
+    <div >
 
+        {% if request.user.is_authenticated %}
 
-        <div >
+        <p>
+            <a href="{% url 'upload_file' %}" class="w3-btn w3-black w3-hover-green">Dosya Yükle</a>
+        </p>
+        <hr>
 
-            {% if request.user.is_authenticated %}
+        {% else %}
 
-            <p>
-                <a href="{% url 'upload_file' %}" class="w3-btn w3-black w3-hover-green">Dosya Yükle</a>
-            </p>
-            <hr>
+        {% endif %}
 
-            {% else %}
+        <table class="w3-table-all w3-centered w3-card-4 w3-hoverable">
+            <thead>
 
-            {% endif %}
+            <tr>
+                <th>Ad</th>
+                <th>İçerik</th>
+                <th>Yükleme</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
 
-            <table class="w3-table-all w3-centered w3-card-4 w3-hoverable">
-                <thead>
+            {% for book in cloud %}
 
-                <tr>
-                    <th>Ad</th>
-                    <th>İçerik</th>
-                    <th>Yükleme</th>
-                    <th>Delete</th>
-                </tr>
-                </thead>
-                <tbody>
+            <td>
+                {{ book.authorr }}
+            </td>
 
-                {% for book in cloud %}
+            <td> {{ book.title }}</td>
 
-                <td>
-                    {{ book.authorr }}
-                </td>
+            <td>
+                <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sml" target="_blank">
+                    PDF İndir
+                </a>
+            </td>
 
-                <td> {{ book.title }}</td>
+            <td>
+                <form method="post" action="{% url 'delete_book' book.pk %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Sil</button>
+                </form>
 
-                <td>
-                    <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sml" target="_blank">
-                        PDF İndir
-                    </a>
-                </td>
+            </td>
 
-                <td>
-                    <form method="post" action="{% url 'delete_book' book.pk %}">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Sil</button>
-                    </form>
+            </tr>
 
-                </td>
+            {% endfor %}
 
-                </tr>
+            </tbody>
 
-                {% endfor %}
-
-                </tbody>
-
-            </table>
-        </div>
-
+        </table>
     </div>
 
 </div>

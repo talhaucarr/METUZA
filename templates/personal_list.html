@@ -15,80 +15,79 @@
     </div>
 </header>
 
-<div class="w3-main" style="margin-left:300px;">
-    <div class="w3-row-padding">
+<div class="w3-row-padding">
 
-        <div class="w3-quarter">
+    <div class="w3-quarter">
 
-            <br><br><br><br><br><br><br>
-            <div class="w3-white w3-text-grey w3-card-4">
-                <div class="w3-display-container">
+        <br><br><br><br><br><br><br>
+        <div class="w3-white w3-text-grey w3-card-4">
+            <div class="w3-display-container">
 
-                    <div class="w3-display-bottomleft w3-container w3-text-black">
-
-                    </div>
-                </div>
-                <div class="w3-container">
-                    <br>
-                    <a href="{% url 'book_list' %}">
-                        <div class="w3-container w3-red w3-round-xlarge w3-padding-20">
-                            <h3> Bilgisayar Bilimleri</h3>
-                        </div>
-                    </a>
-                    <br>
-
-
-                    <a href="{% url 'stroy_list' %}">
-                        <div class="w3-container w3-blue w3-round-xlarge w3-padding-20">
-                            <h3> Hikaye/Roman</h3>
-                        </div>
-                    </a>
-                    <br>
-
-
-                    <a href="{% url 'personal_list' %}">
-                        <div class="w3-container w3-teal w3-round-xlarge w3-padding-20">
-                            <h3> Kişisel Gelişim</h3>
-                        </div>
-                    </a>
-                    <br>
-
-
-                    <a href="{% url 'math_list' %}">
-                        <div class="w3-container w3-orange w3-round-xlarge w3-padding-20">
-                            <h3> Fen/Matematik</h3>
-                        </div>
-                    </a>
-                    <br>
+                <div class="w3-display-bottomleft w3-container w3-text-black">
 
                 </div>
             </div>
+            <div class="w3-container">
+                <br>
+                <a href="{% url 'book_list' %}">
+                    <div class="w3-container w3-red w3-round-xlarge w3-padding-20">
+                        <h3> Bilgisayar Bilimleri</h3>
+                    </div>
+                </a>
+                <br>
 
 
+                <a href="{% url 'stroy_list' %}">
+                    <div class="w3-container w3-blue w3-round-xlarge w3-padding-20">
+                        <h3> Hikaye/Roman</h3>
+                    </div>
+                </a>
+                <br>
+
+
+                <a href="{% url 'personal_list' %}">
+                    <div class="w3-container w3-teal w3-round-xlarge w3-padding-20">
+                        <h3> Kişisel Gelişim</h3>
+                    </div>
+                </a>
+                <br>
+
+
+                <a href="{% url 'math_list' %}">
+                    <div class="w3-container w3-orange w3-round-xlarge w3-padding-20">
+                        <h3> Fen/Matematik</h3>
+                    </div>
+                </a>
+                <br>
+
+            </div>
         </div>
-        <div class="w3-twothird">
-            <br><br><br>
-    {% if request.user.is_authenticated %}
 
-    <p>
-        <a href="{% url 'upload_personal' %}" class="w3-btn w3-black w3-hover-teal">PDF Yükle</a>
-    </p>
-    <hr>
 
-    {% else %}
+    </div>
+    <div class="w3-twothird">
+        <br><br><br>
+{% if request.user.is_authenticated %}
 
-    {% endif %}
-    <table class="w3-table-all w3-centered w3-card-4 w3-hoverable">
-        <thead>
-        <tr>
-            <th>Ön İzleme</th>
-            <th>Ad</th>
-            <th>Yazar</th>
-            <th>Yükleme</th>
-            <th>Delete</th>
-        </tr>
-        </thead>
-        <tbody>
+<p>
+    <a href="{% url 'upload_personal' %}" class="w3-btn w3-black w3-hover-teal">PDF Yükle</a>
+</p>
+<hr>
+
+{% else %}
+
+{% endif %}
+<table class="w3-table-all w3-centered w3-card-4 w3-hoverable">
+    <thead>
+    <tr>
+        <th>Ön İzleme</th>
+        <th>Ad</th>
+        <th>Yazar</th>
+        <th>Yükleme</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
         <tr class="w3-hover-text-teal">
             {% for book in books %}
             <td>
@@ -114,16 +113,12 @@
             </td>
         </tr>
 
-        {% endfor %}
-        </tbody>
-    </table>
-        </div>
+    {% endfor %}
+    </tbody>
+</table>
     </div>
-
-
-
-
 </div>
+
 <script src="{% static 'js/bootstrap.min.js'%}"></script>
 <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
 

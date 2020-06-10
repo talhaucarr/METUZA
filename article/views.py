@@ -22,7 +22,8 @@ def articles(request):
 
 
 def index(request):
-    return render(request, "index.html")
+    last_articles = Article.objects.order_by("-created_date")[:5]
+    return render(request, "index.html", {"last_articles": last_articles})
 
 
 def about(request, id):

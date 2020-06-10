@@ -21,216 +21,213 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 <body class="w3-light-grey">
 
 <!-- Page Container -->
-<div class="w3-main" style="margin-left:300px;">
 
-    <!-- The Grid -->
-    <div class="w3-row-padding">
+<!-- The Grid -->
+<div class="w3-row-padding">
 
-        <!-- Left Column -->
-        <div class="w3-third">
+    <!-- Left Column -->
+    <div class="w3-third">
 
-            <div class="w3-display-container">
-                {% if profile.photo %}
-                <img src="{{ profile.photo.url }}" alt="{{ profile.name }}" style="width:100%">
-                {% endif %}
-
-                <div class="w3-display-bottomleft w3-container w3-text-white">
-                    <h2>{{user.username}} </h2>
-
-                </div>
-
-            </div>
-
-            <div class="w3-white w3-text-grey w3-card-4">
-
-                <br>
-
-                <div class="w3-container">
-
-                    <p><i class="fa fa-user fa-fw w3-margin-right w3-large w3-text-black"></i>{{profile.name}}
-                        {{profile.surname}}</p>
-
-                    <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-black"></i>Çalıştığı yer yazıcak
-                    </p>
-                    {% if profile.about %}
-                    <p><i class="fa fa-bicycle fa-fw w3-margin-right w3-large w3-text-black"></i>{{profile.about}}</p>
-                    {% else %}
-                    <p><i class="fa fa-bicycle fa-fw w3-margin-right w3-large w3-text-black"></i>Belirtilmemiş</p>
-                    {% endif %}
-
-                    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-black"></i>{{profile.email}}
-                    </p>
-
-                    <hr>
-                    <div class="w3-container w3-center w3-xlarge">
-                        <a href="{{profile.facebook}}" style="color:black"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
-                    <a href="{{profile.instagram}}" style="color:black"><i class="fa fa-instagram w3-hover-opacity w3-center"></i></a>
-                    <a href="{{profile.github}}" style="color:black"><i class="fa fa-snapchat w3-hover-opacity"></i></a>
-                    <a href="{{profile.pinterest}}" style="color:black"><i class="fa fa-pinterest-p w3-hover-opacity"></i></a>
-                    <a href="{{profile.twitter}}" style="color:black"><i class="fa fa-twitter w3-hover-opacity"></i></a>
-                    <a href="{{profile.linkedin}}" style="color:black"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
-                    </div>
-
-                    <hr>
-
-
-
-                    {% if workExperience %}
-                    <p class="w3-large"><b><i class="fa fa-suitcase fa-fw  w3-margin-right w3-text-black"></i>İş
-                        Tecrübesi</b>
-                    </p>
-                    {% for workExperiences in workExperience %}
-                    <div class=" w3-small">
-                        <h4 class="">{{ workExperiences.company }}</b></h4>
-                        <h5 class="w3-opacity">{{ workExperiences.position }}</b></h5>
-                        <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{workExperiences.started_date}} - {{workExperiences.end_date}}</h6>
-                        <br>
-                    </div>
-                    {% endfor %}
-                    <hr>
-                    {% endif %}
-
-
-
-                    <p class="w3-large"><b><i class="fa fa-certificate fa-fw  w3-margin-right w3-text-black"></i>Eğitim</b>
-                    </p>
-
-                    {% if profile.phd %}
-
-                    <div class="w3-small">
-                        <h5 class="w3-opacity">Doktora: {{profile.phd}}</h5>
-                        <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{profile.started_date_phd}}
-                            - {{profile.end_date_phd}}</h6>
-                        <hr>
-                    </div>
-                    {% endif %}
-                    {% if profile.master_degree %}
-                    <div class="w3-small">
-                        <h5 class="">Yüksek Lisans: {{profile.master_degree}}</h5>
-                        <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{profile.started_date_master_degree}}
-                            - {{profile.end_date_master_degree}}</h6>
-                        <hr>
-                    </div>
-                    {% endif %}
-                    {% if profile.university %}
-                    <div class="w3-small">
-                        <h5 class="w3-opacity">Üniversite: {{profile.university}}</h5>
-                        <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{profile.started_date_university}}
-                            - {{profile.end_date_university}}</h6>
-                        <hr>
-                    </div>
-                    {% endif %}
-                    {% if profile.high_school %}
-                    <div class="w3-small">
-                        <h5 class="">Lise: {{profile.high_school}}</h5>
-                        <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{profile.started_date_high_school}}
-                            - {{profile.end_date_high_school}}</h6>
-                        <hr>
-                    </div>
-
-                    {% endif %}
-
-                    <div class="w3-button w3-block w3-text-black w3-left-align">
-                        <i class="fa fa-plus fa-fw w3-margin-right"></i>
-                        <a class="btn" href="/user/profile/{{profile.user_id}}/dashboard">
-                            Profili Düzenle
-                        </a>
-                    </div>
-                    <br>
-                </div>
-            </div>
-            <br>
-
-            <!-- End Left Column -->
-        </div>
-
-        <!-- Right Column -->
-        <div class="w3-twothird">
-            <div class="w3-container w3-card w3-white w3-margin-bottom">
-                <div class="w3-container">
-                    <form method="post">
-                        <br>
-                        {% csrf_token %}
-                        {{form.media}}
-                        {{form|crispy}}
-                        <br>
-                        <button type="submit" class="w3-btn w3-black w3-hover-green"><i class="fa fa-pencil"></i>
-                             Paylaş
-                        </button>
-                    </form>
-                </div>
-                <br>
-            </div>
-
-            {% if articles %}
-
-            {% for article in articles %}
-
-
-
-            <div class="w3-container w3-card w3-white w3-margin-bottom">
-                <div class="w3-container">
-                    <div class="w3-row">
-                        <div class="w3-col m8 s12">
-                            <h2 class="w3-text-grey w3-padding-16"><i
-                        class="fa fa-th-large fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{article.title}}</h2>
-                        </div>
-                        <div class="w3-col m4 w3-hide-small">
-                            <br>
-                            <p><a href="/user/dashboard/update/{{article.id}}"><button class="w3-btn w3-black w3-hover-teal" type="submit"><i class="fa fa-pencil"></i>
-                                    </button></a>
-                            <a href="/user/dashboard/delete/{{article.id}}"><button class="w3-btn w3-black w3-hover-red" type="submit"><i class="fa fa-times"></i>
-                                    </button></a></p>
-                        </div>
-                    </div>
-
-
-                </div>
-
-                <div class="w3-container">
-                    <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{article.created_date}}</h6>
-                    <hr>
-                    <p>{{article.content|safe|truncatewords:10}}</p>
-                    <br>
-                </div>
-
-            </div>
-
-            {% endfor %}
-
-            {% else %}
-
-            <div class="w3-container w3-card w3-white w3-margin-bottom">
-                <h3 class="w3-text-grey w3-padding-16"><i
-                        class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>Gönderiniz Bulunmuyor.
-                </h3>
-
-
-            </div>
-
+        <div class="w3-display-container">
+            {% if profile.photo %}
+            <img src="{{ profile.photo.url }}" alt="{{ profile.name }}" style="width:100%">
             {% endif %}
 
+            <div class="w3-display-bottomleft w3-container w3-text-white">
+                <h2>{{user.username}} </h2>
 
-            <!-- End Right Column -->
+            </div>
+
         </div>
 
-        <!-- End Grid -->
+        <div class="w3-white w3-text-grey w3-card-4">
+
+            <br>
+
+            <div class="w3-container">
+
+                <p><i class="fa fa-user fa-fw w3-margin-right w3-large w3-text-black"></i>{{profile.name}}
+                    {{profile.surname}}</p>
+
+                <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-black"></i>Çalıştığı yer yazıcak
+                </p>
+                {% if profile.about %}
+                <p><i class="fa fa-bicycle fa-fw w3-margin-right w3-large w3-text-black"></i>{{profile.about}}</p>
+                {% else %}
+                <p><i class="fa fa-bicycle fa-fw w3-margin-right w3-large w3-text-black"></i>Belirtilmemiş</p>
+                {% endif %}
+
+                <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-black"></i>{{profile.email}}
+                </p>
+
+                <hr>
+                <div class="w3-container w3-center w3-xlarge">
+                    <a href="{{profile.facebook}}" style="color:black"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+                <a href="{{profile.instagram}}" style="color:black"><i class="fa fa-instagram w3-hover-opacity w3-center"></i></a>
+                <a href="{{profile.github}}" style="color:black"><i class="fa fa-snapchat w3-hover-opacity"></i></a>
+                <a href="{{profile.pinterest}}" style="color:black"><i class="fa fa-pinterest-p w3-hover-opacity"></i></a>
+                <a href="{{profile.twitter}}" style="color:black"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+                <a href="{{profile.linkedin}}" style="color:black"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+                </div>
+
+                <hr>
+
+
+
+                {% if workExperience %}
+                <p class="w3-large"><b><i class="fa fa-suitcase fa-fw  w3-margin-right w3-text-black"></i>İş
+                    Tecrübesi</b>
+                </p>
+                {% for workExperiences in workExperience %}
+                <div class=" w3-small">
+                    <h4 class="">{{ workExperiences.company }}</b></h4>
+                    <h5 class="w3-opacity">{{ workExperiences.position }}</b></h5>
+                    <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{workExperiences.started_date}} - {{workExperiences.end_date}}</h6>
+                    <br>
+                </div>
+                {% endfor %}
+                <hr>
+                {% endif %}
+
+
+
+                <p class="w3-large"><b><i class="fa fa-certificate fa-fw  w3-margin-right w3-text-black"></i>Eğitim</b>
+                </p>
+
+                {% if profile.phd %}
+
+                <div class="w3-small">
+                    <h5 class="w3-opacity">Doktora: {{profile.phd}}</h5>
+                    <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{profile.started_date_phd}}
+                        - {{profile.end_date_phd}}</h6>
+                    <hr>
+                </div>
+                {% endif %}
+                {% if profile.master_degree %}
+                <div class="w3-small">
+                    <h5 class="">Yüksek Lisans: {{profile.master_degree}}</h5>
+                    <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{profile.started_date_master_degree}}
+                        - {{profile.end_date_master_degree}}</h6>
+                    <hr>
+                </div>
+                {% endif %}
+                {% if profile.university %}
+                <div class="w3-small">
+                    <h5 class="w3-opacity">Üniversite: {{profile.university}}</h5>
+                    <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{profile.started_date_university}}
+                        - {{profile.end_date_university}}</h6>
+                    <hr>
+                </div>
+                {% endif %}
+                {% if profile.high_school %}
+                <div class="w3-small">
+                    <h5 class="">Lise: {{profile.high_school}}</h5>
+                    <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{profile.started_date_high_school}}
+                        - {{profile.end_date_high_school}}</h6>
+                    <hr>
+                </div>
+
+                {% endif %}
+
+                <div class="w3-button w3-block w3-text-black w3-left-align">
+                    <i class="fa fa-plus fa-fw w3-margin-right"></i>
+                    <a class="btn" href="/user/profile/{{profile.user_id}}/dashboard">
+                        Profili Düzenle
+                    </a>
+                </div>
+                <br>
+            </div>
+        </div>
+        <br>
+
+        <!-- End Left Column -->
     </div>
 
-    <!-- End Page Container -->
-    <footer class="w3-container  w3-center w3-margin-top"
-            style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
+    <!-- Right Column -->
+    <div class="w3-twothird">
+        <div class="w3-container w3-card w3-white w3-margin-bottom">
+            <div class="w3-container">
+                <form method="post">
+                    <br>
+                    {% csrf_token %}
+                    {{form.media}}
+                    {{form|crispy}}
+                    <br>
+                    <button type="submit" class="w3-btn w3-black w3-hover-green"><i class="fa fa-pencil"></i>
+                         Paylaş
+                    </button>
+                </form>
+            </div>
+            <br>
+        </div>
 
-        <i class="fa fa-facebook-official w3-hover-opacity"></i>
-        <i class="fa fa-instagram w3-hover-opacity"></i>
-        <i class="fa fa-snapchat w3-hover-opacity"></i>
-        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-        <i class="fa fa-twitter w3-hover-opacity"></i>
-        <i class="fa fa-linkedin w3-hover-opacity"></i>
-        <p>Powered by <a href="https://github.com/talhaucarr" target="_blank">xKral_Tr</a></p>
-    </footer>
+        {% if articles %}
+
+        {% for article in articles %}
+
+
+
+        <div class="w3-container w3-card w3-white w3-margin-bottom">
+            <div class="w3-container">
+                <div class="w3-row">
+                    <div class="w3-col m8 s12">
+                        <h2 class="w3-text-grey w3-padding-16"><i
+                    class="fa fa-th-large fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{article.title}}</h2>
+                    </div>
+                    <div class="w3-col m4 w3-hide-small">
+                        <br>
+                        <p><a href="/user/dashboard/update/{{article.id}}"><button class="w3-btn w3-black w3-hover-teal" type="submit"><i class="fa fa-pencil"></i>
+                                </button></a>
+                        <a href="/user/dashboard/delete/{{article.id}}"><button class="w3-btn w3-black w3-hover-red" type="submit"><i class="fa fa-times"></i>
+                                </button></a></p>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="w3-container">
+                <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{article.created_date}}</h6>
+                <hr>
+                <p>{{article.content|safe|truncatewords:10}}</p>
+                <br>
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+        {% else %}
+
+        <div class="w3-container w3-card w3-white w3-margin-bottom">
+            <h3 class="w3-text-grey w3-padding-16"><i
+                    class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>Gönderiniz Bulunmuyor.
+            </h3>
+
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- End Right Column -->
+    </div>
+
+    <!-- End Grid -->
 </div>
 
+<!-- End Page Container -->
+<footer class="w3-container  w3-center w3-margin-top"
+        style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
+
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p>Powered by <a href="https://github.com/talhaucarr" target="_blank">xKral_Tr</a></p>
+</footer>
 
 </body>
 </html>

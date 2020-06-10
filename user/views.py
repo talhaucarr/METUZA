@@ -43,7 +43,7 @@ def deleteArticle(request, id):
 def showProfile(request, id):
     profile = get_object_or_404(Profile, user_id=id)
     user = get_object_or_404(User, id=id)
-    workExperience = WorkExperience.objects.filter(user_id=id).order_by('-end_date')
+    workExperience = WorkExperience.objects.filter(user_id=id)
     articles = Article.objects.filter(author_id=id).order_by('-created_date')
     form = ArticleForm(request.POST or None, request.FILES or None)
 
@@ -89,16 +89,23 @@ def updateProfile(request, id):
 
 
 def register(request):
-    if request.method == "POST":
-        form = RegisterForm(request.POST)
-        second_form = ProfileForm(request.POST or None, request.FILES or None)
-        if form.is_valid():
-            profile = second_form.save(commit=False)
 
-            username = form.cleaned_data.get("username")
-            password = form.cleaned_data.get("password")
-            email = form.cleaned_data.get("email")
+    form = RegisterForm(request.POST or None)
 
+    context = {
+        "form": form
+    }
+
+    second_form = ProfileForm(request.POST or None, request.FILES or None)
+    
+    if form.is_valid():
+        profile = second_form.save(commit=False)
+
+        username = form.cleaned_data.get("username")
+        password = form.cleaned_data.get("password")
+        email = form.cleaned_data.get("email")
+
+        try:
             newUser = User(username=username, email=email)
             newUser.set_password(password)
 
@@ -109,25 +116,16 @@ def register(request):
             profile.user = request.user
             profile.email = email
             profile.save()
-            messages.info(request, "Kayit Başarili!")  # info succes falan rengini belirle.
+            messages.success(request, "Kayıt Başarılı!")  # info succes falan rengini belirle.
 
-            return redirect("index")
-        else:
-            form = RegisterForm()
-
-            context = {
-                "form": form
-            }
+            return redirect("index")  
+        
+        except:
+            messages.warning(request, "Kullanıcı adı başkası tarafından alınmış.")
             return render(request, "register.html", context)
-    else:
-
-        form = RegisterForm()
-
-        context = {
-            "form": form
-        }
-
-        return render(request, "register.html", context)
+    
+    return render(request, "register.html", context)
+    
 
 
 def loginUser(request):

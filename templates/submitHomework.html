@@ -47,136 +47,129 @@ display:none;
 
 
 
+
 </style>
 <body class="w3-light-grey">
 
 <!-- Page Container -->
-<div class="w3-main" style="margin-left:300px;">
 
-    <!-- The Grid -->
-    <div class="w3-row-padding">
+<!-- The Grid -->
+<div class="w3-row-padding">
 
-        <!-- Left Column -->
-        <div class="w3-third">
+    <!-- Left Column -->
+    <div class="w3-third">
 
-            <div class="w3-white w3-text-grey w3-card-4">
-                <div class="w3-display-container">
+        <div class="w3-white w3-text-grey w3-card-4">
+            <div class="w3-display-container">
 
-                    <div class="w3-display-bottomleft w3-container w3-text-black">
+                <div class="w3-display-bottomleft w3-container w3-text-black">
 
-                    </div>
                 </div>
-
-
-                <div class="w3-container">
-                    <br>
-                    <h2><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-black"></i> Ödevlerim
-                    </h2>
-
-                    <hr>
-
-                    {% if allHomework %}
-                        {% for deneme in allHomework %}
-
-                    <a href="/classes/homeworks/{{deneme.id}}/submit"><span class="w3-large">{{deneme.title}}</span><br></a>
-
-                    <hr>
-
-                    {% endfor %}
-
-                    {% else %}
-
-                    <h6><i class="fa fa-briefcase fa-university w3-margin-right w3-large w3-text-black"></i>Sınıfınız
-                        bulunmamaktadır.</h6>
-
-                    <br>
-
-                    {% endif %}
-                </div>
-
-
             </div>
-            <br>
-            <div class="w3-white w3-text-grey w3-card-4">
-                <div class="w3-display-container">
-
-                    <div class="w3-display-bottomleft w3-container w3-text-black">
-
-                    </div>
-                </div>
-
-            </div>
-            <br>
 
 
-            <!-- End Left Column -->
-        </div>
-
-
-        <!-- Right Column -->
-
-        <div class="w3-twothird">
-
-            <div class="w3-container w3-card w3-white w3-margin-bottom">
-                <h2 class="w3-text-grey w3-padding-16"><i
-                        class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{homework.title}}
+            <div class="w3-container">
+                <br>
+                <h2><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-black"></i> Ödevlerim
                 </h2>
 
-                <div class="w3-container">
-                    <!-- <h5 class="w3-opacity"><b>Bitiş Tarihi : {{ homeworks.end_date }} , {{homeworks.end_clock}}</b></h5> -->
-                    <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Bitiş Tarihi : {{ homework.end_date }} , {{homework.end_clock}} <span></span>
-                    </h6>
-                    <hr>
-                    <!--class="w3-tag w3-round">{{classroom.id}}</span></h6>-->
-                    <p>{{homework.content}}</p>
-                    <hr>
-                    <form method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
+                <hr>
 
-                        <div class="w3-row">
-                            <div class="w3-col m8 s12">
-                                <label class="w3-btn w3-black w3-hover-blue" for="files" style="cursor:pointer;">Dosya Aç</label>
+                {% if allHomework %}
+                {% for deneme in allHomework %}
 
-                                <input type="file" name="files" id="files" style="">
-                                <br>
-                            </div>
+                <a href="/classes/homeworks/{{deneme.id}}/submit"><span class="w3-large">{{deneme.title}}</span><br></a>
 
-                            <div class="w3-col s4 w3-center ">
-                                <p>
-                                    <button class="w3-btn w3-black w3-hover-teal" type="submit"><b>Teslim Et</b>
-                                    </button>
+                <hr>
+
+                {% endfor %}
+
+                {% else %}
+
+                <h6><i class="fa fa-briefcase fa-university w3-margin-right w3-large w3-text-black"></i>Sınıfınız
+                    bulunmamaktadır.</h6>
+
+                <br>
+
+                {% endif %}
+            </div>
 
 
+        </div>
+        <br>
+        <div class="w3-white w3-text-grey w3-card-4">
+            <div class="w3-display-container">
 
-                                </p>
+                <div class="w3-display-bottomleft w3-container w3-text-black">
+
+                </div>
+            </div>
+
+        </div>
+        <br>
 
 
-                            </div>
+        <!-- End Left Column -->
+    </div>
+
+
+    <!-- Right Column -->
+
+    <div class="w3-twothird">
+
+        <div class="w3-container w3-card w3-white w3-margin-bottom">
+            <h2 class="w3-text-grey w3-padding-16"><i
+                    class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{homework.title}}
+            </h2>
+
+            <div class="w3-container">
+                <!-- <h5 class="w3-opacity"><b>Bitiş Tarihi : {{ homeworks.end_date }} , {{homeworks.end_clock}}</b></h5> -->
+                <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Bitiş Tarihi : {{ homework.end_date }} , {{homework.end_clock}} <span></span>
+                </h6>
+                <hr>
+                <!--class="w3-tag w3-round">{{classroom.id}}</span></h6>-->
+                <p>{{homework.content}}</p>
+                <hr>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="w3-row">
+                        <div class="w3-col m8 s12">
+                            <label class="w3-btn w3-black w3-hover-blue" for="files" style="cursor:pointer;">Dosya
+                                Aç</label>
+
+                            <input type="file" name="files" id="files" style="">
+                            <br>
+                        </div>
+
+                        <div class="w3-col s4 w3-center ">
+                            <p>
+                                <button class="w3-btn w3-black w3-hover-teal" type="submit"><b>Teslim Et</b>
+                                </button>
+
+
+                            </p>
+
 
                         </div>
 
+                    </div>
 
 
-
-
-
-
-
-                    </form>
-                </div>
-                <br>
-
+                </form>
             </div>
-
+            <br>
 
         </div>
 
 
-        <!-- End Grid -->
     </div>
 
-    <!-- End Page Container -->
+
+    <!-- End Grid -->
 </div>
+
+<!-- End Page Container -->
 
 <footer class="w3-container  w3-center w3-margin-top" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
 
@@ -219,6 +212,7 @@ display:none;
   });
 
 });
+
 </script>
 
 

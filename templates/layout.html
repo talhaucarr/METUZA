@@ -9,26 +9,28 @@
 <body>
 
 
+
 {% include "includes/navbar.html" %}
 
 <div style='margin-top:50px; margin-bottom : 100px;' class="w3-container">
+    <div class="w3-main" style="margin-left:300px;margin-top:43px;">
+        {% if messages %}
 
-    {% if messages %}
+        {% for message in messages %}
+        {% if message.tags == "info" %}
+        <div class="alert alert-danger"> {{ message }}</div>
+        {% else%}
+        <div class="alert alert-{{ message.tags }}"> {{ message }}</div>
+        {% endif %}
 
-    {% for message in messages %}
-    {% if message.tags == "info" %}
-    <div class="alert alert-danger"> {{ message }}</div>
-    {% else%}
-    <div class="alert alert-{{ message.tags }}"> {{ message }}</div>
-    {% endif %}
+        {% endfor %}
 
-    {% endfor %}
+        {% endif %}
 
-    {% endif %}
+        {% block body %}
 
-    {% block body %}
-
-    {% endblock body %}
+        {% endblock body %}
+    </div>
 </div>
 
 

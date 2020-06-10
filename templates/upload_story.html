@@ -3,15 +3,15 @@
 {% load crispy_forms_tags %}
 
 {% block body %}
-<div class="w3-main" style="margin-left:300px;">
-    <h2>Upload Story</h2>
-    <p>{{request.user.first_name}}</p>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
 
-        {{ form|crispy }}
-        <br>
-        <button type="submit" class="btn btn-primary">Upload Book</button>
-    </form>
-</div>
+<h2>Upload Story</h2>
+<p>{{request.user.first_name}}</p>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{ form|crispy }}
+    <br>
+    <button type="submit" class="btn btn-primary">Upload Book</button>
+</form>
+
 {% endblock body %}

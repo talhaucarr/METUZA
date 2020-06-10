@@ -76,7 +76,6 @@ def addhomework(request, id):
 
                 if _temp == 0:
                     _form = SecondHomework(request.POST or None)
-                    print("sa")
 
                     tempHomework = _form.save(commit=False)
 
@@ -88,7 +87,6 @@ def addhomework(request, id):
                     tempHomework.classroom_id = id
                     tempHomework.submit_count = 0
                     tempHomework.is_end = 0
-                    print("sa")
                     tempHomework.save()
                     _temp = 1
 
@@ -114,8 +112,6 @@ def classDetail(request, id):
 
     deneme = request.GET.get('kral')
 
-    if deneme:
-        print("sa")
 
     if form.is_valid():
         post = form.save(commit=False)
@@ -175,10 +171,6 @@ def homeworks(request):
     current_time = now.strftime("%H:%M:%S")
     current_date = now.strftime('%Y-%m-%d')
 
-    print("Current Time =", current_time)
-    for i in homework:
-        print(i)
-
     # deneme = ClassHomework.objects.filter(student_id=request.user, end_clock__gt=current_time,end_date__gt=current_date).order_by()
 
     classes = NewClass.objects.filter(id__in=[i for i in _tempList])
@@ -186,7 +178,10 @@ def homeworks(request):
     keyword = request.GET.get("deneme")
 
     if keyword:
-        joinClass(request, keyword)
+        try:
+            joinClass(request, keyword)
+        except:
+            messages.warning(request, "Lütfen geçerli bir kod giriniz.")
 
     return render(request, "showHomeworks.html",
                   {"homework": homework, "classes": classes, "class_content": class_content,

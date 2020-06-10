@@ -4,20 +4,17 @@
 
 {% load crispy_forms_tags %}
 
-<div class="w3-main" style="margin-left:300px;">
-    <div class="row">
-        <div class="offset-md-3">
-            <hr>
-            <form method="post">
-                {% csrf_token %}
-                {{form.media}}
-                {{form|crispy}}
-                <br>
-                <button type="submit" class="w3-btn w3-black w3-hover-green">Makale Güncelle</button>
-            </form>
-        </div>
+<div class="row">
+    <div class="offset-md-3">
+        <hr>
+        <form method="post">
+            {% csrf_token %}
+            {{form.media}}
+            {{form|crispy}}
+            <br>
+            <button type="submit" class="w3-btn w3-black w3-hover-green">Makale Güncelle</button>
+        </form>
     </div>
 </div>
-
 
 {% endblock body %}

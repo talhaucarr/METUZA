@@ -4,73 +4,69 @@
 
 {% load crispy_forms_tags %}
 
-
-<div class="w3-main" style="margin-left:300px;">
-    <div class="w3-row-padding">
-        <div class="w3-quarter">
-            <div class="w3-white w3-text-grey w3-card-4">
+<div class="w3-row-padding">
+    <div class="w3-quarter">
+        <div class="w3-white w3-text-grey w3-card-4">
 
 
-                <div class="w3-container w3-row">
-                    <br>
-                    <div class="w3-col s4">
-                        {% if profile.photo %}
-                        <img src="{{ profile.photo.url }}" class="w3-circle w3-margin-right" style="width:80px">
-                        {% endif %}
-                    </div>
-                    <div class="w3-col s8 w3-bar">
-                        <span>Hoşgeldin, <strong>{{request.user}}</strong></span><br>
-                        <a href="sentMessage"
-                           class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
-                        <a href="/user/profile/{{profile.user_id}}" class="w3-bar-item w3-button"><i
-                                class="fa fa-user"></i></a>
-                        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
-                    </div>
+            <div class="w3-container w3-row">
+                <br>
+                <div class="w3-col s4">
+                    {% if profile.photo %}
+                    <img src="{{ profile.photo.url }}" class="w3-circle w3-margin-right" style="width:80px">
+                    {% endif %}
                 </div>
-                <hr>
-                <a href="sentMessage">
-                    <button class="w3-button w3-block w3-text-black w3-left-align" name="deneme" value="Click">
-                        <i class="fa fa-pencil fa-fw w3-margin-right"></i>
-
-                        Mesaj Gönder
-
-                    </button>
-                </a>
-                <hr>
-
-                <div class="w3-container">
-                    <h5>Dashboard</h5>
+                <div class="w3-col s8 w3-bar">
+                    <span>Hoşgeldin, <strong>{{request.user}}</strong></span><br>
+                    <a href="sentMessage"
+                        class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+                    <a href="/user/profile/{{profile.user_id}}" class="w3-bar-item w3-button"><i
+                            class="fa fa-user"></i></a>
+                    <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
                 </div>
-                <div class="w3-bar-block">
+            </div>
+            <hr>
+            <a href="sentMessage">
+                <button class="w3-button w3-block w3-text-black w3-left-align" name="deneme" value="Click">
+                    <i class="fa fa-pencil fa-fw w3-margin-right"></i>
 
-                    <a href="/messages" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> 
-                        Ana Sayfa</a>
-                    <a href="/messages/inbox" class="w3-bar-item w3-button w3-padding"><i class="fa fa-paper-plane"></i> 
-                        Gelen
-                        Kutusu</a>
-                    <a href="/messages/sentbox" class="w3-bar-item w3-button w3-padding"><i
-                            class="fa fa-users fa-fw"></i>  Gönderilmiş
-                        Öğeler</a>
-                    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i> 
-                        Geçmiş</a>
-                    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i> 
-                        Ayarlar</a><br><br>
-                </div>
+                    Mesaj Gönder
 
+                </button>
+            </a>
+            <hr>
+
+            <div class="w3-container">
+                <h5>Dashboard</h5>
+            </div>
+            <div class="w3-bar-block">
+
+                <a href="/messages" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> 
+                    Ana Sayfa</a>
+                <a href="/messages/inbox" class="w3-bar-item w3-button w3-padding"><i class="fa fa-paper-plane"></i> 
+                    Gelen
+                    Kutusu</a>
+                <a href="/messages/sentbox" class="w3-bar-item w3-button w3-padding"><i
+                        class="fa fa-users fa-fw"></i>  Gönderilmiş
+                    Öğeler</a>
+                <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i> 
+                    Geçmiş</a>
+                <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i> 
+                    Ayarlar</a><br><br>
             </div>
 
         </div>
-        <div class="w3-threequarter">
 
-            <div class="w3-white w3-text-grey w3-card-4">
+    </div>
+    <div class="w3-threequarter">
+
+        <div class="w3-white w3-text-grey w3-card-4">
 
 
-
-            </div>
 
         </div>
+
     </div>
 </div>
-
 
 {% endblock body %}

@@ -42,6 +42,15 @@
 					<span class="login100-form-title p-b-32">
 						Kayit Ol
 					</span>
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if message.tag == "info" %}
+                                <div class="alert alert-danger">{{ message }}</div> 
+                            {% else %}
+                                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                            {% endif %}
+                        {% endfor %}       
+                    {% endif %}
 
                     {% csrf_token %}
                     {{form|crispy}}
@@ -56,8 +65,8 @@
                         </div>
 
                         <div>
-                            <a href="#" class="txt3">
-                                Parolanızı mı Unuttunuz?
+                            <a href="/user/login/" class="txt3">
+                                Zaten kayıt oldun mu? Giriş yap
                             </a>
                         </div>
                     </div>

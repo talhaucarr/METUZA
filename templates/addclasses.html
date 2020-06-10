@@ -10,7 +10,11 @@
         <hr>
         <form method="post">
             {% csrf_token %}
-            {{form|crispy}}
+            <label>Ad</label>
+            <input class="w3-input" type="text" name="class_name" id="class_name" {% if form.class_name.value != None %} value="{{form.class_name.value}}" {% endif %}></p>
+
+            <label>Kod</label>
+            <input class="w3-input" type="text" name="class_code" id="class_code" {% if form.class_code.value != None %} value="{{form.class_code.value}}" {% endif %} readonly></p>
             <br>
             <button type="submit" class="btn btn-danger">Sınıf Oluştur</button>
         </form>

@@ -43,6 +43,8 @@ class RegisterForm(forms.Form):
 
         if password and confirm and password != confirm:
             raise forms.ValidationError("Parolalar Eşleşmiyor")
+        if (email.find("@") != -1 and email.endswith(".com")) == False:
+            raise forms.ValidationError("Geçersiz e-mail")
 
         values = {
             "username": username,
