@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d68dc86-1577-45dd-9100-13f021e7df6b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/article/migrations/0006_comment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profil.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/submitHomework.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/submitHomework.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
