@@ -6,7 +6,6 @@
 <div class="w3-row-padding">
     <!-- Post Content Column -->
     <div class="w3-card-4">
-
         <div class="w3-container w3-theme-l4">
             <br>
             {% if profile.photo %}
@@ -17,18 +16,47 @@
             <h3 class="mt-4">{{article.title}} , <span class="w3-tag w3-round w3-theme-l3"> {{article.created_date}}</span></h3>
         </div>
         <div class="w3-container">
-
             <br>
-
-
             <!-- Post Content -->
             <h3 class="lead">{{article.content|safe}}</h3>
             <hr>
+            <h4>Yorumlar</h4>
+            <hr>
+            {% if comments %}
+            {% for comment in comments %}
+                <div class="media mb-4">
+                    <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                    <div class="media-body">
+                        <h5 class="mt-0">{{comment.comment_author}}</h5>
+                        {{comment.comment_date}} <br>
+                        {{comment.comment_content}}
+                    </div>
+                </div>
+            {% endfor %}
+            {% else %}
+            <div class="alert alert-danger">
+                Bu makaleye herhangi bir yorum yapılmadı, ilk yorumu yapan siz olun!
+            </div>
+            {% endif %}
+            <div class="card my-4" style="width: 100%;">
+                <h5 class="card-header">Yorum Ekle:</h5>
+                <div class="card-body">
+                    <form method = "post" action = "{% url 'article:comment' article.id %}">
+                        {% csrf_token %}
+                        <div class="from-group">
+                                <label for="formGroupExampleInput">İsmin</label>
+                                <input name="comment_author" type="text" class="form-control" id="formGroupExampleInput" placeholder="İsminizi girin">
+                            </div>
+                        <div class="from-group">
+                            <label for="formGroupExampleInput">Yorum</label>
+                            <textarea name="comment_content" class="from-control" rows="3" style="width: 100%;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-danger">Ekle</button>
+                    </form>
+                </div>
+            </div>
         </div>
-
-
     </div>
-
 </div>
 
 {% endblock body %}
