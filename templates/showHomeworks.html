@@ -24,6 +24,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
 
 
+
 </style>
 <body class="w3-light-grey">
 
@@ -93,15 +94,15 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                     <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
                         <div class="w3-center"><br>
                             <span onclick="document.getElementById('id01').style.display='none'"
-                                    class="w3-button w3-xlarge w3-transparent w3-display-topright"
-                                    title="Close Modal">×</span>
+                                  class="w3-button w3-xlarge w3-transparent w3-display-topright"
+                                  title="Close Modal">×</span>
 
                         </div>
                         <form class="w3-container">
                             <div class="w3-section">
                                 <label><b>Sınıf Kodu</b></label>
                                 <input class="w3-input w3-border w3-margin-bottom" type="text"
-                                        placeholder="Sınıf Kodunu Giriniz" name="deneme" required>
+                                       placeholder="Sınıf Kodunu Giriniz" name="deneme" required>
                                 <br>
 
                                 <button class="w3-button w3-block w3-black w3-hover-teal w3-section w3-padding"
@@ -137,7 +138,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                     class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{ i.title }} </h2>
             </a>
             <div class="w3-container">
-                <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sınıf Adı: {{i.classroom_id}} , Bitiş Tarihi : {{ i.end_date }} , {{i.end_clock}} <span></span>
+                <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sınıf Adı:
+                    {{i.classroom_id}} , Bitiş Tarihi : {{ i.end_date }} , {{i.end_clock}} <span></span>
                 </h6>
                 <hr>
 
@@ -156,7 +158,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                     </h2>
 
                     <div class="w3-container">
-                        <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sınıf Adı: {{i.classroom_id}} , Bitiş Tarihi :
+                        <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sınıf Adı:
+                            {{i.classroom_id}} , Bitiş Tarihi :
                             {{ i.end_date }} , {{i.end_clock}} <span
                                     class="w3-tag w3-round w3-red">Süresi Geçti</span>
                         </h6>
@@ -172,7 +175,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                                     class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{ i.title }} </h2>
 
                             <div class="w3-container">
-                                <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sınıf Adı: {{i.class_name}} , Bitiş
+                                <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sınıf Adı:
+                                    {{i.class_name}} , Bitiş
                                     Tarihi : {{ i.end_date }} , {{i.end_clock}} <span
                                             class="w3-tag w3-round w3-red">Süresi Geçti</span>
                                 </h6>

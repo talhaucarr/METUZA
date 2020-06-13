@@ -3,7 +3,10 @@ from django.contrib.auth.decorators import login_required
 from .forms import ArticleForm
 from django.contrib import messages
 from .models import Article
+from classRoom.models import ClassHomework, ClassContent, NewClass
 from user.models import Profile
+
+from datetime import datetime, date, time
 
 
 # Create your views here.
@@ -22,8 +25,34 @@ def articles(request):
 
 
 def index(request):
+    now = datetime.now()
+
+    zaman = time(int(now.strftime(('%H'))), int(now.strftime(('%M'))), int(now.strftime(('%S'))))
+
     last_articles = Article.objects.order_by("-created_date")[:5]
-    return render(request, "index.html", {"last_articles": last_articles})
+    if request.user.is_authenticated:
+        allHomework = ClassHomework.objects.filter(student_id=request.user)
+
+        class_content = ClassContent.objects.filter(student_name_id=request.user).values()
+        _temp = ""
+        _temp2 = ""
+        _tempList = list()
+
+        for i in class_content:
+            _temp = i['id']
+            _tempList.append(i['classroom_id'])
+            _temp2 = i['classroom_id']
+
+        classes = NewClass.objects.filter(id__in=[i for i in _tempList])
+
+        return render(request, "index.html",
+                      {"last_articles": last_articles, "allHomework": allHomework, "classes": classes,
+                       "current_date": date.today(),
+                       "current_time": zaman})
+
+    return render(request, "index.html",
+                  {"last_articles": last_articles, "current_date": date.today(),
+                   "current_time": zaman})
 
 
 def about(request, id):

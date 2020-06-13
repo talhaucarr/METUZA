@@ -18,66 +18,64 @@
 </header>
 
 
+<table class="w3-table-all w3-card-4">
+    <thead>
 
-    <table class="w3-table-all w3-card-4">
-        <thead>
+    <tr>
+        <th>Ad</th>
+        <th>Ödev Adı</th>
+        <th>Yükleme</th>
+        <th>Not</th>
+        <th>Mesaj Gönder</th>
+    </tr>
+    </thead>
 
-        <tr>
-            <th>Ad</th>
-            <th>Ödev Adı</th>
-            <th>Yükleme</th>
-            <th>Not</th>
-            <th>Mesaj Gönder</th>
-        </tr>
-        </thead>
+    <tbody>
 
-        <tbody>
+    {% for homeworks in homeworkss %}
 
-        {% for homeworks in homeworkss %}
+    <td>
 
-        <td>
-            {{ homeworks.student_name}}
-        </td>
+        {{ homeworks.student_name}}
+    </td>
 
-        <td> {{ homeworks.title }}</td>
+    <td> {{ homeworks.title }}</td>
 
-        <td>
-            {% if homeworks.files %}
+    <td>
+        {% if homeworks.files %}
 
-            <a href="{{ homeworks.files.url }}" class="w3-btn w3-black w3-hover-green" target="_blank">
-                İndir
-            </a>
-            {% else %}
-            <p>Yüklenmemis</p>
-            {% endif %}
-        </td>
-        <td>
-                <input class="w3-input w3-border w3-round-large" name="last" type="text" style="width:50px;"></p>
-
-
-
-
-        </td>
-
-        <td>
-            <button class="w3-btn w3-black w3-hover-blue" type="submit"><b>Mesaj Gönder</b></button>
-        </td>
+        <a href="{{ homeworks.files.url }}" class="w3-btn w3-black w3-hover-green" target="_blank">
+            İndir
+        </a>
+        {% else %}
+        <p>Yüklenmemis</p>
+        {% endif %}
+    </td>
+    <td>
+        <form method="get">
+            {% csrf_token %}
+            <input class="w3-input w3-border w3-round-large" name="sa" type="text"  style="width:50px;" required></p>
+        </form>
 
 
-        </tr>
+    </td>
 
-        {% endfor %}
+    <td>
+        <button class="w3-btn w3-black w3-hover-blue" type="submit"><b>Mesaj Gönder</b></button>
+    </td>
 
-        </tbody>
+    </tr>
+    {% endfor %}
+    </tbody>
 
+</table>
+<br>
+<form method="GET">
+    {% csrf_token %}
+    <button class="w3-btn w3-black w3-hover-blue" type="submit" name="deneme41" value="Click"><b>Kaydet</b></button>
+</form>
 
-    </table>
-    <br>
-
-    <button class="w3-btn w3-black w3-hover-blue" type="submit"><b>Kaydet</b></button>
-
-
-    <br>
+<br>
 
 <script src="{% static 'js/bootstrap.min.js'%}"></script>
 <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>

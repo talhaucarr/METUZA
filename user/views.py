@@ -17,31 +17,41 @@ def index(request):
 @login_required(login_url="user:login")
 def updateArticle(request, id):
     article = get_object_or_404(Article, id=id)
-    form = ArticleForm(request.POST or None, request.FILES or None, instance=article)
+    if article.author_id == request.user.id:
+        form = ArticleForm(request.POST or None, request.FILES or None, instance=article)
 
-    if form.is_valid():
-        article = form.save(commit=False)
+        if form.is_valid():
+            article = form.save(commit=False)
 
-        print()
-        article.author = request.user
-        article.save()
+            print()
+            article.author = request.user
+            article.save()
 
-        messages.success(request, "Makale Başarıyla Güncellendi.")
-        return redirect("/user/profile/{}".format(article.author_id))
+            messages.success(request, "Makale Başarıyla Güncellendi.")
+            return redirect("/user/profile/{}".format(article.author_id))
 
-    return render(request, "update.html", {"form": form})
+        return render(request, "update.html", {"form": form})
+
+    else:
+        messages.info(request, "Bu sayfaya erişim hakkınız yok!")
+        return render(request, "about.html")
 
 
 @login_required(login_url="user:login")
 def deleteArticle(request, id):
     article = get_object_or_404(Article, id=id)
-    article.delete()
-    messages.success(request, "Makale Başarıyla Silindi.")
-    return redirect("/user/profile/{}".format(article.author_id))
+    if article.author_id == request.user.id:
+        article.delete()
+        messages.success(request, "Makale Başarıyla Silindi.")
+        return redirect("/user/profile/{}".format(article.author_id))
+    else:
+        messages.info(request, "Bu sayfaya erişim hakkınız yok!")
+        return render(request, "about.html")
 
 
 def showProfile(request, id):
     profile = get_object_or_404(Profile, user_id=id)
+
     user = get_object_or_404(User, id=id)
     workExperience = WorkExperience.objects.filter(user_id=id)
     articles = Article.objects.filter(author_id=id).order_by('-created_date')
@@ -61,35 +71,40 @@ def showProfile(request, id):
                    "articles": articles})
 
 
+@login_required(login_url="user:login")
 def updateProfile(request, id):
-    profile = get_object_or_404(Profile, user_id=id)
-    workExperience = WorkExperience.objects.filter(user_id=id)
+    if id == request.user.id:
+        profile = get_object_or_404(Profile, user_id=id)
+        workExperience = WorkExperience.objects.filter(user_id=id)
 
-    form = ProfileForm(request.POST or None, request.FILES or None, instance=profile)
-    form2 = WorkExperienceForm(request.POST or None, request.FILES or None)
+        form = ProfileForm(request.POST or None, request.FILES or None, instance=profile)
+        form2 = WorkExperienceForm(request.POST or None, request.FILES or None)
 
-    if request.method == 'POST' and 'btn1' in request.POST:
-        new_profile = form.save(commit=False)
+        if request.method == 'POST' and 'btn1' in request.POST:
+            new_profile = form.save(commit=False)
 
-        new_profile.user = request.user
+            new_profile.user = request.user
 
-        new_profile.save()
-        return redirect("/user/profile/{}".format(id))
+            new_profile.save()
+            return redirect("/user/profile/{}".format(id))
 
-    if request.method == 'POST' and 'btn2' in request.POST:
-        new_work_experience = form2.save(commit=False)
+        if request.method == 'POST' and 'btn2' in request.POST:
+            new_work_experience = form2.save(commit=False)
 
-        new_work_experience.user = request.user
+            new_work_experience.user = request.user
 
-        new_work_experience.save()
+            new_work_experience.save()
 
-        return redirect("/user/profile/{}/dashboard".format(id))
+            return redirect("/user/profile/{}/dashboard".format(id))
 
-    return render(request, 'updateProfile.html', {"form": form, "form2": form2, "workExperience": workExperience})
+        return render(request, 'updateProfile.html', {"form": form, "form2": form2, "workExperience": workExperience})
+
+    else:
+        messages.info(request, "Bu sayfaya erişim hakkınız yok!")
+        return render(request, "about.html")
 
 
 def register(request):
-
     form = RegisterForm(request.POST or None)
 
     context = {
@@ -97,7 +112,7 @@ def register(request):
     }
 
     second_form = ProfileForm(request.POST or None, request.FILES or None)
-    
+
     if form.is_valid():
         profile = second_form.save(commit=False)
 
@@ -118,14 +133,13 @@ def register(request):
             profile.save()
             messages.success(request, "Kayıt Başarılı!")  # info succes falan rengini belirle.
 
-            return redirect("index")  
-        
+            return redirect("index")
+
         except:
             messages.warning(request, "Kullanıcı adı başkası tarafından alınmış.")
             return render(request, "register.html", context)
-    
+
     return render(request, "register.html", context)
-    
 
 
 def loginUser(request):

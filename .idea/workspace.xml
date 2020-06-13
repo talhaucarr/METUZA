@@ -2,19 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d68dc86-1577-45dd-9100-13f021e7df6b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mesaj/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mesaj/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classRoom/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/classRoom/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classRoom/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/classRoom/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/ForumHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ForumHome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/articles.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/booksHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/booksHome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/classDashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/classDashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/classDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/classDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/classes.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/classes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/folder/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/folder/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/homeworkDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homeworkDetail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profil.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profil.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/showHomeworks.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/showHomeworks.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/submitHomework.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/submitHomework.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,10 +106,6 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="716" y="329" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1584641306167" />
-    <state x="740" y="267" key="FileChooserDialogImpl" timestamp="1582784131071">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="740" y="267" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1582784131071" />
     <state width="1899" height="285" key="GridCell.Tab.0.bottom" timestamp="1590268689955">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -129,7 +126,6 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="168" key="SettingsEditor/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1589748763373" />
-    <state x="461" y="168" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1582784157258" />
     <state x="566" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1590782635093">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -139,10 +135,10 @@
     </state>
     <state x="769" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1588884238756" />
     <state x="769" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050@0.0.1920.1050" timestamp="1588173879000" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1590055856923">
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1591884920805">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1590055856923" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1591884920805" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

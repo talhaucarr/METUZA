@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 from django.core.files.storage import FileSystemStorage
 from django.views.generic import ListView, CreateView
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 
 from .forms import BookForm, BookStoryForm, BookPersonalForm, BookMathForm
 from .models import Book, BookStory, BookPersonal, BookMath
@@ -31,7 +32,7 @@ def book_list(request):
         'books': books
     })
 
-
+@login_required(login_url="user:login")
 def upload_book(request):
     if request.method == "POST":
         form = BookForm(request.POST, request.FILES)
@@ -45,7 +46,7 @@ def upload_book(request):
         'form': form
     })
 
-
+@login_required(login_url="user:login")
 def delete_book(request, pk):
     if request.method == 'POST':
         book = Book.objects.get(pk=pk)
@@ -78,7 +79,7 @@ def story_list(request):
         'books': books
     })
 
-
+@login_required(login_url="user:login")
 def upload_story(request):
     if request.method == "POST":
         form = BookStoryForm(request.POST, request.FILES)
@@ -92,7 +93,7 @@ def upload_story(request):
         'form': form
     })
 
-
+@login_required(login_url="user:login")
 def delete_story(request, pk):
     if request.method == 'POST':
         book = BookStory.objects.get(pk=pk)
@@ -107,7 +108,7 @@ def personal_list(request):
         'books': books
     })
 
-
+@login_required(login_url="user:login")
 def upload_personal(request):
     if request.method == "POST":
         form = BookPersonalForm(request.POST, request.FILES)
@@ -121,7 +122,7 @@ def upload_personal(request):
         'form': form
     })
 
-
+@login_required(login_url="user:login")
 def delete_personal(request, pk):
     if request.method == 'POST':
         book = BookPersonal.objects.get(pk=pk)
@@ -136,7 +137,7 @@ def math_list(request):
         'books': books
     })
 
-
+@login_required(login_url="user:login")
 def upload_math(request):
     if request.method == "POST":
         form = BookMathForm(request.POST, request.FILES)
@@ -150,7 +151,7 @@ def upload_math(request):
         'form': form
     })
 
-
+@login_required(login_url="user:login")
 def delete_math(request, pk):
     if request.method == 'POST':
         book = BookMath.objects.get(pk=pk)
