@@ -12,7 +12,7 @@ class NewClassForm(forms.ModelForm):
 class NewContentForm(forms.ModelForm):
     class Meta:
         model = ClassContent
-        fields = ["student_name", "classroom"]
+        fields = [ "classroom"]
 
 
 class NewHomeworkForm(forms.ModelForm):

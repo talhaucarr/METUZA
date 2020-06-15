@@ -144,29 +144,35 @@ def classDetail(request, id):
 
 
 @login_required(login_url="user:login")
-def joinClass(request, keyword):
-    student = NewContentForm(request.POST or None)
+def joinClass(request, keyword, homework, class_content, classes, zaman):
+    student = NewContentForm(data=request.POST)
+    className = get_object_or_404(ClassContent, class_name=keyword)
+    homeworks = Homework.objects.filter(classroom_id=className.classroom_id)
 
-    if keyword:
-        articles = NewClass.objects.get(class_name=keyword)
+    if student.is_valid():
+        if keyword:
+            articles = NewClass.objects.get(class_name=keyword)
 
-        _student = student.save(commit=False)
+            _student = student.save(commit=False)
 
-        _student.class_name = articles.class_name
+            _student.class_name = articles.class_name
 
-        _student.student_naame = request.user
+            _student.student_naame = request.user
 
-        _student.student_name_id = request.user.id
+            _student.student_name_id = request.user.id
 
-        _student.classroom_id = articles.id
+            _student.classroom_id = articles.id
 
-        _student.save()
+            _student.save()
 
-        messages.success(request, "Başarıyla Kayıt olundu!")
+            messages.success(request, "Başarıyla Kayıt olundu!")
 
+            return render(request, "showHomeworks.html",
+                          {"homework": homework, "classes": classes, "class_content": class_content,
+                           "current_date": date.today(), "current_time": zaman})
 
-    else:
-        messages.info(request, "Düzgün bir sınıf kodu giriniz.")
+        else:
+            messages.info(request, "Düzgün bir sınıf kodu giriniz.")
 
 
 @login_required(login_url="user:login")
@@ -186,24 +192,58 @@ def homeworks(request):
 
     zaman = time(int(now.strftime(('%H'))), int(now.strftime(('%M'))), int(now.strftime(('%S'))))
 
-    current_time = now.strftime("%H:%M:%S")
-    current_date = now.strftime('%Y-%m-%d')
+    classes = NewClass.objects.filter(id__in=[i for i in _tempList])
 
-    # deneme = ClassHomework.objects.filter(student_id=request.user, end_clock__gt=current_time,end_date__gt=current_date).order_by()
+    keyword = request.POST.get("deneme")
+
+    if request.POST:
+        if keyword:
+            try:
+                joinClass(request, keyword, homework, class_content, classes, zaman)
+                return render(request, "showHomeworks.html",
+                              {"homework": homework, "classes": classes, "class_content": class_content,
+                               "current_date": date.today(), "current_time": zaman})
+            except:
+                messages.warning(request, "Lütfen geçerli bir kod giriniz.")
+
+    return render(request, "showHomeworks.html",
+                  {"homework": homework, "classes": classes, "class_content": class_content,
+                   "current_date": date.today(), "current_time": zaman})
+
+
+@login_required(login_url="user:login")
+def studentClass(request, id):
+    class_content = ClassContent.objects.filter(student_name_id=request.user).values()
+    temp = get_object_or_404(NewClass, id=id)
+    _temp = ""
+    _temp2 = ""
+    _tempList = list()
+
+    for i in class_content:
+        _temp = i['id']
+        _tempList.append(i['classroom_id'])
+        _temp2 = i['classroom_id']
+
+    homework = ClassHomework.objects.filter(student_id=request.user, classroom_id=id).order_by('-end_date')
+    now = datetime.now()
+
+    zaman = time(int(now.strftime(('%H'))), int(now.strftime(('%M'))), int(now.strftime(('%S'))))
 
     classes = NewClass.objects.filter(id__in=[i for i in _tempList])
 
     keyword = request.GET.get("deneme")
 
-    if keyword:
-        try:
-            joinClass(request, keyword)
-        except:
-            messages.warning(request, "Lütfen geçerli bir kod giriniz.")
+    """if request.POST:
 
-    return render(request, "showHomeworks.html",
+        if keyword:
+            try:
+                joinClass(request, keyword)
+            except:
+                messages.warning(request, "Lütfen geçerli bir kod giriniz.")"""
+
+    return render(request, "studentClass.html",
                   {"homework": homework, "classes": classes, "class_content": class_content,
-                   "current_date": date.today(), "current_time": zaman})
+                   "current_date": date.today(), "current_time": zaman, "temp": temp})
 
 
 @login_required(login_url="user:login")
@@ -215,29 +255,25 @@ def submitHomework(request, id):
 
     if homework.student_name == request.user.username:
 
-        if homework.end_date > date.today():
-            if homework.end_clock > zaman:
+        if (homework.end_date > date.today()) or ((homework.end_date == date.today()) and homework.end_clock > zaman):
 
-                allHomework = ClassHomework.objects.filter(student_id=request.user)
-                if request.method == "POST":
-                    form = _NewHomeworkDeliveryForm(request.POST, request.FILES, instance=homework)
-                    if form.is_valid():
-                        file = form.save(commit=False)
-                        file.student_id = request.user
-                        file.is_deliver = 1
-                        file.save()
-                        messages.success(request, "Ödev başarıyla teslim edildi.")
-                        return redirect('/classes/homeworks/')
-                else:
-                    form = _NewHomeworkDeliveryForm()
-                form = _NewHomeworkDeliveryForm()
-                return render(request, 'submitHomework.html', {
-                    'form': form, 'homework': homework, 'allHomework': allHomework
-                })
-
+            allHomework = ClassHomework.objects.filter(student_id=request.user)
+            if request.method == "POST":
+                form = _NewHomeworkDeliveryForm(request.POST, request.FILES, instance=homework)
+                if form.is_valid():
+                    file = form.save(commit=False)
+                    file.student_id = request.user
+                    file.is_deliver = 1
+                    file.save()
+                    messages.success(request, "Ödev başarıyla teslim edildi.")
+                    return redirect('/classes/homeworks/')
             else:
-                messages.warning(request, "Ödevin süresi geçmiş. Bu ödevi teslim edemezsiniz!")
-                return render(request, "about.html")
+                form = _NewHomeworkDeliveryForm()
+            form = _NewHomeworkDeliveryForm()
+            return render(request, 'submitHomework.html', {
+                'form': form, 'homework': homework, 'allHomework': allHomework
+            })
+
         else:
             messages.warning(request, "Ödevin süresi geçmiş. Bu ödevi teslim edemezsiniz!")
             return render(request, "about.html")

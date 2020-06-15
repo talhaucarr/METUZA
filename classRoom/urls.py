@@ -17,4 +17,5 @@ urlpatterns = [
     path('dashboard/<slug:slug>/delete', views.deleteHomework, name="deleteHomework"),
     path('<slug:slug>/homeworkDetail', views.homeworkDetail, name="homeworkDetail"),
     path('homeworks/', views.homeworks, name="homeworks"),
+    path('homeworks/<int:id>', views.studentClass, name="studentClass"),
 ]

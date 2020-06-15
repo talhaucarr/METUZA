@@ -31,7 +31,7 @@ class ClassHomework(models.Model):
     classroom = models.ForeignKey(NewClass, null=True, blank=True, on_delete=models.CASCADE)
     student = models.ForeignKey("auth.User", null=True, blank=True, on_delete=models.CASCADE)
     created_date = models.DateField(auto_now_add=True, null=True)
-    end_date = models.DateField("Bitiş Tarihi(mm/dd/yyyy)", help_text="Lütfen formata uygun giriniz.",
+    end_date = models.DateField("Bitiş Tarihi(dd/mm/yyyy)", help_text="Lütfen formata uygun giriniz.",
                                 auto_now_add=False, auto_now=False, null=True)
     end_clock = models.TimeField("Bitiş Saati(h:m:s)", help_text="Lütfen formata uygun giriniz.", auto_now_add=False,
                                  auto_now=False, null=True)
@@ -46,7 +46,7 @@ class Homework(models.Model):
     title = models.CharField(max_length=50, verbose_name="Başlık", null=True)
     content = RichTextField(null=True, blank=True, verbose_name="Ödev İçeriği")
     classroom = models.ForeignKey(NewClass, null=True, blank=True, on_delete=models.CASCADE)
-    end_date = models.DateField("Bitiş Tarihi(mm/dd/yyyy)", help_text="Lütfen formata uygun giriniz.",
+    end_date = models.DateField("Bitiş Tarihi(dd/mm/yyyy)", help_text="Lütfen formata uygun giriniz.",
                                 auto_now_add=False, auto_now=False, null=True)
     end_clock = models.TimeField("Bitiş Saati(h:m:s)", help_text="Lütfen formata uygun giriniz.", auto_now_add=False,
                                  auto_now=False, null=True)

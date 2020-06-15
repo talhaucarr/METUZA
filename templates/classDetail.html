@@ -59,7 +59,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                     {% for homeworks in homework %}
                     {% if homeworks.classroom_id == id %}
                     <tr>
-                        <td><a href="/classes/{{homeworks.homework_code}}/homeworkDetail">{{homeworks.title}}</a>
+                        <td><a href="/classes/{{homeworks.homework_code}}/homeworkDetail">{{homeworks.title|safe|truncatewords:1}}</a>
                         </td>
                         <td>{{homeworks.end_date}},{{homeworks.end_clock}}</td>
                         <td>{{homeworks.submit_count}}</td>

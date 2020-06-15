@@ -11,10 +11,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 
 </style>
-<body class="w3-light-grey">
+<body class="w3-light-grey" style="">
 
 <!-- Top container -->
-<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+<div class="w3-bar w3-top w3-large" style="background-color:rgb(35, 39, 42); color:rgb(211,211,211); z-index:4 ">
     {% if request.user.is_authenticated %}
     <a href="/user/logout" class="w3-button w3-right w3-hover-red w3-xlarge"><i class="fa fa-times"></i></a>
 
@@ -27,7 +27,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <!-- Sidebar/menu -->
 {% if request.user.is_authenticated %}
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px; " id="mySidebar"><br>
+<nav class="w3-sidebar w3-collapse w3-animate-left" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211); z-index:3;width:300px; " id="mySidebar"><br>
     <div class="w3-container w3-row">
         <div class="w3-col s4">
             <!--

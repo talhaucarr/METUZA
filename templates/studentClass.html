@@ -17,14 +17,20 @@
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
-
 </style>
 <body class="w3-light-grey">
+
 
 <!-- Page Container -->
 
 <!-- The Grid -->
 <div class="w3-row-padding">
+    <div class=" w3-center">
+
+
+    <p><a class="w3-button w3-xxlarge w3-black">{{temp.class_name}}</a></p>
+        <br>
+  </div>
 
     <!-- Left Column -->
     <div class="w3-third">
@@ -37,6 +43,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                 </div>
             </div>
 
+
             <div class="w3-container">
                 <br>
                 <h2><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-black"></i> Sınıflarım
@@ -46,7 +53,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                 {% if classes %}
                 {% for deneme in classes %}
 
-                <a href="/classes/homeworks/{{deneme.id}}"><span class="w3-large">{{deneme.class_name}}</span><br></a>
+
+                <a href="{{deneme.id}}"><span class="w3-large">{{deneme.class_name}}</span><br></a>
 
                 <hr>
 
@@ -55,80 +63,29 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                 {% else %}
                 <h6><i class="fa fa-briefcase fa-university w3-margin-right w3-large w3-text-black"></i>Sınıfınız
                     bulunmamaktadır.</h6>
-
                 <br>
                 {% endif %}
-
-            </div>
-
-        </div>
-        <br>
-        <div class="w3-white w3-text-grey w3-card-4">
-            <div class="w3-display-container">
-
-                <div class="w3-display-bottomleft w3-container w3-text-black">
-
-                </div>
-            </div>
-            <div class="w3-container">
-
-                <br>
-                <button class="w3-button w3-block w3-text-black w3-left-align"
-                        onclick="document.getElementById('id01').style.display='block'">
-                    <i class="fa fa-plus fa-fw w3-margin-right"></i>
-
-                    Sınıfa Katıl
-
-                </button>
-                <div id="id01" class="w3-modal">
-                    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-                        <div class="w3-center"><br>
-                            <span onclick="document.getElementById('id01').style.display='none'"
-                                  class="w3-button w3-xlarge w3-transparent w3-display-topright"
-                                  title="Close Modal">×</span>
-
-                        </div>
-                        <form class="w3-container" method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <div class="w3-section">
-                                <label><b>Sınıf Kodu</b></label>
-                                <input class="w3-input w3-border w3-margin-bottom" type="text"
-                                       placeholder="Sınıf Kodunu Giriniz" name="deneme" required>
-                                <br>
-
-                                <button class="w3-button w3-block w3-black w3-hover-teal w3-section w3-padding"
-                                        type="submit" name="deneme1">
-                                    Katıl
-                                </button>
-
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <br>
             </div>
         </div>
         <br>
-
-        <!-- End Left Column -->
+        <br>
     </div>
 
 
     <!-- Right Column -->
 
     <div class="w3-twothird">
-
         {% for i in homework %}
 
-        {% if i.end_date > current_date or i.end_date == current_date and i.end_clock > current_time %}
-
+        {% if i.end_date > current_date %}
+        {% if i.end_clock > current_time %}
         <div class="w3-container w3-card w3-white w3-margin-bottom">
             <a href="/classes/homeworks/{{i.id}}/submit"><h2 class="w3-text-grey w3-padding-16"><i
                     class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{ i.title }} </h2>
             </a>
             <div class="w3-container">
                 <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sınıf Adı:
-                    {{i.classroom_id}} , Bitiş Tarihi : {{ i.end_date }} , {{i.end_clock}} <span></span>
+                    {{i.class_name}} , Bitiş Tarihi : {{ i.end_date }} , {{i.end_clock}} <span></span>
                 </h6>
                 <hr>
 
@@ -148,8 +105,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
                     <div class="w3-container">
                         <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sınıf Adı:
-                            {{i.class_name}} , Bitiş
-                            Tarihi : {{ i.end_date }} , {{i.end_clock}} <span
+                            {{i.class_name}} , Bitiş Tarihi :
+                            {{ i.end_date }} , {{i.end_clock}} <span
                                     class="w3-tag w3-round w3-red">Süresi Geçti</span>
                         </h6>
                         <hr>
@@ -158,20 +115,30 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                         <hr>
                         <a class="w3-button w3-black w3-disabled">Teslim Et</a>
                         {% endif %}
+                        {% else %}
+                        <div class="w3-container w3-card w3-white w3-margin-bottom">
+                            <h2 class="w3-text-grey w3-padding-16"><i
+                                    class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{ i.title }} </h2>
+
+                            <div class="w3-container">
+                                <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sınıf Adı:
+                                    {{i.class_name}} , Bitiş
+                                    Tarihi : {{ i.end_date }} , {{i.end_clock}} <span
+                                            class="w3-tag w3-round w3-red">Süresi Geçti</span>
+                                </h6>
+                                <hr>
+                                <p>{{i.content}}</p>
+                                <hr>
+                                <a class="w3-button w3-black w3-disabled">Teslim Et</a>
+                                {% endif %}
+                            </div>
+                            <br>
+                        </div>
+                        {% endfor %}
                     </div>
-                    <br>
-
                 </div>
-
-                {% endfor %}
-
-            </div>
-
-            <!-- End Grid -->
-        </div>
-
-        <!-- End Page Container -->
 </body>
 </html>
+
 
 {% endblock body %}

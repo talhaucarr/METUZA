@@ -14,14 +14,14 @@
 
                     <tbody>
                     {% for i in allHomework %}
-                    {% if i.end_date > current_date %}
-                    {% if i.end_clock > current_time %}
+                    {% if i.end_date > current_date or i.end_date == current_date and i.end_clock > current_time %}
+
                     <td><a href="/classes/homeworks/{{i.id}}/submit">{{i.title}}</a></td>
                     <td>{{i.end_date}}</td>
                     <td>{{i.end_clock}}</td>
                     </tr>
                     {% endif %}
-                    {% endif %}
+
                     {% endfor %}
 
                     </tbody>
@@ -36,13 +36,13 @@
                 <h5>Sınıflar</h5>
             </div>
 
-            <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
-                <tr>
+            <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" >
+                <tr >
 
                     <tbody>
                     {% for i in classes %}
 
-                    <td><a href="/classes/homeworks/{{i.id}}/submit">{{i.class_name}}</a></td>
+                    <td><a href="/classes/homeworks/{{i.id}}">{{i.class_name}}</a></td>
                     <td class="w3-right-align"><strong>Sınıf Kodu: {{i.class_code}}</strong></td>
                     </tr>
 
