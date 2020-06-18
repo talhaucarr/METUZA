@@ -1,22 +1,26 @@
 {% extends "layout.html" %}
 
 {% block body %}
-
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-green.css">
+{% if request.user.is_authenticated %}
 <div class="w3-row">
     <div class="w3-row-padding">
         {% if request.user.is_authenticated %}
         <div class="w3-third">
             <div class="w3-container w3-center">
+                <div class="w3-panel w3-leftbar w3-rightbar  w3-border-green w3-round-large" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
                 <h5>Mevcut Ödevler</h5>
             </div>
-            <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
-                <tr>
+            </div>
+
+            <table class="w3-table" style="background-color:rgb(44, 47, 51);">
+
 
                     <tbody>
                     {% for i in allHomework %}
                     {% if i.end_date > current_date or i.end_date == current_date and i.end_clock > current_time %}
-
-                    <td><a href="/classes/homeworks/{{i.id}}/submit">{{i.title}}</a></td>
+                    <tr class="w3-hover-text-green" >
+                    <td><a href="/classes/homeworks/{{i.id}}/submit" class="w3-hover-text-green">{{i.title}}</a></td>
                     <td>{{i.end_date}}</td>
                     <td>{{i.end_clock}}</td>
                     </tr>
@@ -33,16 +37,18 @@
 
         <div class="w3-third w3-right">
             <div class="w3-container w3-center">
+                <div class="w3-panel w3-leftbar w3-rightbar  w3-border-blue w3-round-large" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
                 <h5>Sınıflar</h5>
             </div>
+            </div>
 
-            <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" >
-                <tr >
+            <table class="w3-table" style="background-color:rgb(44, 47, 51);">
+
 
                     <tbody>
                     {% for i in classes %}
-
-                    <td><a href="/classes/homeworks/{{i.id}}">{{i.class_name}}</a></td>
+                    <tr class="w3-hover-text-blue">
+                    <td><a href="/classes/homeworks/{{i.id}}" class="w3-hover-text-blue">{{i.class_name}}</a></td>
                     <td class="w3-right-align"><strong>Sınıf Kodu: {{i.class_code}}</strong></td>
                     </tr>
 
@@ -67,8 +73,8 @@
     <div class="w3-row-padding w3-margin-bottom">
 
         <div class="w3-quarter">
-            <a href="{% url 'book_list' %}">
-                <div class="w3-container w3-red w3-padding-16">
+            <a href="{% url 'book_list' %}" class="w3-hover-text-red">
+                <div class="w3-panel w3-leftbar w3-rightbar  w3-border-red w3-round-large w3-padding-16" style="background-color:rgb(44, 47, 51);">
                     <div class="w3-left"><i class="fa fa-code w3-xxxlarge"></i></div>
 
                     <div class="w3-clear"></div>
@@ -79,8 +85,8 @@
 
 
         <div class="w3-quarter">
-            <a href="{% url 'stroy_list' %}">
-                <div class="w3-container w3-blue w3-padding-16">
+            <a href="{% url 'stroy_list' %}" class="w3-hover-text-blue">
+                <div class="w3-panel w3-leftbar w3-rightbar  w3-border-blue w3-round-large w3-padding-16" style="background-color:rgb(44, 47, 51);">
                     <div class="w3-left"><i class="fa fa-book w3-xxxlarge"></i></div>
                     <div class="w3-right">
 
@@ -93,8 +99,8 @@
 
 
         <div class="w3-quarter">
-            <a href="{% url 'personal_list' %}">
-                <div class="w3-container w3-teal w3-padding-16">
+            <a href="{% url 'personal_list' %}" class="w3-hover-text-teal">
+                <div class="w3-panel w3-leftbar w3-rightbar  w3-border-teal w3-round-large w3-padding-16" style="background-color:rgb(44, 47, 51);">
                     <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
                     <div class="w3-right">
 
@@ -107,8 +113,8 @@
 
 
         <div class="w3-quarter">
-            <a href="{% url 'math_list' %}">
-                <div class="w3-container w3-orange w3-text-white w3-padding-16">
+            <a href="{% url 'math_list' %}" class="w3-hover-text-orange">
+                <div class="w3-panel w3-leftbar w3-rightbar  w3-border-orange w3-round-large w3-padding-16" style="background-color:rgb(44, 47, 51);">
                     <div class="w3-left"><i class="fa fa-calculator w3-xxxlarge"></i></div>
                     <div class="w3-right">
 
@@ -126,22 +132,26 @@
     <br><br><br><br>
 
     <div class="w3-container">
+        <div class="w3-container w3-center">
+        <div class="w3-panel w3-leftbar w3-rightbar w3-border-purple w3-round-large" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
         <h5>Son Paylaşılanlar</h5>
+        </div>
+        </div>
 
-        <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
-            <tr>
+        <table class="w3-table" style="background-color:rgb(44, 47, 51);">
+
 
                 <tbody>
-
+                <tr class="w3-hover-text-purple">
                 {% for articles in last_articles %}
-                <td><a href="/articles/article/{{articles.id}}">{{articles.title}}</a></td>
+                <td><a href="/articles/article/{{articles.id}}" class="w3-hover-text-purple">{{articles.title}}</a></td>
                 <td>{{articles.author}}</td>
                 </tr>
                 {% endfor %}
-
+                </tr>
                 </tbody>
 
-            </tr>
+
 
         </table>
         <br>
@@ -152,6 +162,14 @@
     </div>
 
 </div>
+{% else %}
+
+<p>BURAYA ANA SAYFA YAPILACAK</p>
+
+
+{% endif %}
+
+
 
 
 {% endblock body %}

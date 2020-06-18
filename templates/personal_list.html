@@ -20,7 +20,7 @@
     <div class="w3-quarter">
 
         <br><br><br><br><br><br><br>
-        <div class="w3-white w3-text-grey w3-card-4">
+        <div class=" w3-text-grey w3-card-4" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
             <div class="w3-display-container">
 
                 <div class="w3-display-bottomleft w3-container w3-text-black">
@@ -29,35 +29,44 @@
             </div>
             <div class="w3-container">
                 <br>
-                <a href="{% url 'book_list' %}">
-                    <div class="w3-container w3-red w3-round-xlarge w3-padding-20">
+                <div class="w3-panel w3-leftbar w3-rightbar  w3-border-red w3-bottombar w3-round-large w3-padding-7"
+                     style="background-color:rgb(44, 47, 51);">
+                    <a href="{% url 'book_list' %}" class="w3-text-white w3-hover-text-red">
+
                         <h3> Bilgisayar Bilimleri</h3>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 <br>
 
+                <div class="w3-panel w3-leftbar w3-rightbar  w3-border-blue w3-bottombar w3-round-large w3-padding-7"
+                     style="background-color:rgb(44, 47, 51);">
+                <a href="{% url 'stroy_list' %}" class="w3-text-white w3-hover-text-blue">
 
-                <a href="{% url 'stroy_list' %}">
-                    <div class="w3-container w3-blue w3-round-xlarge w3-padding-20">
                         <h3> Hikaye/Roman</h3>
-                    </div>
+
                 </a>
+                </div>
                 <br>
 
+                <div class="w3-panel w3-leftbar w3-rightbar  w3-border-teal w3-bottombar w3-round-large w3-padding-7"
+                     style="background-color:rgb(44, 47, 51);">
+                <a href="{% url 'personal_list' %}" class="w3-text-white w3-hover-text-teal">
 
-                <a href="{% url 'personal_list' %}">
-                    <div class="w3-container w3-teal w3-round-xlarge w3-padding-20">
                         <h3> Kişisel Gelişim</h3>
-                    </div>
+
                 </a>
+                </div>
                 <br>
 
 
-                <a href="{% url 'math_list' %}">
-                    <div class="w3-container w3-orange w3-round-xlarge w3-padding-20">
+                <div class="w3-panel w3-leftbar w3-rightbar  w3-border-orange w3-bottombar w3-round-large w3-padding-7"
+                     style="background-color:rgb(44, 47, 51);">
+                <a href="{% url 'math_list' %}" class="w3-text-white w3-hover-text-orange">
+
                         <h3> Fen/Matematik</h3>
-                    </div>
+
                 </a>
+                </div>
                 <br>
 
             </div>
@@ -77,7 +86,7 @@
 {% else %}
 
 {% endif %}
-<table class="w3-table-all w3-centered w3-card-4 w3-hoverable">
+<table class="w3-table" style="background-color:rgb(44, 47, 51);">
     <thead>
     <tr>
         <th>Ön İzleme</th>
@@ -100,17 +109,17 @@
             <td> {{ book.title }}</td>
             <td> {{ book.author }}</td>
             <td>
-                <a href="{{ book.pdf.url }}" class="w3-btn w3-black w3-hover-blue" target="_blank">
-                    PDF İndir
-                </a>
-            </td>
-            <td>
-                <form method="post" action="{% url 'delete_personal' book.pk %}">
-                    {% csrf_token %}
-                    <button type="submit" class="w3-btn w3-black w3-hover-red">Sil</button>
-                </form>
+                    <a href="{{ book.pdf.url }}" class="w3-btn w3-hover-green" style="background-color:rgb(119, 136, 153);" target="_blank">
+                        PDF İndir
+                    </a>
+                </td>
+                <td>
+                    <form method="post" action="{% url 'delete_personal' book.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="w3-btn w3-hover-red" style="background-color:rgb(119, 136, 153);">Sil</button>
+                    </form>
 
-            </td>
+                </td>
         </tr>
 
     {% endfor %}

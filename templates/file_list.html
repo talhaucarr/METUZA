@@ -6,6 +6,14 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
+<header class="w3-container w3-center w3-text-white w3-padding-16">
+    <div class="w3-panel w3-leftbar w3-rightbar  w3-border-purple w3-round-large" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
+    <h1><b>Sırt Çantası</b></h1>
+
+
+    </div>
+
+</header>
 
 <!--<h2>PDF Listesi</h2>
 <hr>-->
@@ -25,7 +33,7 @@
 
         {% endif %}
 
-        <table class="w3-table-all w3-centered w3-card-4 w3-hoverable">
+        <table class="w3-table" style="background-color:rgb(44, 47, 51);">
             <thead>
 
             <tr>
@@ -33,6 +41,7 @@
                 <th>İçerik</th>
                 <th>Yükleme</th>
                 <th>Delete</th>
+
             </tr>
             </thead>
             <tbody>
@@ -46,7 +55,7 @@
             <td> {{ book.title }}</td>
 
             <td>
-                <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sml" target="_blank">
+                <a href="{{ book.pdf.url }}" class="w3-btn w3-hover-blue w3-text-white" style="background-color:rgb(119, 136, 153);" target="_blank">
                     PDF İndir
                 </a>
             </td>
@@ -54,7 +63,7 @@
             <td>
                 <form method="post" action="{% url 'delete_book' book.pk %}">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-danger">Sil</button>
+                    <button type="submit" class="w3-btn w3-hover-red w3-text-white" style="background-color:rgb(119, 136, 153);">Sil</button>
                 </form>
 
             </td>

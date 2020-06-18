@@ -65,9 +65,9 @@ display:none;
             </div>
 
 
-            <div class="w3-container">
+            <div class="w3-container" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
                 <br>
-                <h2><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-black"></i> Ödevlerim
+                <h2><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-white"></i> Ödevlerim
                 </h2>
 
                 <hr>
@@ -75,8 +75,9 @@ display:none;
                 {% if allHomework %}
                 {% for deneme in allHomework %}
 
-                <a href="/classes/homeworks/{{deneme.id}}/submit"><span class="w3-large">{{deneme.title}}</span><br></a>
-
+                <div class="w3-panel w3-leftbar w3-rightbar w3-border-green w3-round-large">
+                <a href="/classes/homeworks/{{deneme.id}}/submit" class="w3-hover-text-green"><span class="w3-large">{{deneme.title}}</span><br></a>
+                </div>
                 <hr>
 
                 {% endfor %}
@@ -100,25 +101,25 @@ display:none;
     </div>
     <div class="w3-twothird">
 
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-            <h2 class="w3-text-grey w3-padding-16"><i
-                    class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{homework.title}}
+        <div class="w3-container" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
+            <h2 class="w3-text-white w3-padding-16"><i
+                    class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-white"></i>{{homework.title}}
             </h2>
 
             <div class="w3-container">
                 <!-- <h5 class="w3-opacity"><b>Bitiş Tarihi : {{ homeworks.end_date }} , {{homeworks.end_clock}}</b></h5> -->
-                <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Bitiş Tarihi : {{ homework.end_date }} , {{homework.end_clock}} <span></span>
+                <h6 class="w3-text-white"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Bitiş Tarihi : {{ homework.end_date }} , {{homework.end_clock}} <span></span>
                 </h6>
                 <hr>
                 <!--class="w3-tag w3-round">{{classroom.id}}</span></h6>-->
                 <p>{{homework.content}}</p>
-                <hr>
+                <br>
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
 
                     <div class="w3-row">
                         <div class="w3-col m8 s12">
-                            <label class="w3-btn w3-black w3-hover-blue" for="files" style="cursor:pointer;">Dosya
+                            <label class="w3-btn w3-hover-teal" style="background-color:rgb(119, 136, 153);" for="files" style="cursor:pointer;">Dosya
                                 Aç</label>
 
                             <input type="file" name="files" id="files" style="">
@@ -127,7 +128,7 @@ display:none;
 
                         <div class="w3-col s4 w3-center ">
                             <p>
-                                <button class="w3-btn w3-black w3-hover-teal" type="submit"><b>Teslim Et</b>
+                                <button class="w3-btn w3-hover-teal" style="background-color:rgb(119, 136, 153);" type="submit"><b>Teslim Et</b>
                                 </button>
                             </p>
                         </div>

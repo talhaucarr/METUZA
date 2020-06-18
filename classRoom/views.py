@@ -6,7 +6,10 @@ from django.core.files.storage import FileSystemStorage
 from .models import NewClass, ClassContent, ClassHomework, Homework, ClassPost
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
 from django.contrib import messages
+from django.core.mail import send_mail,EmailMultiAlternatives
+from django.contrib.auth.models import User
 
 import string
 import random
@@ -56,6 +59,7 @@ def addclass(request):
 @login_required(login_url="user:login")
 def addhomework(request, id):
     classroom = get_object_or_404(NewClass, id=id)
+    temp_email = list()
 
     if classroom.class_teacher_name_id == request.user.id:
         # print(classroom.id)
@@ -79,6 +83,9 @@ def addhomework(request, id):
                     homework.student_id = i.student_name_id
                     homework.classroom_id = id
 
+                    temp_email2 = get_object_or_404(User, id=i.student_name_id)
+                    temp_email.append(temp_email2.email)
+
                     if _temp == 0:
                         _form = SecondHomework(request.POST or None)
 
@@ -96,6 +103,14 @@ def addhomework(request, id):
                         _temp = 1
 
                     homework.save()
+
+
+
+                text_content = 'METUZA - Bilgilendirme'
+                html_content = '<p>Yeni bir  <strong>ödeviniz</strong> var.</p>'
+                msg = EmailMultiAlternatives("Ödev", text_content, settings.EMAIL_HOST_USER, [i for i in temp_email])
+                msg.attach_alternative(html_content,"text/html")
+                msg.send()
 
             return redirect("index")
 
@@ -146,11 +161,11 @@ def classDetail(request, id):
 @login_required(login_url="user:login")
 def joinClass(request, keyword, homework, class_content, classes, zaman):
     student = NewContentForm(data=request.POST)
-    className = get_object_or_404(ClassContent, class_name=keyword)
-    homeworks = Homework.objects.filter(classroom_id=className.classroom_id)
 
     if student.is_valid():
+
         if keyword:
+
             articles = NewClass.objects.get(class_name=keyword)
 
             _student = student.save(commit=False)
@@ -165,11 +180,26 @@ def joinClass(request, keyword, homework, class_content, classes, zaman):
 
             _student.save()
 
-            messages.success(request, "Başarıyla Kayıt olundu!")
+            className = ClassContent.objects.filter(class_name=keyword)
+            if not className:
+                return render(request, "showHomeworks.html",
+                              {"homework": homework, "classes": classes, "class_content": class_content,
+                               "current_date": date.today(), "current_time": zaman})
+            else:
+                homeworkss = Homework.objects.filter(classroom_id=className[0].classroom_id)
 
-            return render(request, "showHomeworks.html",
-                          {"homework": homework, "classes": classes, "class_content": class_content,
-                           "current_date": date.today(), "current_time": zaman})
+                for i in homeworkss:
+                    form = ClassHomework(end_clock=i.end_clock, end_date=i.end_date,
+                                         title=i.title, content=i.content, class_name=keyword,
+                                         student_name=request.user.username, homework_code=i.homework_code,
+                                         student_id=request.user.id, classroom_id=i.classroom_id)
+                    form.save()
+
+                messages.success(request, "Başarıyla Kayıt olundu!")
+
+                return render(request, "showHomeworks.html",
+                              {"homework": homework, "classes": classes, "class_content": class_content,
+                               "current_date": date.today(), "current_time": zaman})
 
         else:
             messages.info(request, "Düzgün bir sınıf kodu giriniz.")

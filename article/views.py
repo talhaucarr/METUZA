@@ -1,10 +1,16 @@
 from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import ArticleForm
+from django.conf import settings
 from django.contrib import messages
 from .models import Article, Comment
 from classRoom.models import ClassHomework, ClassContent, NewClass
 from user.models import Profile
+from django.contrib.auth.models import User
+
+
+from django.core.mail import send_mail
+
 
 from datetime import datetime, date, time
 
@@ -41,6 +47,7 @@ def articles(request):
 
 
 def index(request):
+
     now = datetime.now()
 
     zaman = time(int(now.strftime(('%H'))), int(now.strftime(('%M'))), int(now.strftime(('%S'))))

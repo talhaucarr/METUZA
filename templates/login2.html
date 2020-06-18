@@ -43,6 +43,15 @@
 					<span class="login100-form-title p-b-32">
 						Kullanıcı Girişi
 					</span>
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if message.tag == "info" %}
+                                <div class="alert alert-danger">{{ message }}</div>
+                            {% else %}
+                                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
 					{% csrf_token %}
                     {{form|crispy}}
                     

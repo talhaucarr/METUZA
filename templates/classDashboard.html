@@ -6,13 +6,15 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-<header class="w3-container w3-center w3-padding-16">
+<header class="w3-container w3-center w3-text-white w3-padding-16">
+    <div class="w3-panel w3-leftbar w3-rightbar  w3-border-blue w3-round-large" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
     <h1><b>Kontrol Paneli</b></h1>
 
     <p>Merhaba <span class="w3-tag">{{request.user}}</span> hoca</p>
     <p>Sınıf Kodu: <span class="w3-tag"> {{code}}</span></p>
     </p>
     <br><br>
+    </div>
 
 </header>
 
@@ -22,13 +24,13 @@
 
         <h3><b>Öğrenciler</b></h3>
         <br>
-        <table class="w3-table-all w3-card-4 w3-centered">
+        <table class="w3-table" style="background-color:rgb(44, 47, 51);">
 
             <thead>
-            <tr>
-                <th>Ad</th>
+            <tr style="background-color:rgb(35, 39, 42);">
+                <th >Ad</th>
                 <th></th>
-                <th></th>
+
             </tr>
             </thead>
             <tbody>
@@ -40,11 +42,9 @@
             </td>
 
 
+
             <td>
-                <button class="w3-btn w3-black w3-hover-cyan" type="submit"><b>Mesaj Gönder</b></button>
-            </td>
-            <td>
-                <button class="w3-btn w3-black w3-hover-lime" type="submit"><b>Yetkilendir</b></button>
+                <button class="w3-btn w3-hover-lime w3-text-white" style="background-color:rgb(119, 136, 153);" type="submit"><b>Yetkilendir</b></button>
             </td>
 
             </tr>
@@ -62,10 +62,10 @@
 
         <h3><b>Ödevler</b></h3>
         <br>
-        <table class="w3-table-all w3-card-4 w3-centered">
+        <table class="w3-table" style="background-color:rgb(44, 47, 51);">
             <thead>
 
-            <tr>
+            <tr style="background-color:rgb(35, 39, 42);">
                 <th>İçerik</th>
                 <th>Bitiş Tarihi</th>
                 <th>Ödev Kodu</th>
@@ -93,15 +93,15 @@
 
 
             <td>
-                <a href="/classes/dashboard/{{homework.homework_code}}/update">
-                    <button class="w3-btn w3-black w3-hover-light-green">
+                <a href="/classes/dashboard/{{homework.homework_code}}/update" class="w3-text-white">
+                    <button class="w3-btn w3-hover-light-green" style="background-color:rgb(119, 136, 153);">
                         Düzenle
                     </button>
                 </a>
             </td>
             <td>
-                <a href="/classes/dashboard/{{homework.homework_code}}/delete">
-                    <button class="w3-btn w3-black w3-hover-red">
+                <a href="/classes/dashboard/{{homework.homework_code}}/delete" class="w3-text-white">
+                    <button class="w3-btn w3-hover-red" style="background-color:rgb(119, 136, 153);">
                         Sil
                     </button>
                 </a>
@@ -124,10 +124,10 @@
 <br><br><br><br>
 <h3><b>Gönderiler</b></h3>
 <br>
-<table class="w3-table-all w3-card-4">
+<table class="w3-table" style="background-color:rgb(44, 47, 51);">
     <thead>
 
-    <tr>
+    <tr style="background-color:rgb(35, 39, 42);">
         <th>Başlık</th>
         <th>İçerik</th>
         <th>Oluşturulma Tarihi</th>
@@ -150,15 +150,15 @@
     </td>
 
     <td>
-        <a href="/classes/dashboard/{{post.id}}/update">
-            <button class="w3-btn w3-black w3-hover-light-green">
+        <a href="/classes/dashboard/{{post.id}}/update" class="w3-text-white">
+            <button class="w3-btn w3-hover-light-green" style="background-color:rgb(119, 136, 153);">
                 Düzenle
             </button>
         </a>
     </td>
     <td>
-        <a href="/classes/dashboard/{{post.id}}/delete">
-            <button class="w3-btn w3-black w3-hover-red">
+        <a href="/classes/dashboard/{{post.id}}/delete" class="w3-text-white">
+            <button class="w3-btn w3-hover-red" style="background-color:rgb(119, 136, 153);">
                 Sil
             </button>
         </a>

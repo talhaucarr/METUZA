@@ -28,7 +28,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
     <!-- Left Column -->
     <div class="w3-third">
-
         <div class="w3-white w3-text-grey w3-card-4">
             <div class="w3-display-container">
 
@@ -37,16 +36,18 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                 </div>
             </div>
 
-            <div class="w3-container">
+            <div class="w3-container" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
                 <br>
-                <h2><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-black"></i> Sınıflarım
+                <h2><i class="fa fa-briefcase fa-fw w3-margin-right w3-large"></i> Sınıflarım
                 </h2>
 
                 <hr>
                 {% if classes %}
                 {% for deneme in classes %}
 
-                <a href="/classes/homeworks/{{deneme.id}}"><span class="w3-large">{{deneme.class_name}}</span><br></a>
+                <div class="w3-panel w3-leftbar w3-rightbar  w3-border-blue w3-round-large">
+                <a href="/classes/homeworks/{{deneme.id}}" class="w3-hover-text-blue"><span class="w3-large">{{deneme.class_name}}</span><br></a>
+                </div>
 
                 <hr>
 
@@ -63,17 +64,17 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
         </div>
         <br>
-        <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-white w3-text-grey w3-card-4" >
             <div class="w3-display-container">
 
                 <div class="w3-display-bottomleft w3-container w3-text-black">
 
                 </div>
             </div>
-            <div class="w3-container">
+            <div class="w3-container " style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
 
                 <br>
-                <button class="w3-button w3-block w3-text-black w3-left-align"
+                <button class="w3-button w3-block  w3-left-align"
                         onclick="document.getElementById('id01').style.display='block'">
                     <i class="fa fa-plus fa-fw w3-margin-right"></i>
 
@@ -81,7 +82,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
                 </button>
                 <div id="id01" class="w3-modal">
-                    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+                    <div class="w3-modal-content w3-card-4 w3-light-grey w3-animate-zoom" style="max-width:600px">
                         <div class="w3-center"><br>
                             <span onclick="document.getElementById('id01').style.display='none'"
                                   class="w3-button w3-xlarge w3-transparent w3-display-topright"
@@ -96,7 +97,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                                        placeholder="Sınıf Kodunu Giriniz" name="deneme" required>
                                 <br>
 
-                                <button class="w3-button w3-block w3-black w3-hover-teal w3-section w3-padding"
+                                <button class="w3-button w3-block w3-black w3-hover-green w3-section w3-padding"
                                         type="submit" name="deneme1">
                                     Katıl
                                 </button>
@@ -122,26 +123,27 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
         {% if i.end_date > current_date or i.end_date == current_date and i.end_clock > current_time %}
 
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-            <a href="/classes/homeworks/{{i.id}}/submit"><h2 class="w3-text-grey w3-padding-16"><i
-                    class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{ i.title }} </h2>
+        <div class="w3-container w3-card w3-margin-bottom w3-round-large"
+             style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
+            <a href="/classes/homeworks/{{i.id}}/submit"><h2 class="w3-text-white w3-padding-16"><i
+                    class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-white"></i>{{ i.title }} </h2>
             </a>
             <div class="w3-container">
-                <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sınıf Adı:
+                <h6 class="w3-text-white"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sınıf Adı:
                     {{i.classroom_id}} , Bitiş Tarihi : {{ i.end_date }} , {{i.end_clock}} <span></span>
                 </h6>
                 <hr>
 
                 <p>{{i.content}}</p>
-                <hr>
+                <br>
 
                 <a href="/classes/homeworks/{{i.id}}/submit">
-                    <button class="w3-btn w3-black w3-hover-teal">
+                    <button class="w3-btn w3-hover-teal" style="background-color:rgb(119, 136, 153);">
                         Teslim Et
                     </button>
                 </a>
                 {% else %}
-                <div class="w3-container w3-card w3-white w3-margin-bottom">
+                <div class="w3-container w3-card w3-margin-bottom w3-round-large" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
                     <h2 class="w3-text-grey w3-padding-16"><i
                             class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{ i.title }}
                     </h2>
@@ -154,9 +156,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                         </h6>
                         <hr>
 
-                        <p>{{i.content}}</p>
-                        <hr>
-                        <a class="w3-button w3-black w3-disabled">Teslim Et</a>
+                        <p class="w3-text-black">{{i.content}}</p>
+                        <br>
+                        <a class="w3-button w3-disabled" style="background-color:rgb(119, 136, 153);">Teslim Et</a>
                         {% endif %}
                     </div>
                     <br>
@@ -169,7 +171,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
             <!-- End Grid -->
         </div>
-
         <!-- End Page Container -->
 </body>
 </html>

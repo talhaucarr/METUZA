@@ -11,16 +11,18 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 
 </style>
-<body class="w3-light-grey" style="">
+<body class="" style="background-color:rgb(54, 57, 61); color:rgb(211,211,211);">
 
 <!-- Top container -->
 <div class="w3-bar w3-top w3-large" style="background-color:rgb(35, 39, 42); color:rgb(211,211,211); z-index:4 ">
+
     {% if request.user.is_authenticated %}
+    <a href="/" class="btn w3-display-middle w3-hoverable w3-xxlarge w3-text-white">METUZA</a>
     <a href="/user/logout" class="w3-button w3-right w3-hover-red w3-xlarge"><i class="fa fa-times"></i></a>
 
     {% else %}
-
-    <a href="/user/register" class="w3-button w3-right w3-hover-green w3-xlarge"><i class="fa fa-user-plus"></i></a>
+    <a href="/#us" class="btn w3-display-middle w3-hoverable w3-xxlarge w3-hover-text-cyan w3-text-white">METUZA</a>
+    <a href="/user/register" class="w3-button w3-right w3-hover-lime w3-xlarge"><i class="fa fa-user-plus"></i></a>
     <a href="/user/login" class="w3-button w3-right w3-hover-green w3-xlarge"><i class="fa fa-user"></i></a>
     {% endif %}
 </div>
@@ -36,8 +38,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         </div>
         <div class="w3-col s8 w3-bar">
             <span>Hoşgeldin, <strong>{{request.user}}</strong></span><br>
-            <a href="/messages" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
-            <a href="/user/profile/{{request.user.id}}" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+            <a href="/messages" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-envelope"></i></a>
+            <a href="/user/profile/{{request.user.id}}" class="w3-bar-item w3-button  w3-hover-white"><i class="fa fa-user"></i></a>
             <a href="/user/logout" class="w3-bar-item w3-button w3-hover-red"><i class="fa fa-times"></i></a>
         </div>
     </div>
@@ -47,16 +49,16 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
     <div class="w3-bar-block">
 
-        <a href="/" class="w3-bar-item w3-button w3-padding"><i class="fa fa-home fa-fw"></i> 
+        <a href="/" class="w3-bar-item w3-button w3-padding w3-hover-white"><i class="fa fa-home fa-fw"></i> 
             Ana Sayfa</a>
-        <a href="/classes/homeworks" class="w3-bar-item w3-button w3-padding"><i class="fa fa-briefcase fa-fw"></i> 
+        <a href="/classes/homeworks" class="w3-bar-item w3-button w3-padding w3-hover-pale-blue"><i class="fa fa-briefcase fa-fw"></i> 
             Ödevler</a>
-        <a href="/classes" class="w3-bar-item w3-button w3-padding"><i class="fa fa-university fa-fw"></i>  Sınıflar</a>
-        <a href="/owncloud/fileList/" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cloud fa-fw"></i>  Sırt
+        <a href="/classes" class="w3-bar-item w3-button w3-padding w3-hover-pale-green"><i class="fa fa-university fa-fw"></i>  Sınıflar</a>
+        <a href="/owncloud/fileList/" class="w3-bar-item w3-button w3-padding w3-hover-white"><i class="fa fa-cloud fa-fw"></i>  Sırt
             Çantası</a>
-        <a href="/messages" class="w3-bar-item w3-button w3-padding"><i class="fa fa-suitcase fa-fw"></i>  Mesajlar</a>
-        <a href="/bookshome" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Kaynaklar</a>
-        <a href="/articles" class="w3-bar-item w3-button w3-padding"><i class="fa fa-font fa-fw"></i>  Blog</a>
+        <a href="/messages" class="w3-bar-item w3-button w3-padding w3-hover-white"><i class="fa fa-suitcase fa-fw"></i>  Mesajlar</a>
+        <a href="/bookshome" class="w3-bar-item w3-button w3-padding w3-hover-white"><i class="fa fa-eye fa-fw"></i>  Kaynaklar</a>
+        <a href="/articles" class="w3-bar-item w3-button w3-padding w3-hover-pale-red"><i class="fa fa-font fa-fw"></i>  Blog</a>
         <!--<a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  General</a>
         <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
         <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br>-->

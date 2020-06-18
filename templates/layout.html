@@ -4,23 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <title>MET</title>
 </head>
 <body>
 
 
-
 {% include "includes/navbar.html" %}
+
+{% if request.user.is_authenticated %}
 
 <div style='margin-top:50px; margin-bottom : 100px;' class="w3-container">
     <div class="w3-main" style="margin-left:300px;margin-top:43px;">
         {% if messages %}
 
         {% for message in messages %}
+
         {% if message.tags == "info" %}
+
         <div class="alert alert-danger"> {{ message }}</div>
+
         {% else%}
+
         <div class="alert alert-{{ message.tags }}"> {{ message }}</div>
+
         {% endif %}
 
         {% endfor %}
@@ -30,12 +38,155 @@
         {% block body %}
 
         {% endblock body %}
+
         <br><br><br><br>
+
         {% include "includes/footer.html" %}
+
     </div>
 
 </div>
 
+
+
+{% else %}
+
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2{font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+p {line-height: 2}
+.bgimg, .bgimg2 {
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+.bgimg {background-image: url({% static '712437.jpg' %});}
+.bgimg2 {background-image: url("/w3images/flowers.jpg")}
+</style>
+<body>
+
+<!-- Header / Home-->
+<header class="w3-display-container w3-wide bgimg w3-grayscale-min" id="home">
+  <div class="w3-display-middle w3-text-white w3-center">
+    <h1 class="w3-jumbo">METUZA</h1>
+  </div>
+</header>
+
+<!-- Navbar (sticky bottom) -->
+<div class="w3-bottom w3-hide-small">
+  <div class="w3-bar w3-white w3-center w3-padding w3-opacity-min w3-hover-opacity-off">
+    <a href="#home" style="width:33%" class="w3-bar-item w3-button">Metuza</a>
+    <a href="#us" style="width:33%" class="w3-bar-item w3-button">Hakkında</a>
+    <a href="#books" style="width:33%" class="w3-bar-item w3-button">E-kitap</a>
+  </div>
+</div>
+
+<!-- About / Jane And John -->
+<div class="w3-container w3-padding-64 w3-light-grey w3-grayscale-min" id="us">
+  <div class="w3-content">
+    <h1 class="w3-center w3-text-grey"><b>Metuza</b></h1>
+    <p><i>Django ile öğrenci - öğretmen platformu geliştirmekteyiz</i>
+        <p><i>Django ile öğrenci - öğretmen platformu geliştirmekteyiz</i>
+      <p><i>Django ile öğrenci - öğretmen platformu geliştirmekteyiz</i>
+      <p><i>Django ile öğrenci - öğretmen platformu geliştirmekteyiz</i>
+      <p><i>Django ile öğrenci - öğretmen platformu geliştirmekteyiz</i>
+      <p><i>Django ile öğrenci - öğretmen platformu geliştirmekteyiz</i>
+      <p><i>Django ile öğrenci - öğretmen platformu geliştirmekteyiz</i>
+      <p><i>Django ile öğrenci - öğretmen platformu geliştirmekteyiz</i>
+      <p><i>Django ile öğrenci - öğretmen platformu geliştirmekteyiz</i>
+      <p><i>Django ile öğrenci - öğretmen platformu geliştirmekteyiz</i>
+
+    </p><br>
+  </div>
+</div>
+
+<!-- Background photo -->
+<div class="w3-container w3-padding-64" id="books">
+  <div class=" w3-center">
+      <div class="w3-content">
+    <h1 class="w3-center w3-text-white"><b>E-Kitaplar</b></h1>
+
+    </p><br>
+  </div>
+    <div class="w3-row-padding w3-margin-bottom">
+
+        <div class="w3-quarter">
+            <a href="{% url 'book_list' %}" class="w3-hover-text-red">
+                <div class="w3-panel w3-leftbar w3-rightbar  w3-border-red w3-round-large w3-padding-16" style="background-color:rgb(44, 47, 51);">
+                    <div class="w3-left"><i class="fa fa-code w3-xxxlarge"></i></div>
+
+                    <div class="w3-clear"></div>
+                    <h4>Bilgisayar Bilimi</h4>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="w3-quarter">
+            <a href="{% url 'stroy_list' %}" class="w3-hover-text-blue">
+                <div class="w3-panel w3-leftbar w3-rightbar  w3-border-blue w3-round-large w3-padding-16" style="background-color:rgb(44, 47, 51);">
+                    <div class="w3-left"><i class="fa fa-book w3-xxxlarge"></i></div>
+                    <div class="w3-right">
+
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Hikaye/Roman</h4>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="w3-quarter">
+            <a href="{% url 'personal_list' %}" class="w3-hover-text-teal">
+                <div class="w3-panel w3-leftbar w3-rightbar  w3-border-teal w3-round-large w3-padding-16" style="background-color:rgb(44, 47, 51);">
+                    <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+                    <div class="w3-right">
+
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Kişisel Gelişim</h4>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="w3-quarter">
+            <a href="{% url 'math_list' %}" class="w3-hover-text-orange">
+                <div class="w3-panel w3-leftbar w3-rightbar  w3-border-orange w3-round-large w3-padding-16" style="background-color:rgb(44, 47, 51);">
+                    <div class="w3-left"><i class="fa fa-calculator w3-xxxlarge"></i></div>
+                    <div class="w3-right">
+
+                    </div>
+                    <div class="w3-clear"></div>
+                    <h4>Fen/Matematik</h4>
+                </div>
+            </a>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-padding-16" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+                <i class="fa fa-instagram w3-hover-opacity"></i>
+                <i class="fa fa-snapchat w3-hover-opacity"></i>
+                <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+                <i class="fa fa-twitter w3-hover-opacity"></i>
+                <i class="fa fa-linkedin w3-hover-opacity"></i>
+                <a href="https://github.com/talhaucarr"> Powered by xKral_tr</a>
+</footer>
+<div class="w3-hide-small" style="margin-bottom:32px"> </div>
+
+</html>
+
+{% endif %}
 
 <script src="{% static 'js/bootstrap.min.js'%}"></script>
 <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>

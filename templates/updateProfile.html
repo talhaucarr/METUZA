@@ -22,7 +22,7 @@ display:none;
 <div class="w3-row-padding">
     <div class="w3-third">
         <div class="w3-card-4">
-            <div class="w3-container w3-theme-l1">
+            <div class="w3-container" style="background-color:rgb(44, 47, 51);">
                 <h2>Profil Güncelle</h2>
             </div>
                 <br>
@@ -143,7 +143,7 @@ display:none;
 
 
 
-            <div class="w3-container w3-theme-l1">
+            <div class="w3-container" style="background-color:rgb(44, 47, 51);">
                 <h2>İş Tecrübesi</h2>
             </div>
             <br>
@@ -153,9 +153,9 @@ display:none;
 
             {% for workExperiences in workExperience %}
                 <div class="w3-small">
-                    <h4 class="w3-opacity"><b>{{ workExperiences.company }} </b></h4>
-                    <h5 class="w3-opacity"><b>{{ workExperiences.position }} </b></h5>
-                    <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{workExperiences.started_date}}
+                    <h4 class="w3-opacity w3-text-white"><b>{{ workExperiences.company }} </b></h4>
+                    <h5 class="w3-opacity w3-text-white"><b>{{ workExperiences.position }} </b></h5>
+                    <h6 class="w3-text-white"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{workExperiences.started_date}}
                         - {{workExperiences.end_date}}</h6>
                     <br>
                 </div>

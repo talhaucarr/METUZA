@@ -22,14 +22,17 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
 
 <!-- Page Container -->
+<header>
 
+</header>
 <!-- The Grid -->
 <div class="w3-row-padding">
     <div class=" w3-center">
 
 
-    <p><a class="w3-button w3-xxlarge w3-black">{{temp.class_name}}</a></p>
+    <p><a class="w3-button w3-xxlarge">{{temp.class_name}}</a></p>
         <br>
+
   </div>
 
     <!-- Left Column -->
@@ -44,18 +47,18 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
             </div>
 
 
-            <div class="w3-container">
+            <div class="w3-container" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
                 <br>
-                <h2><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-black"></i> Sınıflarım
+                <h2><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-white"></i> Sınıflarım
                 </h2>
 
                 <hr>
                 {% if classes %}
                 {% for deneme in classes %}
 
-
+                <div class="w3-panel w3-leftbar w3-rightbar  w3-border-blue w3-round-large">
                 <a href="{{deneme.id}}"><span class="w3-large">{{deneme.class_name}}</span><br></a>
-
+                    </div>
                 <hr>
 
                 {% endfor %}
@@ -77,66 +80,57 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     <div class="w3-twothird">
         {% for i in homework %}
 
-        {% if i.end_date > current_date %}
-        {% if i.end_clock > current_time %}
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-            <a href="/classes/homeworks/{{i.id}}/submit"><h2 class="w3-text-grey w3-padding-16"><i
-                    class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{ i.title }} </h2>
+        {% if i.end_date > current_date or i.end_date == current_date and i.end_clock > current_time %}
+
+        <div class="w3-container w3-card w3-margin-bottom w3-round-large"
+             style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
+            <a href="/classes/homeworks/{{i.id}}/submit"><h2 class="w3-text-white w3-padding-16"><i
+                    class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-white"></i>{{ i.title }} </h2>
             </a>
             <div class="w3-container">
-                <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sınıf Adı:
-                    {{i.class_name}} , Bitiş Tarihi : {{ i.end_date }} , {{i.end_clock}} <span></span>
+                <h6 class="w3-text-white"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sınıf Adı:
+                    {{i.classroom_id}} , Bitiş Tarihi : {{ i.end_date }} , {{i.end_clock}} <span></span>
                 </h6>
                 <hr>
 
                 <p>{{i.content}}</p>
-                <hr>
+                <br>
 
                 <a href="/classes/homeworks/{{i.id}}/submit">
-                    <button class="w3-btn w3-black w3-hover-teal">
+                    <button class="w3-btn w3-hover-teal" style="background-color:rgb(119, 136, 153);">
                         Teslim Et
                     </button>
                 </a>
                 {% else %}
-                <div class="w3-container w3-card w3-white w3-margin-bottom">
+                <div class="w3-container w3-card w3-margin-bottom w3-round-large" style="background-color:rgb(44, 47, 51); color:rgb(211,211,211);">
                     <h2 class="w3-text-grey w3-padding-16"><i
                             class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{ i.title }}
                     </h2>
 
                     <div class="w3-container">
                         <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sınıf Adı:
-                            {{i.class_name}} , Bitiş Tarihi :
-                            {{ i.end_date }} , {{i.end_clock}} <span
+                            {{i.class_name}} , Bitiş
+                            Tarihi : {{ i.end_date }} , {{i.end_clock}} <span
                                     class="w3-tag w3-round w3-red">Süresi Geçti</span>
                         </h6>
                         <hr>
 
-                        <p>{{i.content}}</p>
-                        <hr>
-                        <a class="w3-button w3-black w3-disabled">Teslim Et</a>
+                        <p class="w3-text-black">{{i.content}}</p>
+                        <br>
+                        <a class="w3-button w3-disabled" style="background-color:rgb(119, 136, 153);">Teslim Et</a>
                         {% endif %}
-                        {% else %}
-                        <div class="w3-container w3-card w3-white w3-margin-bottom">
-                            <h2 class="w3-text-grey w3-padding-16"><i
-                                    class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{ i.title }} </h2>
-
-                            <div class="w3-container">
-                                <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sınıf Adı:
-                                    {{i.class_name}} , Bitiş
-                                    Tarihi : {{ i.end_date }} , {{i.end_clock}} <span
-                                            class="w3-tag w3-round w3-red">Süresi Geçti</span>
-                                </h6>
-                                <hr>
-                                <p>{{i.content}}</p>
-                                <hr>
-                                <a class="w3-button w3-black w3-disabled">Teslim Et</a>
-                                {% endif %}
-                            </div>
-                            <br>
-                        </div>
-                        {% endfor %}
                     </div>
+                    <br>
+
                 </div>
+
+                {% endfor %}
+
+            </div>
+
+            <!-- End Grid -->
+        </div>
+    </div>
 </body>
 </html>
 

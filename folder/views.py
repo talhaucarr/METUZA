@@ -25,7 +25,7 @@ def upload(request):
 
     return render(request, "pdf.html", context)
 
-
+@login_required(login_url="user:login")
 def book_list(request):
     books = Book.objects.all()
     return render(request, 'book_list.html', {
@@ -68,11 +68,11 @@ class UploadBookView(CreateView):
     success_url = reverse_lazy('class_book_list')
     template_name = 'upload_book.html'
 
-
+@login_required(login_url="user:login")
 def homePage(request):
     return render(request, 'booksHome.html')
 
-
+@login_required(login_url="user:login")
 def story_list(request):
     books = BookStory.objects.all()
     return render(request, 'stroy_list.html', {
@@ -101,7 +101,7 @@ def delete_story(request, pk):
 
     return redirect('stroy_list')
 
-
+@login_required(login_url="user:login")
 def personal_list(request):
     books = BookPersonal.objects.all()
     return render(request, 'personal_list.html', {
@@ -130,7 +130,7 @@ def delete_personal(request, pk):
 
     return redirect('personal_list')
 
-
+@login_required(login_url="user:login")
 def math_list(request):
     books = BookMath.objects.all()
     return render(request, 'math_list.html', {
