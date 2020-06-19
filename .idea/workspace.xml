@@ -2,44 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d68dc86-1577-45dd-9100-13f021e7df6b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/268260_firewatch-wallpaper.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/712437.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/799035.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/dota-icon-53.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/metuza.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/article/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/article/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classRoom/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/classRoom/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/folder/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/folder/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/met/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/met/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metuza.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Message.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Message.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/addclasses.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/addclasses.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/articles.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/book_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/booksHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/booksHome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/classDashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/classDashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/classDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/classDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/classes.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/classes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/file_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/file_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/homeworkDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homeworkDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/inbox.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inbox.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/includes/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/login2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/math_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/math_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/msgHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/msgHome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/personal_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/personal_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profil.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sentbox.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sentbox.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/showHomeworks.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/showHomeworks.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/stroy_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stroy_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/studentClass.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/studentClass.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/submitHomework.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/submitHomework.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/updateProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/updateProfile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

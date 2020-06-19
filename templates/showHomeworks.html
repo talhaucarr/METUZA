@@ -130,13 +130,11 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
             </a>
             <div class="w3-container">
                 <h6 class="w3-text-white"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sınıf Adı:
-                    {{i.classroom_id}} , Bitiş Tarihi : {{ i.end_date }} , {{i.end_clock}} <span></span>
+                    {{i.class_name}} , Bitiş Tarihi : {{ i.end_date }} , {{i.end_clock}} <span></span>
                 </h6>
                 <hr>
-
                 <p>{{i.content}}</p>
                 <br>
-
                 <a href="/classes/homeworks/{{i.id}}/submit">
                     <button class="w3-btn w3-hover-teal" style="background-color:rgb(119, 136, 153);">
                         Teslim Et
@@ -147,7 +145,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                     <h2 class="w3-text-grey w3-padding-16"><i
                             class="fa fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-black"></i>{{ i.title }}
                     </h2>
-
                     <div class="w3-container">
                         <h6 class="w3-text-black"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sınıf Adı:
                             {{i.class_name}} , Bitiş
@@ -155,24 +152,16 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
                                     class="w3-tag w3-round w3-red">Süresi Geçti</span>
                         </h6>
                         <hr>
-
                         <p class="w3-text-black">{{i.content}}</p>
                         <br>
                         <a class="w3-button w3-disabled" style="background-color:rgb(119, 136, 153);">Teslim Et</a>
                         {% endif %}
                     </div>
                     <br>
-
                 </div>
-
                 {% endfor %}
-
             </div>
-
-            <!-- End Grid -->
         </div>
-        <!-- End Page Container -->
 </body>
 </html>
-
 {% endblock body %}
